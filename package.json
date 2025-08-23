@@ -1,14 +1,14 @@
-{
-  "name": "mi_curso_online_2025",
-  "version": "1.0.0",
-  "description": "Servidor para mi_curso_online_2025",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.19.2"
-  },
-  "author": "",
-  "license": "ISC"
-}
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(express.static(path.join(__dirname, 'src', 'public')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src', 'public', 'index.html'));
+});
+
+app.listen(port, () => {
+    console.log(`Servidor corriendo en el puerto ${port}`);
+});
