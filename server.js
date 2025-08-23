@@ -1,16 +1,17 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 10000;
+const port = process.env.PORT || 3000;
 
-// Servir archivos estáticos desde la carpeta public
-app.use(express.static(path.join(__dirname, 'public')));
+// Esta línea de código es la clave para solucionar el error
+app.use(express.static(path.join(__dirname, 'src', 'public')));
 
-// Ruta principal
+// Ruta principal para servir index.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'src', 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en puerto ${PORT}`);
-})
+// Iniciar el servidor
+app.listen(port, () => {
+    console.log(`Servidor corriendo en puerto ${port}`);
+});
