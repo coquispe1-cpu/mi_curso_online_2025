@@ -1,15 +1,14 @@
 {
   "name": "mi_curso_online_2025",
   "version": "1.0.0",
-  "description": "Proyecto Mi Curso Online 2025 listo para Render",
+  "description": "Servidor para mi_curso_online_2025",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.19.2"
   },
-  "engines": {
-    "node": ">=16.0.0"
-  }
+  "author": "",
+  "license": "ISC"
 }
