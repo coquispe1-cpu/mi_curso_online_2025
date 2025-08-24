@@ -1,41 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Curso en Línea</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        Mi Curso en Línea
-    </header>
+<h2>Registro de Usuario</h2>
+<form id="formRegistro">
+    <input type="text" id="nombre" placeholder="Nombre completo" required>
+    <input type="email" id="correo" placeholder="Correo electrónico" required>
+    <button type="submit">Registrarse</button>
+</form>
 
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Registro</a>
-        <a href="#">Asistencia</a>
-        <a href="#">Pagos</a>
-    </nav>
+<script>
+document.getElementById('formRegistro').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value;
+    const correo = document.getElementById('correo').value;
 
-    <section>
-        <h1>Bienvenido a Mi Curso en Línea</h1>
-        <p>Regístrate, marca tu asistencia y realiza tus pagos fácilmente.</p>
-
-        <h2>Registro de Usuario</h2>
-        <button onclick="alert('Función de registro próximamente')">Registrarse</button>
-
-        <h2>Control de Asistencia</h2>
-        <button onclick="alert('Función de asistencia próximamente')">Marcar asistencia</button>
-
-        <h2>Pagos</h2>
-        <button onclick="alert('Pago con Visa próximamente')">Pagar con Visa</button>
-        <button onclick="alert('Pago con Yape próximamente')">Pagar con Yape</button>
-        <button onclick="alert('Pago con Plin próximamente')">Pagar con Plin</button>
-    </section>
-
-    <footer>
-        © 2025 Mi Curso en Línea. Todos los derechos reservados.
-    </footer>
-</body>
-</html>
+    const res = await fetch('/api/registro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nombre, correo })
+    });
+    const data = await res.json();
+    alert(data.message || data.error);
+    this.reset();
+});
+</script>
