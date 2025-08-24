@@ -1,48 +1,107 @@
-<h2>Control de Asistencia</h2>
-<form id="formAsistencia">
-    <input type="email" id="correoAsistencia" placeholder="Correo electrónico" required>
-    <button type="submit">Marcar asistencia</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Curso en Línea</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        Mi Curso en Línea
+    </header>
 
-<h2>Pagos</h2>
-<form id="formPagos">
-    <input type="email" id="correoPago" placeholder="Correo electrónico" required>
-    <select id="metodoPago">
-        <option value="Visa">Visa/MasterCard</option>
-        <option value="Yape">Yape</option>
-        <option value="Plin">Plin</option>
-        <option value="PayPal">PayPal</option>
-    </select>
-    <button type="submit">Pagar</button>
-</form>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Registro</a>
+        <a href="#">Asistencia</a>
+        <a href="#">Pagos</a>
+    </nav>
 
-<script>
-document.getElementById('formAsistencia').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const correo = document.getElementById('correoAsistencia').value;
+    <section>
+        <h1>Bienvenido a Mi Curso en Línea</h1>
+        <p>Regístrate, marca tu asistencia y realiza tus pagos fácilmente.</p>
 
-    const res = await fetch('/api/asistencia', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ correo })
+        <!-- Registro -->
+        <h2>Registro de Usuario</h2>
+        <form id="formRegistro">
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <input type="email" id="correo" placeholder="Correo electrónico" required>
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <!-- Asistencia -->
+        <h2>Control de Asistencia</h2>
+        <form id="formAsistencia">
+            <input type="email" id="correoAsistencia" placeholder="Correo electrónico" required>
+            <button type="submit">Marcar asistencia</button>
+        </form>
+
+        <!-- Pagos -->
+        <h2>Pagos</h2>
+        <form id="formPagos">
+            <input type="email" id="correoPago" placeholder="Correo electrónico" required>
+            <select id="metodoPago">
+                <option value="Visa">Visa/MasterCard</option>
+                <option value="Yape">Yape</option>
+                <option value="Plin">Plin</option>
+                <option value="PayPal">PayPal</option>
+            </select>
+            <button type="submit">Pagar</button>
+        </form>
+    </section>
+
+    <footer>
+        © Mi Curso en Línea. Todos los derechos reservados.
+    </footer>
+
+    <script>
+    // Registro
+    document.getElementById('formRegistro').addEventListener('submit', async function(e){
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const correo = document.getElementById('correo').value;
+
+        const res = await fetch('/api/registro', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({nombre, correo})
+        });
+        const data = await res.json();
+        alert(data.message || data.error);
+        this.reset();
     });
-    const data = await res.json();
-    alert(data.message || data.error);
-    this.reset();
-});
 
-document.getElementById('formPagos').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const correo = document.getElementById('correoPago').value;
-    const metodo = document.getElementById('metodoPago').value;
+    // Asistencia
+    document.getElementById('formAsistencia').addEventListener('submit', async function(e){
+        e.preventDefault();
+        const correo = document.getElementById('correoAsistencia').value;
 
-    const res = await fetch('/api/pagos', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ correo, metodo })
+        const res = await fetch('/api/asistencia',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({correo})
+        });
+        const data = await res.json();
+        alert(data.message || data.error);
+        this.reset();
     });
-    const data = await res.json();
-    alert(data.message || data.error);
-    this.reset();
-});
-</script>
+
+    // Pagos
+    document.getElementById('formPagos').addEventListener('submit', async function(e){
+        e.preventDefault();
+        const correo = document.getElementById('correoPago').value;
+        const metodo = document.getElementById('metodoPago').value;
+
+        const res = await fetch('/api/pagos',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({correo, metodo})
+        });
+        const data = await res.json();
+        alert(data.message || data.error);
+        this.reset();
+    });
+    </script>
+</body>
+</html>
