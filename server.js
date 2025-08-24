@@ -47,3 +47,5 @@ app.post('/api/asistencia', (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+require('./adminBot');
+
