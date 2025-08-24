@@ -1,32 +1,49 @@
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Servir archivos estáticos desde la carpeta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
 
-// Ruta principal
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// Archivo donde guardaremos los usuarios
+const USERS_FILE = path.join(__dirname, 'users.json');
+
+// Crear el archivo si no existe
+if (!fs.existsSync(USERS_FILE)) {
+    fs.writeFileSync(USERS_FILE, JSON.stringify([]));
+}
+
+// API para registrar usuario
+app.post('/api/registro', (req, res) => {
+    const { nombre, correo } = req.body;
+    if (!nombre || !correo) {
+        return res.status(400).json({ error: 'Nombre y correo son obligatorios' });
+    }
+
+    const usuarios = JSON.parse(fs.readFileSync(USERS_FILE));
+    usuarios.push({ nombre, correo, fecha: new Date() });
+    fs.writeFileSync(USERS_FILE, JSON.stringify(usuarios, null, 2));
+
+    res.json({ message: 'Usuario registrado correctamente' });
 });
 
-// Ruta para verificar estado del servidor
-app.get('/health', (req, res) => {
-    res.json({ status: 'ok', message: 'Servidor funcionando correctamente' });
+// API para marcar asistencia
+app.post('/api/asistencia', (req, res) => {
+    const { correo } = req.body;
+    if (!correo) return res.status(400).json({ error: 'Correo es obligatorio' });
+
+    const asistenciaFile = path.join(__dirname, 'asistencia.json');
+    let asistencia = [];
+    if (fs.existsSync(asistenciaFile)) {
+        asistencia = JSON.parse(fs.readFileSync(asistenciaFile));
+    }
+
+    asistencia.push({ correo, fecha: new Date() });
+    fs.writeFileSync(asistenciaFile, JSON.stringify(asistencia, null, 2));
+
+    res.json({ message: 'Asistencia registrada correctamente' });
 });
 
-// Rutas para términos y privacidad
-app.get('/terminos', (req, res) => {
-    res.send('<h1>Términos y Condiciones</h1><p>Estos son los términos y condiciones de Mi Curso en Línea.</p>');
-});
-
-app.get('/privacidad', (req, res) => {
-    res.send('<h1>Política de Privacidad</h1><p>Esta es la política de privacidad de Mi Curso en Línea.</p>');
-});
-
-// Iniciar servidor
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
