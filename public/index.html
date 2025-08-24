@@ -10,123 +10,80 @@
     <header>
         Mi Curso en Línea
     </header>
-
     <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Cursos</a>
-        <a href="#">Registro</a>
+        <a href="index.html">Inicio</a>
+        <a href="acerca-de.html">Nosotros</a>
+        <a href="certificados.html">Certificados</a>
+        <a href="empresas.html">Empresas</a>
     </nav>
-
-    <section class="hero-section">
-        <h1>¡Domina el futuro!</h1>
-        <p>Aprende las habilidades más demandadas en innovación y automatización con nuestros cursos únicos.</p>
-        <button class="cta-button">Ver todos los cursos</button>
-    </section>
-
     <main class="container">
-        <h2>Cursos Disponibles</h2>
-        <div id="cursos-lista" class="cursos-grid">
-            <p>Cargando cursos...</p>
-        </div>
+        <section class="hero">
+            <h1>¡Domina el futuro!</h1>
+            <p>Aprende las habilidades más demandadas en innovación y automatización con nuestros cursos únicos.</p>
+            <a href="#" class="cta-button">Ver todos los cursos</a>
+        </section>
 
-        <div class="forms-container">
-            <div class="form-card">
-                <h2>Registro de Usuario</h2>
-                <form id="formRegistro">
-                    <input type="text" id="nombre" placeholder="Nombre completo" required>
-                    <input type="email" id="correo" placeholder="Correo electrónico" required>
-                    <button type="submit">Registrarse</button>
-                </form>
+        <section class="beneficios-section">
+            <h2>Nuestros Beneficios</h2>
+            <div class="beneficios-grid">
+                <div class="beneficio-item">
+                    <span class="icono">🚀</span>
+                    <h3>Impulsa tu carrera</h3>
+                    <p>Obtén habilidades prácticas que te preparan para el futuro laboral.</p>
+                </div>
+                <div class="beneficio-item">
+                    <span class="icono">💡</span>
+                    <h3>Aprende a tu ritmo</h3>
+                    <p>Accede a nuestros cursos 24/7 desde cualquier dispositivo.</p>
+                </div>
+                <div class="beneficio-item">
+                    <span class="icono">🎯</span>
+                    <h3>Proyectos reales</h3>
+                    <p>Desarrolla tu portafolio con proyectos basados en la industria.</p>
+                </div>
             </div>
-            
-            <div class="form-card">
-                <h2>Control de Asistencia</h2>
-                <form id="formAsistencia">
-                    <input type="email" id="correoAsistencia" placeholder="Correo electrónico" required>
-                    <button type="submit">Marcar asistencia</button>
-                </form>
-            </div>
+        </section>
 
-            <div class="form-card">
-                <h2>Pagos</h2>
-                <form id="formPagos">
-                    <input type="email" id="correoPago" placeholder="Correo electrónico" required>
-                    <select id="metodoPago">
-                        <option value="Visa">Visa/MasterCard</option>
-                        <option value="Yape">Yape</option>
-                        <option value="Plin">Plin</option>
-                        <option value="PayPal">PayPal</option>
-                    </select>
-                    <button type="submit">Pagar</button>
-                </form>
+        <section class="cursos-disponibles">
+            <h2>Cursos Disponibles</h2>
+            <div class="cursos-grid">
+                <div class="curso-card">
+                    <h3>Curso de Automatización e Innovación Empresarial</h3>
+                    <p class="instructor">Instructor: Jarvis</p>
+                    <a href="#" class="ver-curso-button">Ver curso</a>
+                </div>
+                <div class="curso-card">
+                    <h3>Curso Introductorio a la Inteligencia Artificial</h3>
+                    <p class="instructor">Instructor: Ada</p>
+                    <a href="#" class="ver-curso-button">Ver curso</a>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section class="acciones-rapidas">
+            <div class="registro-box">
+                <h3>Registro de Usuario</h3>
+                <a href="#" class="accion-button">Registrarse</a>
+            </div>
+            <div class="asistencia-box">
+                <h3>Control de Asistencia</h3>
+                <a href="#" class="accion-button">Marcar asistencia</a>
+            </div>
+            <div class="pagos-box">
+                <h3>Pagos</h3>
+                <ul class="metodos-pago">
+                    <li>Visa/MasterCard</li>
+                    <li>Yape</li>
+                    <li>Plin</li>
+                    <li>PayPal</li>
+                </ul>
+                <a href="#" class="accion-button">Pagar</a>
+            </div>
+        </section>
     </main>
 
     <footer>
         © Mi Curso en Línea. Todos los derechos reservados.
     </footer>
-
-    <script>
-        async function cargarCursos() {
-            const res = await fetch('/api/cursos');
-            const cursos = await res.json();
-            const listaDiv = document.getElementById('cursos-lista');
-            listaDiv.innerHTML = '';
-
-            cursos.forEach(curso => {
-                const cursoElemento = document.createElement('div');
-                cursoElemento.classList.add('curso-card');
-                cursoElemento.innerHTML = `
-                    <h3>${curso.titulo}</h3>
-                    <p>Instructor: ${curso.instructor}</p>
-                    <a href="aula.html?id=${curso.id}" class="btn-ver-curso">Ver curso</a>
-                `;
-                listaDiv.appendChild(cursoElemento);
-            });
-        }
-        cargarCursos();
-
-        document.getElementById('formRegistro').addEventListener('submit', async function(e){
-            e.preventDefault();
-            const nombre = document.getElementById('nombre').value;
-            const correo = document.getElementById('correo').value;
-            const res = await fetch('/api/registro', {
-                method:'POST',
-                headers:{'Content-Type':'application/json'},
-                body: JSON.stringify({nombre, correo})
-            });
-            const data = await res.json();
-            alert(data.message || data.error);
-            this.reset();
-        });
-
-        document.getElementById('formAsistencia').addEventListener('submit', async function(e){
-            e.preventDefault();
-            const correo = document.getElementById('correoAsistencia').value;
-            const res = await fetch('/api/asistencia',{
-                method:'POST',
-                headers:{'Content-Type':'application/json'},
-                body: JSON.stringify({correo})
-            });
-            const data = await res.json();
-            alert(data.message || data.error);
-            this.reset();
-        });
-
-        document.getElementById('formPagos').addEventListener('submit', async function(e){
-            e.preventDefault();
-            const correo = document.getElementById('correoPago').value;
-            const metodo = document.getElementById('metodoPago').value;
-            const res = await fetch('/api/pagos',{
-                method:'POST',
-                headers:{'Content-Type':'application/json'},
-                body: JSON.stringify({correo, metodo})
-            });
-            const data = await res.json();
-            alert(data.message || data.error);
-            this.reset();
-        });
-    </script>
 </body>
 </html>
