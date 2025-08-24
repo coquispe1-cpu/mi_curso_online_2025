@@ -1,20 +1,45 @@
-<h2>Registro de Usuario</h2>
-<form id="formRegistro">
-    <input type="text" id="nombre" placeholder="Nombre completo" required>
-    <input type="email" id="correo" placeholder="Correo electrónico" required>
-    <button type="submit">Registrarse</button>
+<h2>Control de Asistencia</h2>
+<form id="formAsistencia">
+    <input type="email" id="correoAsistencia" placeholder="Correo electrónico" required>
+    <button type="submit">Marcar asistencia</button>
+</form>
+
+<h2>Pagos</h2>
+<form id="formPagos">
+    <input type="email" id="correoPago" placeholder="Correo electrónico" required>
+    <select id="metodoPago">
+        <option value="Visa">Visa/MasterCard</option>
+        <option value="Yape">Yape</option>
+        <option value="Plin">Plin</option>
+        <option value="PayPal">PayPal</option>
+    </select>
+    <button type="submit">Pagar</button>
 </form>
 
 <script>
-document.getElementById('formRegistro').addEventListener('submit', async function(e) {
+document.getElementById('formAsistencia').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const nombre = document.getElementById('nombre').value;
-    const correo = document.getElementById('correo').value;
+    const correo = document.getElementById('correoAsistencia').value;
 
-    const res = await fetch('/api/registro', {
+    const res = await fetch('/api/asistencia', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre, correo })
+        body: JSON.stringify({ correo })
+    });
+    const data = await res.json();
+    alert(data.message || data.error);
+    this.reset();
+});
+
+document.getElementById('formPagos').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const correo = document.getElementById('correoPago').value;
+    const metodo = document.getElementById('metodoPago').value;
+
+    const res = await fetch('/api/pagos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ correo, metodo })
     });
     const data = await res.json();
     alert(data.message || data.error);
