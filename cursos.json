@@ -1,38 +1,66 @@
-[
-  {
-    "id": "intro-automatizacion",
-    "titulo": "Curso de Automatización e Innovación Empresarial",
-    "instructor": "Jarvis",
-    "descripcion": "Aprende a optimizar flujos de trabajo y tareas repetitivas usando asistentes de automatización.",
-    "lecciones": [
-      {
-        "id": "leccion-1-1",
-        "titulo": "Lección 1.1: ¿Qué es la automatización?",
-        "contenido": "La automatización es el uso de la tecnología para realizar tareas repetitivas con mínima o nula intervención humana. Esto se logra con scripts, bots o IA que siguen reglas predefinidas para completar tareas de manera eficiente. Su objetivo es liberar tiempo humano para actividades más estratégicas y creativas."
-      },
-      {
-        "id": "leccion-1-2",
-        "titulo": "Lección 1.2: Tu primer asistente virtual",
-        "contenido": "Conoce los conceptos básicos para interactuar con tu asistente virtual Jarvis y darle tus primeras instrucciones. Aprenderás a definir las tareas que el asistente debe realizar y a configurar las reglas que guiarán su comportamiento."
-      }
-    ]
-  },
-  {
-    "id": "ia-basica",
-    "titulo": "Curso Introductorio a la Inteligencia Artificial",
-    "instructor": "Ada",
-    "descripcion": "Un curso para principiantes que introduce los conceptos básicos de la inteligencia artificial y el aprendizaje automático.",
-    "lecciones": [
-      {
-        "id": "leccion-2-1",
-        "titulo": "Lección 2.1: Conceptos clave de la IA",
-        "contenido": "Explora las diferencias entre inteligencia artificial, machine learning y deep learning. Aprende sobre los algoritmos más comunes y cómo se aplican en la vida real."
-      },
-      {
-        "id": "leccion-2-2",
-        "titulo": "Lección 2.2: Construyendo un modelo simple",
-        "contenido": "En esta lección, te guiaremos para construir un modelo de IA simple. Aprenderás sobre la recolección de datos, el entrenamiento del modelo y cómo probar su rendimiento para asegurar que funciona correctamente."
-      }
-    ]
-  }
-]
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Disponibles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        Mi Curso en Línea
+    </header>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="https://via.placeholder.com/150x50.png?text=JAVO+Logo" alt="Logo de JAVO">
+        </a>
+        <div class="nav-links">
+            <a href="cursos.html">Cursos</a>
+            <a href="contactanos.html">Contáctanos</a>
+            <a href="acerca-de.html">Nosotros</a>
+            <a href="certificados.html">Certificados</a>
+            <a href="que-aprender.html">¿Qué quieres aprender?</a>
+            <a href="acceder.html">Acceder</a>
+            <a href="crear-cuenta.html">Crear una Cuenta</a>
+        </div>
+        <a href="https://wa.me/tunumerodetelefono" class="whatsapp-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+            <span class="btn-text">WhatsApp</span>
+        </a>
+    </nav>
+    <main class="container">
+        <section class="cursos-page-header">
+            <h1>Nuestros Cursos</h1>
+            <p>Explora nuestra amplia gama de cursos y encuentra el que te ayudará a alcanzar tus metas profesionales.</p>
+            <div class="guia-seccion">
+                <h3>Guía de la Sección de Cursos:</h3>
+                <p>Aquí encontrarás una lista completa de todos los cursos disponibles. Puedes hacer clic en **"Ir al Curso"** para acceder a tu contenido y registrar tu asistencia.</p>
+            </div>
+        </section>
+
+        <section class="course-list-section">
+            <div class="course-card-list">
+                <div class="course-details">
+                    <img src="https://via.placeholder.com/400x250.png?text=Curso+Inteligencia+Artificial" alt="Imagen del curso de IA">
+                    <h3>Curso Introductorio a la Inteligencia Artificial</h3>
+                    <p class="instructor">Instructor: Ada</p>
+                    <p class="description">Aprende los conceptos fundamentales de la IA y cómo se aplica en el mundo real.</p>
+                    <a href="crear-cuenta.html" class="btn-info">Registrarse</a>
+                    <a href="pagos.html" class="btn-matricula">Pagar</a>
+                </div>
+                <div class="course-details">
+                    <img src="https://via.placeholder.com/400x250.png?text=Curso+Automatizacion" alt="Imagen del curso de automatización">
+                    <h3>Curso de Automatización e Innovación Empresarial</h3>
+                    <p class="instructor">Instructor: Jarvis</p>
+                    <p class="description">Descubre cómo automatizar procesos y optimizar la eficiencia de tu negocio.</p>
+                    <a href="crear-cuenta.html" class="btn-info">Registrarse</a>
+                    <a href="pagos.html" class="btn-matricula">Pagar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        © Mi Curso en Línea. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
