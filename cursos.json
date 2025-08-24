@@ -1,0 +1,38 @@
+[
+  {
+    "id": "intro-automatizacion",
+    "titulo": "Curso de Automatización e Innovación Empresarial",
+    "instructor": "Jarvis",
+    "descripcion": "Aprende a optimizar flujos de trabajo y tareas repetitivas usando asistentes de automatización.",
+    "lecciones": [
+      {
+        "id": "leccion-1-1",
+        "titulo": "Lección 1.1: ¿Qué es la automatización?",
+        "contenido": "La automatización es el uso de la tecnología para realizar tareas repetitivas con mínima o nula intervención humana. Esto se logra con scripts, bots o IA que siguen reglas predefinidas para completar tareas de manera eficiente. Su objetivo es liberar tiempo humano para actividades más estratégicas y creativas."
+      },
+      {
+        "id": "leccion-1-2",
+        "titulo": "Lección 1.2: Tu primer asistente virtual",
+        "contenido": "Conoce los conceptos básicos para interactuar con tu asistente virtual Jarvis y darle tus primeras instrucciones. Aprenderás a definir las tareas que el asistente debe realizar y a configurar las reglas que guiarán su comportamiento."
+      }
+    ]
+  },
+  {
+    "id": "ia-basica",
+    "titulo": "Curso Introductorio a la Inteligencia Artificial",
+    "instructor": "Ada",
+    "descripcion": "Un curso para principiantes que introduce los conceptos básicos de la inteligencia artificial y el aprendizaje automático.",
+    "lecciones": [
+      {
+        "id": "leccion-2-1",
+        "titulo": "Lección 2.1: Conceptos clave de la IA",
+        "contenido": "Explora las diferencias entre inteligencia artificial, machine learning y deep learning. Aprende sobre los algoritmos más comunes y cómo se aplican en la vida real."
+      },
+      {
+        "id": "leccion-2-2",
+        "titulo": "Lección 2.2: Construyendo un modelo simple",
+        "contenido": "En esta lección, te guiaremos para construir un modelo de IA simple. Aprenderás sobre la recolección de datos, el entrenamiento del modelo y cómo probar su rendimiento para asegurar que funciona correctamente."
+      }
+    ]
+  }
+]
