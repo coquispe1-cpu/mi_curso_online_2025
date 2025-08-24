@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Servicios</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .service-container {
+            padding: 40px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .service-container h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .service-container p {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .service-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            color: #007bff;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            background-color: #e9ecef;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Mi Curso en Línea
+    </header>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="https://via.placeholder.com/150x50.png?text=JAVO+Logo" alt="Logo de JAVO">
+        </a>
+        <div class="nav-links">
+            <a href="cursos.html">Cursos</a>
+            <a href="contactanos.html">Contáctanos</a>
+            <a href="acerca-de.html">Nosotros</a>
+            <a href="certificados.html">Certificados</a>
+            <a href="que-aprender.html">¿Qué quieres aprender?</a>
+            <a href="servicios.html">Nuestros Servicios</a>
+            <a href="acceder.html">Acceder</a>
+            <a href="crear-cuenta.html">Crear una Cuenta</a>
+        </div>
+        <a href="https://wa.me/tunumerodetelefono" class="whatsapp-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+            <span class="btn-text">WhatsApp</span>
+        </a>
+    </nav>
+
+    <main class="container">
+        <section class="service-container">
+            <h1>Servicios para Empresas y Creadores</h1>
+            <p>Conectamos a creadores e innovadores con nuestra comunidad para ofrecer retroalimentación de calidad sobre sus productos y ideas.</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Prueba de Productos</h3>
+                    <p>Ofrecemos pruebas detalladas de tu producto con nuestra red de estudiantes y expertos. Recibirás:</p>
+                    <ul>
+                        <li><span class="check-icon">&#10003;</span> Informes de usabilidad</li>
+                        <li><span class="check-icon">&#10003;</span> Retroalimentación honesta</li>
+                        <li><span class="check-icon">&#10003;</span> Sugerencias de mejora</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Validación de Ideas</h3>
+                    <p>Evalúa la viabilidad de tu idea o concepto antes de invertir. Te ayudamos a validar tu propuesta con:</p>
+                    <ul>
+                        <li><span class="check-icon">&#10003;</span> Encuestas a nuestra audiencia</li>
+                        <li><span class="check-icon">&#10003;</span> Análisis de aceptación</li>
+                        <li><span class="check-icon">&#10003;</span> Estudios de mercado iniciales</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Generación de Leads</h3>
+                    <p>Conecta con potenciales clientes y usuarios que están activamente interesados en tus soluciones. Te ofrecemos:</p>
+                    <ul>
+                        <li><span class="check-icon">&#10003;</span> Campañas de promoción dirigidas</li>
+                        <li><span class="check-icon">&#10003;</span> Publicaciones en nuestro blog</li>
+                        <li><span class="check-icon">&#10003;</span> Visibilidad en nuestra plataforma</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © Mi Curso en Línea. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
