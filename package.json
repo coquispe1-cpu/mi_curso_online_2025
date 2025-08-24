@@ -1,14 +1,13 @@
 {
-  "name": "mi_curso_online_2025",
+  "name": "nombre-de-tu-app",
   "version": "1.0.0",
-  "description": "Servidor para mi_curso_online_2025",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "npm star",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "express": "^4.19.2"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC"
 }
