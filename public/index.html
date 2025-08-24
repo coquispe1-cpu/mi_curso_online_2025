@@ -1,10 +1,10 @@
-echo "<!DOCTYPE html>
-<html lang='es'>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Curso en Línea</title>
-    <link rel='stylesheet' href='style.css'>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -12,35 +12,30 @@ echo "<!DOCTYPE html>
     </header>
 
     <nav>
-        <a href='#registro'>Registro</a>
-        <a href='#asistencia'>Asistencia</a>
-        <a href='#pagos'>Pagos</a>
-        <a href='#contacto'>Contacto</a>
+        <a href="#">Inicio</a>
+        <a href="#">Registro</a>
+        <a href="#">Asistencia</a>
+        <a href="#">Pagos</a>
     </nav>
 
-    <div class='container' id='registro'>
+    <section>
+        <h1>Bienvenido a Mi Curso en Línea</h1>
+        <p>Regístrate, marca tu asistencia y realiza tus pagos fácilmente.</p>
+
         <h2>Registro de Usuario</h2>
-        <input type='text' placeholder='Nombre completo'>
-        <input type='email' placeholder='Correo electrónico'>
-        <button>Registrarse</button>
-    </div>
+        <button onclick="alert('Función de registro próximamente')">Registrarse</button>
 
-    <div class='container' id='asistencia'>
         <h2>Control de Asistencia</h2>
-        <button>Marcar asistencia</button>
-    </div>
+        <button onclick="alert('Función de asistencia próximamente')">Marcar asistencia</button>
 
-    <div class='container' id='pagos'>
         <h2>Pagos</h2>
-        <button>Pagar con Visa/MasterCard</button>
-        <button>Pagar con Yape</button>
-        <button>Pagar con Plin</button>
-        <button>Pagar con PayPal</button>
-    </div>
+        <button onclick="alert('Pago con Visa próximamente')">Pagar con Visa</button>
+        <button onclick="alert('Pago con Yape próximamente')">Pagar con Yape</button>
+        <button onclick="alert('Pago con Plin próximamente')">Pagar con Plin</button>
+    </section>
 
-    <footer id='contacto'>
-        <p>© Mi Curso en Línea. Todos los derechos reservados.</p>
-        <p>Contáctanos: soporte@micurso.com | WhatsApp: +51 999 999 999</p>
+    <footer>
+        © 2025 Mi Curso en Línea. Todos los derechos reservados.
     </footer>
 </body>
-</html>" > public/index.html
+</html>
