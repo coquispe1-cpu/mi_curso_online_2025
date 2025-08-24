@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-sclae=1.0">
+    <title>Aula Virtual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        Aula Virtual
+    </header>
+    <nav>
+        <a href="index.html">Volver a Inicio</a>
+    </nav>
+    <main id="aula-main">
+        <h1>Cargando curso...</h1>
+    </main>
+    <footer>
+        © Mi Curso en Línea. Todos los derechos reservados.
+    </footer>
 
+    <script>
+        async function cargarCurso() {
+            // Leer el ID del curso desde la dirección web
+            const params = new URLSearchParams(window.location.search);
+            const cursoId = params.get('id');
+
+            // Cargar todos los cursos desde el servidor
+            const res = await fetch('/api/cursos');
+            const cursos = await res.json();
+            
+            // Encontrar el curso que coincide con el ID
+            const curso = cursos.find(c => c.id === cursoId);
+
+            if (!curso) {
+                document.getElementById('aula-main').innerHTML = '<h1>Curso no encontrado</h1><p>El curso que buscas no existe.</p>';
+                return;
+            }
+
+            // Llenar la página con el contenido del curso
+            const aulaMain = document.getElementById('aula-main');
+            aulaMain.innerHTML = `
+                <h1>${curso.titulo}</h1>
+                <p><strong>Instructor:</strong> ${curso.instructor}</p>
+                <p>${curso.descripcion}</p>
+                <hr>
+                <h2>Contenido del Curso</h2>
+            `;
+
+            curso.lecciones.forEach(leccion => {
+                const leccionDiv = document.createElement('div');
+                leccionDiv.classList.add('leccion');
+                leccionDiv.innerHTML = `
+                    <h3>${leccion.titulo}</h3>
+                    <p>${leccion.contenido}</p>
+                    <button onclick="alert('Lección completada!')">Marcar como completada</button>
+                    <hr>
+                `;
+                aulaMain.appendChild(leccionDiv);
+            });
+        }
+
+        cargarCurso();
+    </script>
+</body>
+</html>
