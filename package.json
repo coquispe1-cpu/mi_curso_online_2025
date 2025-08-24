@@ -1,15 +1,15 @@
 {
-  "name": "mi_curso_online_2025",
+  "name": "nombre-de-tu-app",
   "version": "1.0.0",
-  "description": "Proyecto Mi Curso Online 2025 listo para Render",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.21.2"
-  },
-  "engines": {
-    "node": ">=16.0.0"
+    "express": "^4.19.2"
   }
 }
