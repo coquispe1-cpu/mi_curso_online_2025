@@ -430,3 +430,43 @@ footer {
 .metodos-pago li {
     margin-bottom: 5px;
 }
+
+/* --- Estilos para la sección de Beneficios --- */
+.beneficios-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f0f4f7;
+}
+
+.beneficios-section h2 {
+    font-size: 2em;
+    color: #4a4e69;
+    margin-bottom: 40px;
+}
+
+.beneficios-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.beneficio-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: left;
+}
+
+.beneficio-item .icono {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.beneficio-item h3 {
+    color: #007BFF;
+    margin-top: 0;
+}
