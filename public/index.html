@@ -17,40 +17,51 @@
         <a href="#">Registro</a>
     </nav>
 
-    <section>
-        <h1>Bienvenido a Mi Curso en Línea</h1>
-        <p>Regístrate, marca tu asistencia y realiza tus pagos fácilmente.</p>
+    <section class="hero-section">
+        <h1>¡Domina el futuro!</h1>
+        <p>Aprende las habilidades más demandadas en innovación y automatización con nuestros cursos únicos.</p>
+        <button class="cta-button">Ver todos los cursos</button>
+    </section>
 
+    <main class="container">
         <h2>Cursos Disponibles</h2>
-        <div id="cursos-lista">
+        <div id="cursos-lista" class="cursos-grid">
             <p>Cargando cursos...</p>
         </div>
 
-        <h2>Registro de Usuario</h2>
-        <form id="formRegistro">
-            <input type="text" id="nombre" placeholder="Nombre completo" required>
-            <input type="email" id="correo" placeholder="Correo electrónico" required>
-            <button type="submit">Registrarse</button>
-        </form>
+        <div class="forms-container">
+            <div class="form-card">
+                <h2>Registro de Usuario</h2>
+                <form id="formRegistro">
+                    <input type="text" id="nombre" placeholder="Nombre completo" required>
+                    <input type="email" id="correo" placeholder="Correo electrónico" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+            </div>
+            
+            <div class="form-card">
+                <h2>Control de Asistencia</h2>
+                <form id="formAsistencia">
+                    <input type="email" id="correoAsistencia" placeholder="Correo electrónico" required>
+                    <button type="submit">Marcar asistencia</button>
+                </form>
+            </div>
 
-        <h2>Control de Asistencia</h2>
-        <form id="formAsistencia">
-            <input type="email" id="correoAsistencia" placeholder="Correo electrónico" required>
-            <button type="submit">Marcar asistencia</button>
-        </form>
-
-        <h2>Pagos</h2>
-        <form id="formPagos">
-            <input type="email" id="correoPago" placeholder="Correo electrónico" required>
-            <select id="metodoPago">
-                <option value="Visa">Visa/MasterCard</option>
-                <option value="Yape">Yape</option>
-                <option value="Plin">Plin</option>
-                <option value="PayPal">PayPal</option>
-            </select>
-            <button type="submit">Pagar</button>
-        </form>
-    </section>
+            <div class="form-card">
+                <h2>Pagos</h2>
+                <form id="formPagos">
+                    <input type="email" id="correoPago" placeholder="Correo electrónico" required>
+                    <select id="metodoPago">
+                        <option value="Visa">Visa/MasterCard</option>
+                        <option value="Yape">Yape</option>
+                        <option value="Plin">Plin</option>
+                        <option value="PayPal">PayPal</option>
+                    </select>
+                    <button type="submit">Pagar</button>
+                </form>
+            </div>
+        </div>
+    </main>
 
     <footer>
         © Mi Curso en Línea. Todos los derechos reservados.
@@ -65,12 +76,11 @@
 
             cursos.forEach(curso => {
                 const cursoElemento = document.createElement('div');
+                cursoElemento.classList.add('curso-card');
                 cursoElemento.innerHTML = `
                     <h3>${curso.titulo}</h3>
                     <p>Instructor: ${curso.instructor}</p>
-                    <p>${curso.descripcion}</p>
-                    <a href="aula.html?id=${curso.id}">Ver curso</a>
-                    <hr>
+                    <a href="aula.html?id=${curso.id}" class="btn-ver-curso">Ver curso</a>
                 `;
                 listaDiv.appendChild(cursoElemento);
             });
