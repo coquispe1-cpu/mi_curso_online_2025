@@ -1,41 +1,46 @@
-<!DOCTYPE html>
-<html lang="es">
+echo "<!DOCTYPE html>
+<html lang='es'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Mi Curso en Línea</title>
+    <link rel='stylesheet' href='style.css'>
 </head>
 <body>
     <header>
-        <h1>Bienvenido a Mi Curso en Línea</h1>
-        <nav>
-            <a href="/">Inicio</a> |
-            <a href="/terminos">Términos</a> |
-            <a href="/privacidad">Privacidad</a>
-        </nav>
+        Mi Curso en Línea
     </header>
 
-    <main>
-        <section>
-            <h2>Registro de Usuario</h2>
-            <button>Registrarse</button>
-        </section>
+    <nav>
+        <a href='#registro'>Registro</a>
+        <a href='#asistencia'>Asistencia</a>
+        <a href='#pagos'>Pagos</a>
+        <a href='#contacto'>Contacto</a>
+    </nav>
 
-        <section>
-            <h2>Control de Asistencia</h2>
-            <button>Marcar Asistencia</button>
-        </section>
+    <div class='container' id='registro'>
+        <h2>Registro de Usuario</h2>
+        <input type='text' placeholder='Nombre completo'>
+        <input type='email' placeholder='Correo electrónico'>
+        <button>Registrarse</button>
+    </div>
 
-        <section>
-            <h2>Pagos</h2>
-            <button>Pagar con Visa</button>
-            <button>Pagar con Yape</button>
-            <button>Pagar con Plin</button>
-        </section>
-    </main>
+    <div class='container' id='asistencia'>
+        <h2>Control de Asistencia</h2>
+        <button>Marcar asistencia</button>
+    </div>
 
-    <footer>
-        <p>© 2025 Mi Curso en Línea. Todos los derechos reservados.</p>
+    <div class='container' id='pagos'>
+        <h2>Pagos</h2>
+        <button>Pagar con Visa/MasterCard</button>
+        <button>Pagar con Yape</button>
+        <button>Pagar con Plin</button>
+        <button>Pagar con PayPal</button>
+    </div>
+
+    <footer id='contacto'>
+        <p>© Mi Curso en Línea. Todos los derechos reservados.</p>
+        <p>Contáctanos: soporte@micurso.com | WhatsApp: +51 999 999 999</p>
     </footer>
 </body>
-</html>
+</html>" > public/index.html
