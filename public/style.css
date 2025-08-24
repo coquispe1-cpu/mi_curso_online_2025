@@ -20,22 +20,54 @@ header {
     padding: 1em 0;
 }
 
+/* Nuevos estilos para la barra de navegación */
 nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     background-color: #5b5f89;
-    padding: 1em 0;
+    padding: 1em 2em;
 }
 
-nav a {
+nav .logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5em;
+}
+
+.nav-links a {
     color: white;
     text-decoration: none;
-    padding: 0.5em 1em;
+    padding: 0.5em 0;
     font-weight: bold;
 }
 
-nav a:hover {
-    background-color: #4a4e69;
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #25D366;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+}
+
+.whatsapp-icon {
+    height: 20px;
+    width: 20px;
 }
 
 footer {
@@ -60,6 +92,92 @@ footer {
 .cta-button:hover {
     background-color: #0056b3;
 }
+
+/* --- Estilos para la nueva sección de Presentación --- */
+.presentacion-section {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.presentacion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.presentacion-imagen {
+    flex: 1;
+}
+
+.presentacion-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.presentacion-texto {
+    flex: 1;
+    text-align: center;
+}
+
+.presentacion-texto h2 {
+    font-size: 2.5em;
+    color: #4a4e69;
+    margin-bottom: 10px;
+}
+
+.presentacion-texto .subtitle {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.lista-beneficios {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    margin-bottom: 20px;
+    max-width: 400px;
+    margin: 0 auto 20px;
+}
+
+.lista-beneficios li {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/Check_green_icon.svg') no-repeat left center;
+    background-size: 20px;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.small-text {
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Adaptación para pantallas más grandes */
+@media (min-width: 768px) {
+    .presentacion-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .presentacion-texto {
+        padding-left: 40px;
+    }
+
+    .presentacion-texto .lista-beneficios {
+        text-align: left;
+        margin-left: 0;
+    }
+}
+
 
 /* --- Estilos para la página Nosotros (acerca-de.html) --- */
 .nosotros-section {
