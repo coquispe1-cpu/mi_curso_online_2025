@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-sclae=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula Virtual</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,15 +22,12 @@
 
     <script>
         async function cargarCurso() {
-            // Leer el ID del curso desde la dirección web
             const params = new URLSearchParams(window.location.search);
             const cursoId = params.get('id');
 
-            // Cargar todos los cursos desde el servidor
             const res = await fetch('/api/cursos');
             const cursos = await res.json();
             
-            // Encontrar el curso que coincide con el ID
             const curso = cursos.find(c => c.id === cursoId);
 
             if (!curso) {
@@ -38,7 +35,6 @@
                 return;
             }
 
-            // Llenar la página con el contenido del curso
             const aulaMain = document.getElementById('aula-main');
             aulaMain.innerHTML = `
                 <h1>${curso.titulo}</h1>
@@ -60,7 +56,6 @@
                 aulaMain.appendChild(leccionDiv);
             });
         }
-
         cargarCurso();
     </script>
 </body>
