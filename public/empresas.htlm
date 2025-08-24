@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones para Empresas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        Mi Curso en Línea
+    </header>
+    <nav>
+        <a href="index.html">Personal</a>
+        <a href="empresas.html">Empresas</a>
+        <a href="#">Cursos</a>
+        <a href="#">Registro</a>
+    </nav>
+    <main>
+        <section class="hero-section hero-empresas">
+            <h1>Capacita y desarrolla tu empresa</h1>
+            <p>Capacitación para aumentar la productividad, retener el talento y mejorar el método de selección.</p>
+            <div class="hero-buttons">
+                <a href="#contacto-form" class="cta-button">Solicitar demo</a>
+                <a href="#" class="cta-button secondary-button">Comenzar Ahora</a>
+            </div>
+            <p class="hero-info">Sin datos de tarjetas. Usuarios gratis ilimitados - pago por licencias.</p>
+        </section>
+        <section class="stats-section">
+            <div class="stat-item-empresas">
+                <span class="stat-number">37%</span>
+                <p class="stat-text">Más productividad de los empleados</p>
+            </div>
+            <div class="stat-item-empresas">
+                <span class="stat-number">34%</span>
+                <p class="stat-text">Tasas más altas de retención</p>
+            </div>
+            <div class="stat-item-empresas">
+                <span class="stat-number">22%</span>
+                <p class="stat-text">Reducción de los costos de capacitación</p>
+            </div>
+        </section>
+        <section class="estrategias-section container">
+            <h2>Desarrolla tu organización con nuestras 3 estrategias de capacitación</h2>
+            <div class="estrategia-grid">
+                <div class="estrategia-item">
+                    <h3>Aumenta la productividad</h3>
+                    <p>Implementa programas de capacitación para fortalecer los puntos críticos de tu empresa y optimiza habilidades clave.</p>
+                </div>
+                <div class="estrategia-item">
+                    <h3>Crea carreras de ascenso laboral</h3>
+                    <p>Crea rutas de aprendizaje para ayudar a tus colaboradores a crecer dentro de tu empresa.</p>
+                </div>
+                <div class="estrategia-item">
+                    <h3>Capacita en la etapa de selección</h3>
+                    <p>Implementa la capacitación como un último filtro de selección para evitar contrataciones fallidas.</p>
+                </div>
+            </div>
+        </section>
+        <section class="cursos-empresas-section container">
+            <h2>Conoce nuestra oferta de cursos para tu empresa</h2>
+            <div class="cursos-ofrecidos">
+                <div class="curso-ofrecido-item">
+                    <h3>Habilidades Técnicas</h3>
+                    <ul class="cursos-lista">
+                        <li>Programación en Python</li>
+                        <li>Marketing Digital</li>
+                        <li>Gestión de Proyectos</li>
+                        <li>Análisis de Datos</li>
+                    </ul>
+                </div>
+                <div class="curso-ofrecido-item">
+                    <h3>Habilidades Blandas</h3>
+                    <ul class="cursos-lista">
+                        <li>Coaching Profesional</li>
+                        <li>Liderazgo Empresarial</li>
+                        <li>Comunicación Efectiva</li>
+                        <li>Resolución de Conflictos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="casos-exito-section container">
+            <h2>Casos de éxito en capacitación</h2>
+            <div class="casos-grid">
+                <div class="caso-item">
+                    <h3>Falabella</h3>
+                    <p>Optimización de la capacitación y mejora de la eficiencia operativa.</p>
+                </div>
+                <div class="caso-item">
+                    <h3>Natura</h3>
+                    <p>Mejora de las ventas y empoderamiento de los consultores.</p>
+                </div>
+                <div class="caso-item">
+                    <h3>Starbucks</h3>
+                    <p>Mejora en la capacitación de empleados y la experiencia del cliente.</p>
+                </div>
+            </div>
+        </section>
+        <section class="contacto-form-section container" id="contacto-form">
+            <h2>Recibe tu primera asesoría gratuita</h2>
+            <form action="https://formsubmit.co/tucorreo@ejemplo.com" method="POST">
+                <input type="text" name="Nombre" placeholder="Nombre *" required>
+                <input type="email" name="Email" placeholder="Email *" required>
+                <input type="tel" name="Teléfono" placeholder="Teléfono *" required>
+                <input type="text" name="Empresa" placeholder="Nombre de tu empresa *" required>
+                <select name="País" required>
+                    <option value="">- País -</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="México">México</option>
+                    <option value="Perú">Perú</option>
+                    <option value="Otro">Otro</option>
+                </select>
+                <input type="hidden" name="_next" value="https://mi-curso-online-2025.onrender.com/gracias.html">
+                <input type="hidden" name="_subject" value="¡Nuevo Contacto Empresarial desde tu Web!">
+                <button type="submit">Solicitar una demostración</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        © Mi Curso en Línea. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
