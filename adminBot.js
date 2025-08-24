@@ -3,10 +3,12 @@ const path = require('path');
 const USERS_FILE = path.join(__dirname, 'users.json');
 const ASISTENCIA_FILE = path.join(__dirname, 'asistencia.json');
 const PAGOS_FILE = path.join(__dirname, 'pagos.json');
+
 function leerArchivo(filePath) {
     if (!fs.existsSync(filePath)) return [];
     return JSON.parse(fs.readFileSync(filePath));
 }
+
 function botAdmin() {
     const usuarios = leerArchivo(USERS_FILE);
     const asistencia = leerArchivo(ASISTENCIA_FILE);
@@ -23,5 +25,6 @@ function botAdmin() {
 
     console.log('--- FIN DEL REPORTE ---\n');
 }
+
 setInterval(botAdmin, 60000);
 console.log('Bot Administrador iniciado. Revisando registros cada 60 segundos...');
