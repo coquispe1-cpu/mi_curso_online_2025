@@ -7,20 +7,20 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
-// Archivo donde guardaremos los usuarios
+// Archivos de datos
 const USERS_FILE = path.join(__dirname, 'users.json');
+const ASISTENCIA_FILE = path.join(__dirname, 'asistencia.json');
+const PAGOS_FILE = path.join(__dirname, 'pagos.json');
 
-// Crear el archivo si no existe
-if (!fs.existsSync(USERS_FILE)) {
-    fs.writeFileSync(USERS_FILE, JSON.stringify([]));
-}
+// Crear archivos si no existen
+if (!fs.existsSync(USERS_FILE)) fs.writeFileSync(USERS_FILE, JSON.stringify([]));
+if (!fs.existsSync(ASISTENCIA_FILE)) fs.writeFileSync(ASISTENCIA_FILE, JSON.stringify([]));
+if (!fs.existsSync(PAGOS_FILE)) fs.writeFileSync(PAGOS_FILE, JSON.stringify([]));
 
-// API para registrar usuario
+// Registro de usuario
 app.post('/api/registro', (req, res) => {
     const { nombre, correo } = req.body;
-    if (!nombre || !correo) {
-        return res.status(400).json({ error: 'Nombre y correo son obligatorios' });
-    }
+    if (!nombre || !correo) return res.status(400).json({ error: 'Nombre y correo obligatorios' });
 
     const usuarios = JSON.parse(fs.readFileSync(USERS_FILE));
     usuarios.push({ nombre, correo, fecha: new Date() });
@@ -29,23 +29,31 @@ app.post('/api/registro', (req, res) => {
     res.json({ message: 'Usuario registrado correctamente' });
 });
 
-// API para marcar asistencia
+// Control de asistencia
 app.post('/api/asistencia', (req, res) => {
     const { correo } = req.body;
-    if (!correo) return res.status(400).json({ error: 'Correo es obligatorio' });
+    if (!correo) return res.status(400).json({ error: 'Correo obligatorio' });
 
-    const asistenciaFile = path.join(__dirname, 'asistencia.json');
-    let asistencia = [];
-    if (fs.existsSync(asistenciaFile)) {
-        asistencia = JSON.parse(fs.readFileSync(asistenciaFile));
-    }
-
+    let asistencia = JSON.parse(fs.readFileSync(ASISTENCIA_FILE));
     asistencia.push({ correo, fecha: new Date() });
-    fs.writeFileSync(asistenciaFile, JSON.stringify(asistencia, null, 2));
+    fs.writeFileSync(ASISTENCIA_FILE, JSON.stringify(asistencia, null, 2));
 
     res.json({ message: 'Asistencia registrada correctamente' });
 });
 
-app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+// Pagos
+app.post('/api/pagos', (req, res) => {
+    const { correo, metodo } = req.body;
+    if (!correo || !metodo) return res.status(400).json({ error: 'Correo y método obligatorios' });
+
+    let pagos = JSON.parse(fs.readFileSync(PAGOS_FILE));
+    pagos.push({ correo, metodo, fecha: new Date() });
+    fs.writeFileSync(PAGOS_FILE, JSON.stringify(pagos, null, 2));
+
+    res.json({ message: `Pago registrado con éxito (${metodo})` });
+});
+
+// Bot administrador
 require('./adminBot');
 
+app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
