@@ -1,156 +1,432 @@
-/* Estilos únicos y geniales para Mi Curso en Línea */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #e9ecef;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #343a40;
-    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
 }
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
 header {
-    background: #4a4e69;
+    background-color: #4a4e69;
     color: white;
-    padding: 20px;
     text-align: center;
-    font-size: 28px;
-    font-weight: 600;
+    padding: 1em 0;
 }
+
 nav {
     display: flex;
     justify-content: center;
-    background: #5b5f89;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #5b5f89;
+    padding: 1em 0;
 }
+
 nav a {
     color: white;
-    padding: 14px 25px;
     text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s;
+    padding: 0.5em 1em;
+    font-weight: bold;
 }
+
 nav a:hover {
-    background: #6c70a1;
+    background-color: #4a4e69;
 }
-.hero-section {
-    background: #88B04B;
+
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #4a4e69;
+    color: white;
+    margin-top: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* --- Estilos para la página Nosotros (acerca-de.html) --- */
+.nosotros-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.nosotros-section h2 {
+    color: #4a4e69;
+    font-size: 2.5em;
+}
+
+.nosotros-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.mision-vision {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.mision-vision-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    text-align: left;
+}
+
+.mision-vision-item h3 {
+    color: #007BFF;
+}
+
+/* --- Estilos para la página de Certificados --- */
+.certificados-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f0f4f7;
+    border-radius: 10px;
+}
+.certificados-titulo {
+    font-size: 2.5em;
+    color: #4a4e69;
+    margin-bottom: 10px;
+}
+.certificados-descripcion {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 1.1em;
+    color: #666;
+}
+.stats-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.stat-item {
+    text-align: center;
+}
+.stat-number {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #88B04B;
+    margin: 0;
+}
+.stat-text {
+    color: #555;
+    margin: 0;
+}
+.secondary-button {
+    background-color: #fff;
+    color: #007BFF;
+    border: 1px solid #007BFF;
+    margin-left: 10px;
+}
+.secondary-button:hover {
+    background-color: #f0f4f7;
+}
+.beneficios-section {
+    margin-top: 40px;
+    text-align: center;
+}
+.beneficio-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+}
+.beneficio-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+.beneficio-item h3 {
+    color: #4a4e69;
+    margin-top: 0;
+}
+.costo-certificado-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+.costo-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 300px;
+    margin: 20px auto;
+}
+.costo-range {
+    font-size: 2em;
+    font-weight: bold;
+    color: #4a4e69;
+}
+.descuento-banner {
+    background-color: #88B04B;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.descuento-banner p {
+    margin: 0;
+}
+
+/* --- Estilos para la página de Empresas --- */
+.hero-empresas {
+    background: #5b5f89;
     color: white;
     padding: 60px 20px;
     text-align: center;
 }
-.hero-section h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-}
-.hero-section p {
-    font-size: 1.2em;
-    max-width: 600px;
-    margin: 0 auto 20px;
-}
-.cta-button {
-    background: #FF6B6B;
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.cta-button:hover {
-    background: #FF5252;
-}
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-}
-h2 {
-    text-align: center;
-    color: #4a4e69;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 2em;
-}
-.cursos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px 0;
-}
-.curso-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    padding: 20px;
-    text-align: left;
-}
-.curso-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-.curso-card h3 {
-    color: #4a4e69;
-    margin-top: 0;
-    font-size: 1.5em;
-}
-.curso-card p {
-    font-size: 1em;
-    color: #666;
-}
-.btn-ver-curso {
-    display: block;
+.hero-empresas .cta-button {
     background: #88B04B;
     color: white;
-    padding: 12px 20px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
-    transition: background-color 0.3s;
+    font-weight: bold;
+    border: none;
 }
-.btn-ver-curso:hover {
+.hero-empresas .cta-button:hover {
     background: #769e40;
 }
-.forms-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
+.hero-empresas .secondary-button {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    margin-left: 10px;
 }
-.form-card {
+.hero-empresas .secondary-button:hover {
+    background: rgba(255,255,255,0.1);
+}
+.hero-info {
+    font-size: 0.9em;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    background-color: #f0f4f7;
+}
+.stat-item-empresas {
+    text-align: center;
+    max-width: 250px;
+}
+.stat-item-empresas .stat-number {
+    font-size: 3em;
+    font-weight: bold;
+    color: #4a4e69;
+}
+.stat-item-empresas .stat-text {
+    font-size: 1.1em;
+    color: #6c70a1;
+}
+.estrategias-section, .cursos-empresas-section, .casos-exito-section, .contacto-form-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+.estrategia-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.estrategia-item {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: left;
+}
+.cursos-ofrecidos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.curso-ofrecido-item {
+    text-align: left;
+}
+.curso-ofrecido-item ul {
+    list-style-type: none;
+    padding: 0;
+}
+.curso-ofrecido-item li {
+    background: #f0f4f7;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.casos-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.caso-item {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: left;
+}
+.contacto-form-section form {
     background: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    max-width: 350px;
-    flex-grow: 1;
-    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
 }
-input, select, button {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
+.contacto-form-section input, .contacto-form-section select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #ddd;
+    box-sizing: border-box;
 }
-button[type="submit"] {
+.contacto-form-section button {
+    width: 100%;
+    padding: 15px;
+    font-weight: bold;
     background: #4a4e69;
     color: white;
-    font-weight: bold;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
-button[type="submit"]:hover {
+.contacto-form-section button:hover {
     background: #343751;
 }
-footer {
-    background: #343a40;
-    color: white;
+
+/* --- Nuevos estilos para la página de inicio --- */
+
+.hero {
     text-align: center;
-    padding: 15px;
-    margin-top: 40px;
+    padding: 60px 20px;
+    background: #5b5f89;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.cursos-disponibles {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.cursos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.curso-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    text-align: left;
+}
+
+.curso-card h3 {
+    margin-top: 0;
+    color: #4a4e69;
+}
+
+.instructor {
+    color: #888;
+    font-style: italic;
+}
+
+.ver-curso-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.acciones-rapidas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.registro-box, .asistencia-box, .pagos-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+}
+
+.accion-button {
+    background-color: #4a4e69;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+.metodos-pago {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+.metodos-pago li {
+    margin-bottom: 5px;
 }
