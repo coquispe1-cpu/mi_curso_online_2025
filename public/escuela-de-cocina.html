@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuela de Cocina</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            padding: 40px;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            color: #007bff;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #555;
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .content-section h3 {
+            color: #007bff;
+            margin-top: 15px;
+        }
+
+        .content-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .content-section ul li {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/e/e4/Google_C-T-A-15.svg') no-repeat left center;
+            background-size: 20px;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .course-card-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .course-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .course-card .card-content {
+            padding: 20px;
+        }
+
+        .course-card h4 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .course-card .btn-info {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .how-it-works-list {
+            list-style-type: none;
+            padding: 0;
+            counter-reset: my-awesome-counter;
+        }
+
+        .how-it-works-list li {
+            counter-increment: my-awesome-counter;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .how-it-works-list li::before {
+            content: counter(my-awesome-counter);
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .featured-recipes-section .recipe-gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .featured-recipes-section .recipe-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+        }
+
+        .featured-recipes-section .recipe-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .featured-recipes-section .recipe-card h4 {
+            margin-top: 15px;
+            color: #333;
+        }
+
+        .featured-recipes-section .recipe-card p {
+            padding: 0 15px 15px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Mi Curso en Línea
+    </header>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="https://via.placeholder.com/150x50.png?text=JAVO+Logo" alt="Logo de JAVO">
+        </a>
+        <div class="nav-links">
+            <a href="cursos.html">Cursos</a>
+            <a href="contactanos.html">Contáctanos</a>
+            <a href="acerca-de.html">Nosotros</a>
+            <a href="certificados.html">Certificados</a>
+            <a href="que-aprender.html">¿Qué quieres aprender?</a>
+            <a href="servicios.html">Nuestros Servicios</a>
+            <a href="acceder.html">Acceder</a>
+            <a href="crear-cuenta.html">Crear una Cuenta</a>
+        </div>
+        <a href="https://wa.me/tunumerodetelefono" class="whatsapp-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+            <span class="btn-text">WhatsApp</span>
+        </a>
+    </nav>
+    <main class="container">
+        <section class="page-header">
+            <h1>Escuela de Cocina</h1>
+            <p>Domina las habilidades y conocimientos esenciales en el arte culinario, desde técnicas básicas de cocina hasta la alta gastronomía. Prepárate para crear platos deliciosos y sorprendentes que deleiten los paladares más exigentes.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Nuestros Cursos Especializados</h2>
+            <div class="course-card-list">
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/400x250.png?text=Curso+de+Comidas" alt="Imagen del curso de comidas">
+                    <div class="card-content">
+                        <h4>Curso de Comidas</h4>
+                        <p>Aprende técnicas culinarias para preparar una amplia variedad de platos salados.</p>
+                        <a href="curso-comidas.html" class="btn-info">Ver Curso</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/400x250.png?text=Curso+de+Repostería" alt="Imagen del curso de repostería">
+                    <div class="card-content">
+                        <h4>Curso de Repostería</h4>
+                        <p>Sumérgete en el mundo dulce y domina la creación de pasteles, postres y panes.</p>
+                        <a href="curso-reposteria.html" class="btn-info">Ver Curso</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/400x250.png?text=Curso+de+Bebidas" alt="Imagen del curso de bebidas">
+                    <div class="card-content">
+                        <h4>Curso de Bebidas</h4>
+                        <p>Explora la coctelería y aprende a preparar jugos, batidos y bebidas especiales.</p>
+                        <a href="curso-bebidas.html" class="btn-info">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>Para quién es la Escuela de Cocina</h2>
+            <h3>Para personas</h3>
+            <ul>
+                <li>**Emprendedores gastronómicos** que desean abrir su propio negocio de alimentos y necesitan conocimientos sólidos en cocina y gestión culinaria.</li>
+                <li>**Aspirantes a chefs** que desean aprender y perfeccionar sus habilidades culinarias para seguir una carrera profesional en la gastronomía.</li>
+                <li>**Aficionados a la cocina** que disfrutan cocinar y desean mejorar sus habilidades y técnicas para sorprender a familiares y amigos.</li>
+            </ul>
+            <h3>Para empresas</h3>
+            <ul>
+                <li>**Restaurantes y cafeterías** que desean capacitar a su personal en técnicas avanzadas de cocina para mejorar la calidad y presentación de sus platos.</li>
+                <li>**Empresas de catering y eventos** que desean formar a su equipo en la preparación y presentación de alimentos para grandes eventos.</li>
+                <li>**Instituciones educativas** que desean fortalecer la formación técnica y práctica de su personal docente y estudiantes en el arte culinario.</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Qué aprenderás en la Escuela de Cocina</h2>
+            <h3>Aprende técnicas básicas y avanzadas de cocina</h3>
+            <p>Aprende desde las técnicas básicas hasta las más avanzadas para preparar una amplia variedad de platos.</p>
+            <ul>
+                <li>¿Cuáles son las técnicas fundamentales de corte y preparación de alimentos?</li>
+                <li>¿Cuáles son las recetas emblemáticas de la cocina francesa, italiana, japonesa y más?</li>
+                <li>¿Qué ingredientes y especias son clave para recrear sabores auténticos de diferentes culturas?</li>
+            </ul>
+            <h3>Explora la pastelería y repostería</h3>
+            <p>Aprende técnicas de pastelería y repostería para preparar postres y panes deliciosos y visualmente atractivos.</p>
+            <ul>
+                <li>¿Cuáles son las técnicas básicas y avanzadas en la elaboración de pasteles, tartas y panes?</li>
+                <li>¿Cómo puedo decorar postres de manera profesional y creativa?</li>
+                <li>¿Qué herramientas y equipos son necesarios para una pastelería exitosa?</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Cómo funciona la Escuela de Cocina</h2>
+            <ol class="how-it-works-list">
+                <li>
+                    <h4>Elige un curso o programa de certificación</h4>
+                    <p>Ofrecemos una amplia variedad de cursos y programas de certificación para todas tus necesidades.</p>
+                </li>
+                <li>
+                    <h4>Aprende de forma práctica</h4>
+                    <p>Los cursos incluyen lecturas, videos, proyectos y actividades de la vida real que te ayudarán a colocar en práctica tu aprendizaje.</p>
+                </li>
+                <li>
+                    <h4>Conecta con estudiantes de todo el mundo</h4>
+                    <p>No estarás solo. Disfruta de chats en tiempo real y transmisiones en vivo con estudiantes de todo el mundo.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="content-section text-center">
+            <h2>Obtén un Certificado Oficial</h2>
+            <p>Nuestra Certificación Oficial es un documento que acredita tus conocimientos y habilidades en un campo determinado. Es una forma de mostrar a los empleadores que estás calificado para un puesto de trabajo.</p>
+            <a href="certificados.html" class="btn-info">Más información</a>
+        </section>
+        
+        <section class="content-section text-center">
+            <h2>Conoce nuestras escuelas</h2>
+            <a href="cursos.html" class="btn-info">Ver todas las Escuelas</a>
+        </section>
+        
+    </main>
+    <footer>
+        © Mi Curso en Línea. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
