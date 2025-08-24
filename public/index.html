@@ -13,16 +13,19 @@
 
     <nav>
         <a href="#">Inicio</a>
+        <a href="#">Cursos</a>
         <a href="#">Registro</a>
-        <a href="#">Asistencia</a>
-        <a href="#">Pagos</a>
     </nav>
 
     <section>
         <h1>Bienvenido a Mi Curso en Línea</h1>
         <p>Regístrate, marca tu asistencia y realiza tus pagos fácilmente.</p>
 
-        <!-- Registro -->
+        <h2>Cursos Disponibles</h2>
+        <div id="cursos-lista">
+            <p>Cargando cursos...</p>
+        </div>
+
         <h2>Registro de Usuario</h2>
         <form id="formRegistro">
             <input type="text" id="nombre" placeholder="Nombre completo" required>
@@ -30,14 +33,12 @@
             <button type="submit">Registrarse</button>
         </form>
 
-        <!-- Asistencia -->
         <h2>Control de Asistencia</h2>
         <form id="formAsistencia">
             <input type="email" id="correoAsistencia" placeholder="Correo electrónico" required>
             <button type="submit">Marcar asistencia</button>
         </form>
 
-        <!-- Pagos -->
         <h2>Pagos</h2>
         <form id="formPagos">
             <input type="email" id="correoPago" placeholder="Correo electrónico" required>
@@ -56,52 +57,66 @@
     </footer>
 
     <script>
-    // Registro
-    document.getElementById('formRegistro').addEventListener('submit', async function(e){
-        e.preventDefault();
-        const nombre = document.getElementById('nombre').value;
-        const correo = document.getElementById('correo').value;
+        async function cargarCursos() {
+            const res = await fetch('/api/cursos');
+            const cursos = await res.json();
+            const listaDiv = document.getElementById('cursos-lista');
+            listaDiv.innerHTML = '';
 
-        const res = await fetch('/api/registro', {
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({nombre, correo})
+            cursos.forEach(curso => {
+                const cursoElemento = document.createElement('div');
+                cursoElemento.innerHTML = `
+                    <h3>${curso.titulo}</h3>
+                    <p>Instructor: ${curso.instructor}</p>
+                    <p>${curso.descripcion}</p>
+                    <a href="aula.html?id=${curso.id}">Ver curso</a>
+                    <hr>
+                `;
+                listaDiv.appendChild(cursoElemento);
+            });
+        }
+        cargarCursos();
+
+        document.getElementById('formRegistro').addEventListener('submit', async function(e){
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const correo = document.getElementById('correo').value;
+            const res = await fetch('/api/registro', {
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({nombre, correo})
+            });
+            const data = await res.json();
+            alert(data.message || data.error);
+            this.reset();
         });
-        const data = await res.json();
-        alert(data.message || data.error);
-        this.reset();
-    });
 
-    // Asistencia
-    document.getElementById('formAsistencia').addEventListener('submit', async function(e){
-        e.preventDefault();
-        const correo = document.getElementById('correoAsistencia').value;
-
-        const res = await fetch('/api/asistencia',{
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({correo})
+        document.getElementById('formAsistencia').addEventListener('submit', async function(e){
+            e.preventDefault();
+            const correo = document.getElementById('correoAsistencia').value;
+            const res = await fetch('/api/asistencia',{
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({correo})
+            });
+            const data = await res.json();
+            alert(data.message || data.error);
+            this.reset();
         });
-        const data = await res.json();
-        alert(data.message || data.error);
-        this.reset();
-    });
 
-    // Pagos
-    document.getElementById('formPagos').addEventListener('submit', async function(e){
-        e.preventDefault();
-        const correo = document.getElementById('correoPago').value;
-        const metodo = document.getElementById('metodoPago').value;
-
-        const res = await fetch('/api/pagos',{
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({correo, metodo})
+        document.getElementById('formPagos').addEventListener('submit', async function(e){
+            e.preventDefault();
+            const correo = document.getElementById('correoPago').value;
+            const metodo = document.getElementById('metodoPago').value;
+            const res = await fetch('/api/pagos',{
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({correo, metodo})
+            });
+            const data = await res.json();
+            alert(data.message || data.error);
+            this.reset();
         });
-        const data = await res.json();
-        alert(data.message || data.error);
-        this.reset();
-    });
     </script>
 </body>
 </html>
