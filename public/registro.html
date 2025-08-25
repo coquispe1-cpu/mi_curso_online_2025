@@ -1,26 +1,30 @@
+<form id="form" name="form" method="POST" data-format="json">
+  <input type="text" name="name" placeholder="Nombre completo" required />
+  <input type="email" name="email" placeholder="Correo" required />
+  <input type="tel" name="phone" placeholder="Teléfono" required />
+  <input type="text" name="dni" placeholder="Número de DNI" required />
+  <button type="submit">Registrarme</button>
+</form>
+
+<script src="https://cdn.web3forms.com/client/script.js"></script>
 <script>
-  const form = document.getElementById("registroForm");
-
-  form.addEventListener("submit", async (e) => {
+  const form = document.getElementById('form');
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const formData = new FormData(form);
-    formData.append("access_key", "807051c5-e765-49cd-b83b-d2cf1ed10532"); // tu Access Key real
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-      const result = await response.json();
-      if (result.success) {
-        window.location.href = "gracias.html";
-      } else {
-        alert("Error al enviar. Intenta nuevamente.");
-      }
-    } catch (error) {
-      alert("Error al enviar. Intenta nuevamente.");
-      console.error(error);
-    }
+    const data = Object.fromEntries(formData.entries());
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...data,
+        access_key: '807051c5-e765-49cd-b83b-d2cf1ed10532',
+        subject: 'Nuevo registro en Mi Curso en Línea',
+        redirect: 'https://mi-curso-online-2025.onrender.com/gracias.html'
+      })
+    });
+    const result = await response.json();
+    if(result.success) window.location.href = 'gracias.html';
+    else alert('Error al enviar. Intenta nuevamente.');
   });
 </script>
