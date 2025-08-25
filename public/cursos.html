@@ -3,116 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cursos - Mi Curso en Línea</title>
+<title>Mi Curso en Línea - Cursos</title>
 <link rel="stylesheet" href="estilo.css">
 <style>
-  body {
-    margin:0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #0f2027;
-    color:#fff;
-  }
-  header {
-    display:flex;
+body {
+    font-family: 'Arial', sans-serif;
+    background: #0e0e0e;
+    color: #f0f0f0;
+    margin: 0;
+}
+header {
+    background: #111;
+    padding: 20px;
+    display: flex;
     justify-content: space-between;
-    align-items:center;
-    padding:20px 40px;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
-  }
-  header h1 { font-size:24px; }
-  nav a {
-    margin-left:20px;
-    color:#fff;
-    text-decoration:none;
-    font-weight:500;
-    transition:0.3s;
-  }
-  nav a:hover { color:#00c6ff; }
-
-  main { padding:60px 20px; max-width:1200px; margin:auto; }
-  h2 { text-align:center; font-size:36px; margin-bottom:40px; }
-
-  .cursos {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap:30px;
-  }
-
-  .curso {
-    background: rgba(255,255,255,0.05);
-    border-radius:15px;
-    padding:20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .curso:hover {
+    align-items: center;
+}
+header h1 { color: #fff; margin:0; }
+header nav a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 20px;
+    padding: 40px;
+}
+.curso {
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.curso:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,198,255,0.6);
-  }
-  .curso h3 { font-size:24px; margin-bottom:10px; color:#00c6ff; }
-  .curso p { font-size:16px; margin-bottom:10px; color:#ccc; }
-  .curso button {
-    margin-top:10px;
-    padding:10px 20px;
-    font-size:16px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+.curso h3 { margin-top:0; }
+.curso p { margin:5px 0; }
+button {
+    background: linear-gradient(45deg,#ff6ec4,#7873f5);
+    color:#fff;
     border:none;
+    padding:10px 15px;
     border-radius:8px;
-    background: #00c6ff;
-    color:#000;
-    font-weight:600;
     cursor:pointer;
-    transition:0.3s;
-  }
-  .curso button:hover { background:#00a1d6; color:#fff; }
-  footer { text-align:center; padding:20px; background: rgba(0,0,0,0.3); margin-top:40px; }
+    font-weight:bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+footer {
+    text-align:center;
+    padding:20px;
+    background:#111;
+}
 </style>
 </head>
 <body>
+
 <header>
-  <h1>Mi Curso en Línea</h1>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="cursos.html">Cursos</a>
-    <a href="certificados.html">Certificados</a>
-    <a href="acerca-de.html">Acerca de</a>
-    <a href="contactanos.html">Contáctanos</a>
-  </nav>
+    <h1>Mi Curso en Línea</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="certificados.html">Certificados</a>
+        <a href="acerca-de.html">Acerca de</a>
+        <a href="contactanos.html">Contáctanos</a>
+    </nav>
 </header>
 
 <main>
-  <h2>Nuestros Cursos</h2>
-  <section class="cursos">
+    <h2 style="text-align:center; margin-bottom:40px;">Nuestros Cursos</h2>
 
-    <div class="curso">
-      <h3>Redes</h3>
-      <p>Instalación, configuración, routing y seguridad de redes.</p>
-      <p>Duración: 6 semanas</p>
-      <p>Modalidad: Registro en línea</p>
-      <button onclick="window.location.href='registro.html'">Registrarme</button>
+    <div class="cursos">
+
+        <!-- Generamos 50 cursos -->
+        <script>
+            const cursos = [];
+            for(let i=1;i<=50;i++){
+                cursos.push({
+                    nombre: `Curso ${i}`,
+                    descripcion: `Descripción detallada del curso ${i}. Aprende habilidades prácticas y útiles.`,
+                    duracion: `${Math.floor(Math.random()*8)+3} semanas`,
+                    modalidad: 'Virtual',
+                    color: `hsl(${i*7},70%,30%)`
+                });
+            }
+
+            const cont = document.querySelector('.cursos');
+            cursos.forEach(c=>{
+                const div = document.createElement('div');
+                div.className='curso';
+                div.style.background=c.color;
+                div.innerHTML = `<h3>${c.nombre}</h3>
+                <p>${c.descripcion}</p>
+                <p>Duración: ${c.duracion}</p>
+                <p>Modalidad: ${c.modalidad}</p>
+                <button onclick="location.href='registro.html'">Registrarme</button>`;
+                cont.appendChild(div);
+            });
+        </script>
+
     </div>
-
-    <div class="curso">
-      <h3>Programación</h3>
-      <p>JavaScript, backend, frontend y despliegue de proyectos.</p>
-      <p>Duración: 8 semanas</p>
-      <p>Modalidad: Registro en línea</p>
-      <button onclick="window.location.href='registro.html'">Registrarme</button>
-    </div>
-
-    <div class="curso">
-      <h3>Ciberseguridad</h3>
-      <p>Defensa, pentesting y prácticas seguras en infraestructuras reales.</p>
-      <p>Duración: 6 semanas</p>
-      <p>Modalidad: Registro en línea</p>
-      <button onclick="window.location.href='registro.html'">Registrarme</button>
-    </div>
-
-  </section>
 </main>
 
 <footer>
-  <p>© Mi Curso en Línea. Todos los derechos reservados.</p>
+    © Mi Curso en Línea. Todos los derechos reservados.
 </footer>
+
 </body>
 </html>
