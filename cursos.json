@@ -1,66 +1,52 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos Disponibles</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        Mi Curso en Línea
-    </header>
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="https://via.placeholder.com/150x50.png?text=JAVO+Logo" alt="Logo de JAVO">
-        </a>
-        <div class="nav-links">
-            <a href="cursos.html">Cursos</a>
-            <a href="contactanos.html">Contáctanos</a>
-            <a href="acerca-de.html">Nosotros</a>
-            <a href="certificados.html">Certificados</a>
-            <a href="que-aprender.html">¿Qué quieres aprender?</a>
-            <a href="acceder.html">Acceder</a>
-            <a href="crear-cuenta.html">Crear una Cuenta</a>
-        </div>
-        <a href="https://wa.me/tunumerodetelefono" class="whatsapp-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
-            <span class="btn-text">WhatsApp</span>
-        </a>
-    </nav>
-    <main class="container">
-        <section class="cursos-page-header">
-            <h1>Nuestros Cursos</h1>
-            <p>Explora nuestra amplia gama de cursos y encuentra el que te ayudará a alcanzar tus metas profesionales.</p>
-            <div class="guia-seccion">
-                <h3>Guía de la Sección de Cursos:</h3>
-                <p>Aquí encontrarás una lista completa de todos los cursos disponibles. Puedes hacer clic en **"Ir al Curso"** para acceder a tu contenido y registrar tu asistencia.</p>
-            </div>
-        </section>
-
-        <section class="course-list-section">
-            <div class="course-card-list">
-                <div class="course-details">
-                    <img src="https://via.placeholder.com/400x250.png?text=Curso+Inteligencia+Artificial" alt="Imagen del curso de IA">
-                    <h3>Curso Introductorio a la Inteligencia Artificial</h3>
-                    <p class="instructor">Instructor: Ada</p>
-                    <p class="description">Aprende los conceptos fundamentales de la IA y cómo se aplica en el mundo real.</p>
-                    <a href="crear-cuenta.html" class="btn-info">Registrarse</a>
-                    <a href="pagos.html" class="btn-matricula">Pagar</a>
-                </div>
-                <div class="course-details">
-                    <img src="https://via.placeholder.com/400x250.png?text=Curso+Automatizacion" alt="Imagen del curso de automatización">
-                    <h3>Curso de Automatización e Innovación Empresarial</h3>
-                    <p class="instructor">Instructor: Jarvis</p>
-                    <p class="description">Descubre cómo automatizar procesos y optimizar la eficiencia de tu negocio.</p>
-                    <a href="crear-cuenta.html" class="btn-info">Registrarse</a>
-                    <a href="pagos.html" class="btn-matricula">Pagar</a>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        © Mi Curso en Línea. Todos los derechos reservados.
-    </footer>
-</body>
-</html>
+[
+  {
+    "id": "curso-001",
+    "titulo": "Especialista en Preparación de Superficies y Aplicación de Recubrimientos",
+    "descripcion": "Aprende técnicas profesionales de preparación de superficies y aplicación de recubrimientos industriales.",
+    "videos": [
+      "videos/curso-especialista-recubrimientos/curso-especialista-recubrimientos.mp4"
+    ],
+    "duracion": "10 semanas",
+    "modalidad": "Virtual"
+  },
+  {
+    "id": "curso-002",
+    "titulo": "Desarrollo Web Frontend",
+    "descripcion": "Curso completo de HTML, CSS y JavaScript para crear sitios web modernos.",
+    "videos": [
+      "videos/desarrollo-web/desarrollo-web.mp4"
+    ],
+    "duracion": "8 semanas",
+    "modalidad": "Virtual"
+  },
+  {
+    "id": "curso-003",
+    "titulo": "Computación en la Nube",
+    "descripcion": "Aprende sobre servicios en la nube, despliegue y administración de servidores virtuales.",
+    "videos": [
+      "videos/cloud-computing/cloud-computing.mp4"
+    ],
+    "duracion": "6 semanas",
+    "modalidad": "Virtual"
+  },
+  {
+    "id": "curso-004",
+    "titulo": "Seguridad en Redes Wi-Fi",
+    "descripcion": "Domina técnicas de seguridad, vulnerabilidades y protección de redes inalámbricas.",
+    "videos": [
+      "videos/seguridad-wifi/seguridad-wifi.mp4"
+    ],
+    "duracion": "4 semanas",
+    "modalidad": "Virtual"
+  },
+  {
+    "id": "curso-005",
+    "titulo": "Administración de Empresas",
+    "descripcion": "Conoce los fundamentos de la gestión empresarial, finanzas y liderazgo.",
+    "videos": [
+      "videos/administracion-empresas/administracion-empresas.mp4"
+    ],
+    "duracion": "8 semanas",
+    "modalidad": "Virtual"
+  }
+]
