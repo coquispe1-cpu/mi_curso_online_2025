@@ -1,82 +1,128 @@
-<section class="programas">
-  <h2 class="section-title">Conoce nuestros programas</h2>
-  <div class="cards-container">
-    <div class="card">
-      <h3>FINANZAS Y CONTABILIDAD</h3>
-      <p>Aprende a gestionar finanzas, contabilidad y análisis financiero profesional.</p>
-    </div>
-    <div class="card">
-      <h3>DISEÑO E IMAGEN</h3>
-      <p>Desarrolla habilidades en diseño gráfico, branding y comunicación visual.</p>
-    </div>
-    <div class="card">
-      <h3>OPERACIONES Y LOGÍSTICA</h3>
-      <p>Optimiza procesos, distribución y gestión logística en empresas modernas.</p>
-    </div>
-    <div class="card">
-      <h3>NEGOCIOS</h3>
-      <p>Aprende emprendimiento, estrategia, marketing y gestión de negocios.</p>
-    </div>
-    <div class="card">
-      <h3>TECNOLOGÍA</h3>
-      <p>Domina herramientas digitales, programación, redes y ciberseguridad.</p>
-    </div>
-    <div class="card">
-      <h3>OFFICE</h3>
-      <p>Perfecciona tu manejo de Excel, Word, PowerPoint y herramientas de oficina.</p>
-    </div>
-  </div>
-</section>
-
-<style>
-  .programas {
-    max-width: 1200px;
-    margin: 80px auto;
-    padding: 0 20px;
-    text-align: center;
-  }
-  .section-title {
-    font-size: 36px;
-    color: #004aad;
-    margin-bottom: 40px;
-    font-weight: bold;
-  }
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  .card {
-    background: linear-gradient(135deg, #004aad, #00c6ff);
-    color: #fff;
-    padding: 30px 20px;
-    border-radius: 15px;
-    width: 250px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-  }
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
-  }
-  .card h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
-  .card p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 768px) {
-    .cards-container {
-      flex-direction: column;
-      align-items: center;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos - Mi Curso en Línea</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background: #f4f7fa;
+      color: #333;
+    }
+    header {
+      background: #004aad;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
     .card {
-      width: 90%;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-  }
-</style>
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #004aad;
+    }
+    .card p {
+      margin: 10px 0;
+    }
+    .card button {
+      background: #004aad;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .card button:hover {
+      background: #003580;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      background: #004aad;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Cursos - Mi Curso en Línea</h1>
+  <p>Explora nuestra gama completa de programas y especialízate en lo que más te interesa.</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <div class="card">
+      <h2>FINANZAS Y CONTABILIDAD</h2>
+      <p>Aprende contabilidad, gestión financiera, análisis de inversiones y todo lo necesario para tomar decisiones financieras inteligentes.</p>
+      <p><strong>Duración:</strong> 6 semanas</p>
+      <button onclick="window.location.href='registro.html'">Registrarme</button>
+    </div>
+    <div class="card">
+      <h2>DISEÑO E IMAGEN</h2>
+      <p>Domina herramientas de diseño gráfico, edición de imágenes y branding para crear proyectos profesionales.</p>
+      <p><strong>Duración:</strong> 5 semanas</p>
+      <button onclick="window.location.href='registro.html'">Registrarme</button>
+    </div>
+    <div class="card">
+      <h2>OPERACIONES Y LOGÍSTICA</h2>
+      <p>Aprende a optimizar procesos, gestionar inventarios y mejorar la eficiencia operativa de cualquier empresa.</p>
+      <p><strong>Duración:</strong> 6 semanas</p>
+      <button onclick="window.location.href='registro.html'">Registrarme</button>
+    </div>
+    <div class="card">
+      <h2>NEGOCIOS</h2>
+      <p>Conoce estrategias de emprendimiento, marketing, ventas y gestión empresarial para potenciar tu carrera profesional.</p>
+      <p><strong>Duración:</strong> 7 semanas</p>
+      <button onclick="window.location.href='registro.html'">Registrarme</button>
+    </div>
+    <div class="card">
+      <h2>TECNOLOGÍA</h2>
+      <p>Capacítate en programación, desarrollo web, redes, ciberseguridad y herramientas tecnológicas demandadas en la industria.</p>
+      <p><strong>Duración:</strong> 8 semanas</p>
+      <button onclick="window.location.href='registro.html'">Registrarme</button>
+    </div>
+    <div class="card">
+      <h2>OFFICE</h2>
+      <p>Domina Microsoft Excel, Word, PowerPoint y otras herramientas esenciales para el trabajo profesional diario.</p>
+      <p><strong>Duración:</strong> 4 semanas</p>
+      <button onclick="window.location.href='registro.html'">Registrarme</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © Mi Curso en Línea. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
