@@ -7,40 +7,42 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f8ff;
+      background: linear-gradient(135deg, #00c6ff, #004aad);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      flex-direction: column;
+      margin: 0;
     }
-    .card {
+    .container {
       background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      border-radius: 15px;
       text-align: center;
-      width: 90%;
-      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
     h1 {
-      color: #28a745;
+      color: #004aad;
     }
     a {
       display: inline-block;
       margin-top: 20px;
-      text-decoration: none;
-      background: #007bff;
-      color: white;
       padding: 10px 20px;
+      background: #004aad;
+      color: white;
+      text-decoration: none;
       border-radius: 8px;
+      transition: 0.3s;
+    }
+    a:hover {
+      background: #003580;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>¡Registro Exitoso!</h1>
-    <p>Gracias por registrarte. Revisa tu correo para más detalles.</p>
+  <div class="container">
+    <h1>¡Registro enviado con éxito!</h1>
+    <p>Pronto nos pondremos en contacto contigo.</p>
     <a href="/">Volver al inicio</a>
   </div>
 </body>
