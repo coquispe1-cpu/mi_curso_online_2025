@@ -112,6 +112,26 @@
       document.getElementById('status').innerText = "Error al enviar. Intenta de nuevo.";
     }
   });
-  </script>
+  </script><script>
+document.getElementById("registroForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    formData.append("access_key", "807051c5-e765-49cd-b83b-d2cf1ed10532"); // Tu Access Key de Web3Forms
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+    });
+
+    if (response.ok) {
+        window.location.href = "gracias.html"; // Redirige a la página de éxito
+    } else {
+        alert("Hubo un error al enviar el registro. Intenta nuevamente.");
+    }
+});
+</script>
+
 </body>
 </html>
