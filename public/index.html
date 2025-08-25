@@ -4,40 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mi Curso en Línea</title>
-<link rel="stylesheet" href="estilo.css">
 <style>
   body {
-    margin:0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color:#fff;
+    font-family: Arial, sans-serif;
+    background: #f0f4f8; /* fondo claro */
+    color: #004aad;
+    margin: 0;
+    padding: 0;
   }
   header {
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
-    padding:20px 40px;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, #004aad, #00c6ff); /* degradado azul */
+    padding: 20px 0;
+    text-align: center;
+    color: white;
   }
-  header h1 { font-size:24px; }
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+  }
   nav a {
-    margin-left:20px;
-    color:#fff;
-    text-decoration:none;
-    font-weight:500;
-    transition:0.3s;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: 0.3s;
   }
-  nav a:hover { color:#00c6ff; }
-  main { padding:60px 20px; text-align:center; }
-  .lemas h2 { font-size:32px; margin-bottom:10px; }
-  .lemas p { font-size:20px; margin-bottom:30px; }
-  footer { text-align:center; padding:20px; background: rgba(0,0,0,0.3); }
+  nav a:hover {
+    background: rgba(255,255,255,0.2);
+  }
+  .hero {
+    text-align: center;
+    padding: 80px 20px;
+  }
+  .hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #003580;
+  }
+  .hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #005bb5;
+  }
+  .btn {
+    background: linear-gradient(135deg, #004aad, #00c6ff);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background: linear-gradient(135deg, #003580, #0078d7);
+  }
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    color: #004aad;
+  }
 </style>
 </head>
 <body>
 <header>
-  <h1>Mi Curso en Línea</h1>
+  <h2>Mi Curso en Línea</h2>
   <nav>
     <a href="index.html">Inicio</a>
     <a href="cursos.html">Cursos</a>
@@ -47,19 +83,16 @@
   </nav>
 </header>
 
-<main>
-  <section class="lemas">
-    <h2>¡Supera tus límites!</h2>
-    <p>Transforma tu vida con aprendizaje práctico y accesible.</p>
-    <h2>Aprende y aplica</h2>
-    <p>Conviértete en profesional con habilidades verificables.</p>
-    <h2>Mejora constantemente</h2>
-    <p>Crece cada día y alcanza tus metas con nuestros cursos.</p>
-  </section>
-</main>
+<section class="hero">
+  <h1>Aprende, crece y supera tus metas</h1>
+  <p>Transforma tu futuro con nuestros cursos prácticos y certificaciones verificables.</p>
+  <a class="btn" href="cursos.html">Explorar Cursos</a>
+  <a class="btn" href="registro.html">Solicitar Certificado</a>
+</section>
 
 <footer>
-  <p>© Mi Curso en Línea. Todos los derechos reservados.</p>
+  © Mi Curso en Línea. Todos los derechos reservados.
 </footer>
 </body>
 </html>
+
