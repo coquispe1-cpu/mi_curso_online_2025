@@ -3,7 +3,8 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 10000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+// Servir archivos desde la raíz del proyecto
+app.use(express.static(__dirname));
 
 // Aula virtual placeholder
 app.get('/aula/:curso', (req, res) => {
@@ -11,9 +12,12 @@ app.get('/aula/:curso', (req, res) => {
   res.send(`
     <!doctype html><html lang="es"><head>
       <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Aula - ${curso}</title><link rel="stylesheet" href="/estilo.css">
+      <title>Aula - ${curso}</title>
+      <link rel="stylesheet" href="/estilo.css">
     </head><body>
-      <nav style="position:fixed;top:12px;left:12px;right:12px;"><a href="/cursos.html" style="color:#fff">← Volver</a></nav>
+      <nav style="position:fixed;top:12px;left:12px;right:12px;">
+        <a href="/cursos.html" style="color:#fff">← Volver</a>
+      </nav>
       <div style="max-width:1100px;margin:96px auto;padding:20px">
         <h1 style="color:var(--accent)">Aula: ${curso}</h1>
         <p style="color:var(--muted)">Bot instructor activo. Escribe tu pregunta abajo para comenzar.</p>
@@ -38,14 +42,16 @@ app.get('/aula/:curso', (req, res) => {
           if(!text) return;
           const u = document.createElement('div'); u.className='msg user'; u.innerText = text; messages.appendChild(u);
           input.value='';
-          // respuesta simulada (en producción conectar con backend/IA)
           const b = document.createElement('div'); b.className='msg bot'; b.innerText = 'Procesando...';
           messages.appendChild(b);
-          setTimeout(()=>{ b.innerText = 'Respuesta del bot: excelente pregunta — en breve lo explico.'; messages.scrollTop = messages.scrollHeight; }, 900);
+          setTimeout(()=>{
+            b.innerText = 'Respuesta del bot: excelente pregunta — en breve lo explico.';
+            messages.scrollTop = messages.scrollHeight;
+          }, 900);
         });
       </script>
     </body></html>
   `);
 });
 
-app.listen(PORT, ()=> console.log('Servidor iniciado en puerto', PORT));
+app.listen(PORT, () => console.log('Servidor iniciado en puerto', PORT));
