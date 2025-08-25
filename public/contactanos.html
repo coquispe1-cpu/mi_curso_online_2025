@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-section {
+            padding: 40px;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+        .contact-section h1 {
+            color: #007bff;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .contact-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .contact-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Mi Curso en Línea
+    </header>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="https://via.placeholder.com/150x50.png?text=JAVO+Logo" alt="Logo de JAVO">
+        </a>
+        <div class="nav-links">
+            <a href="cursos.html">Cursos</a>
+            <a href="contactanos.html">Contáctanos</a>
+            <a href="acerca-de.html">Nosotros</a>
+            <a href="certificados.html">Certificados</a>
+            <a href="que-aprender.html">¿Qué quieres aprender?</a>
+            <a href="servicios.html">Nuestros Servicios</a>
+            <a href="acceder.html">Acceder</a>
+            <a href="crear-cuenta.html">Crear una Cuenta</a>
+        </div>
+        <a href="https://wa.me/51921717515" class="whatsapp-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+            <span class="btn-text">WhatsApp</span>
+        </a>
+    </nav>
+    <main class="container">
+        <section class="contact-section">
+            <h1>Contáctanos</h1>
+            <p>Si tienes alguna pregunta, por favor, llena el siguiente formulario y te responderemos lo antes posible.</p>
+
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="807051c5-e765-49cd-b83b-d2cf1ed10532">
+                
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        © Mi Curso en Línea. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
