@@ -1,125 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soluciones para Empresas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empresas - JAOV</title>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #004aad, #00c6ff);
+      color: #333;
+    }
+    header {
+      background: #004aad;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    h1 {
+      text-align: center;
+      color: #004aad;
+      margin-bottom: 20px;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    .form-section {
+      margin-top: 30px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background: #004aad;
+      color: white;
+      margin-top: 15px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #003580;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #004aad;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        Mi Curso en Línea
-    </header>
-    <nav>
-        <a href="index.html">Personal</a>
-        <a href="empresas.html">Empresas</a>
-        <a href="#">Cursos</a>
-        <a href="#">Registro</a>
-    </nav>
-    <main>
-        <section class="hero-section hero-empresas">
-            <h1>Capacita y desarrolla tu empresa</h1>
-            <p>Capacitación para aumentar la productividad, retener el talento y mejorar el método de selección.</p>
-            <div class="hero-buttons">
-                <a href="#contacto-form" class="cta-button">Solicitar demo</a>
-                <a href="#" class="cta-button secondary-button">Comenzar Ahora</a>
-            </div>
-            <p class="hero-info">Sin datos de tarjetas. Usuarios gratis ilimitados - pago por licencias.</p>
-        </section>
-        <section class="stats-section">
-            <div class="stat-item-empresas">
-                <span class="stat-number">37%</span>
-                <p class="stat-text">Más productividad de los empleados</p>
-            </div>
-            <div class="stat-item-empresas">
-                <span class="stat-number">34%</span>
-                <p class="stat-text">Tasas más altas de retención</p>
-            </div>
-            <div class="stat-item-empresas">
-                <span class="stat-number">22%</p>
-                <p class="stat-text">Reducción de los costos de capacitación</p>
-            </div>
-        </section>
-        <section class="estrategias-section container">
-            <h2>Desarrolla tu organización con nuestras 3 estrategias de capacitación</h2>
-            <div class="estrategia-grid">
-                <div class="estrategia-item">
-                    <h3>Aumenta la productividad</h3>
-                    <p>Implementa programas de capacitación para fortalecer los puntos críticos de tu empresa y optimiza habilidades clave.</p>
-                </div>
-                <div class="estrategia-item">
-                    <h3>Crea carreras de ascenso laboral</h3>
-                    <p>Crea rutas de aprendizaje para ayudar a tus colaboradores a crecer dentro de tu empresa.</p>
-                </div>
-                <div class="estrategia-item">
-                    <h3>Capacita en la etapa de selección</h3>
-                    <p>Implementa la capacitación como un último filtro de selección para evitar contrataciones fallidas.</p>
-                </div>
-            </div>
-        </section>
-        <section class="cursos-empresas-section container">
-            <h2>Conoce nuestra oferta de cursos para tu empresa</h2>
-            <div class="cursos-ofrecidos">
-                <div class="curso-ofrecido-item">
-                    <h3>Habilidades Técnicas</h3>
-                    <ul class="cursos-lista">
-                        <li>Programación en Python</li>
-                        <li>Marketing Digital</li>
-                        <li>Gestión de Proyectos</li>
-                        <li>Análisis de Datos</li>
-                    </ul>
-                </div>
-                <div class="curso-ofrecido-item">
-                    <h3>Habilidades Blandas</h3>
-                    <ul class="cursos-lista">
-                        <li>Coaching Profesional</li>
-                        <li>Liderazgo Empresarial</li>
-                        <li>Comunicación Efectiva</li>
-                        <li>Resolución de Conflictos</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <section class="casos-exito-section container">
-            <h2>Casos de éxito en capacitación</h2>
-            <div class="casos-grid">
-                <div class="caso-item">
-                    <h3>Falabella</h3>
-                    <p>Optimización de la capacitación y mejora de la eficiencia operativa.</p>
-                </div>
-                <div class="caso-item">
-                    <h3>Natura</h3>
-                    <p>Mejora de las ventas y empoderamiento de los consultores.</p>
-                </div>
-                <div class="caso-item">
-                    <h3>Starbucks</h3>
-                    <p>Mejora en la capacitación de empleados y la experiencia del cliente.</p>
-                </div>
-            </div>
-        </section>
-        <section class="contacto-form-section container" id="contacto-form">
-            <h2>Recibe tu primera asesoría gratuita</h2>
-            <form action="https://formsubmit.co/tucorreo@ejemplo.com" method="POST">
-                <input type="text" name="Nombre" placeholder="Nombre *" required>
-                <input type="email" name="Email" placeholder="Email *" required>
-                <input type="tel" name="Teléfono" placeholder="Teléfono *" required>
-                <input type="text" name="Empresa" placeholder="Nombre de tu empresa *" required>
-                <select name="País" required>
-                    <option value="">- País -</option>
-                    <option value="Argentina">Argentina</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="México">México</option>
-                    <option value="Perú">Perú</option>
-                    <option value="Otro">Otro</option>
-                </select>
-                <input type="hidden" name="_next" value="https://mi-curso-online-2025.onrender.com/gracias.html">
-                <input type="hidden" name="_subject" value="¡Nuevo Contacto Empresarial desde tu Web!">
-                <button type="submit">Solicitar una demostración</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        © Mi Curso en Línea. Todos los derechos reservados.
-    </footer>
+  <header>JAOV Cursos</header>
+
+  <div class="container">
+    <h1>Soluciones para Empresas</h1>
+    <p>En <strong>JAOV</strong> ayudamos a las empresas a capacitar a su personal en las áreas más demandadas del mercado. Ofrecemos programas personalizados, certificados oficiales y soporte continuo para garantizar el desarrollo profesional de sus equipos.</p>
+
+    <p>Solicita más información completando el siguiente formulario. Nos pondremos en contacto para diseñar un plan adaptado a tus necesidades.</p>
+
+    <div class="form-section">
+      <form id="empresaForm">
+        <label for="empresa">Nombre de la empresa:</label>
+        <input type="text" name="empresa" id="empresa" required>
+
+        <label for="contacto">Persona de contacto:</label>
+        <input type="text" name="contacto" id="contacto" required>
+
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" name="email" id="correo" required>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea name="message" id="mensaje" rows="4"></textarea>
+
+        <button type="submit">Enviar solicitud</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>© JAOV Cursos. Todos los derechos reservados.</footer>
+
+  <script>
+  document.getElementById("empresaForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    formData.append("access_key", "807051c5-e765-49cd-b83b-d2cf1ed10532"); // Web3Forms Access Key
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    if (response.ok) {
+      alert("Solicitud enviada con éxito. Pronto nos pondremos en contacto.");
+      this.reset();
+    } else {
+      alert("Error al enviar. Intenta nuevamente.");
+    }
+  });
+  </script>
 </body>
 </html>
