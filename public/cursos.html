@@ -1,120 +1,82 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cursos - Mi Curso en Línea</title>
-  <link rel="stylesheet" href="/estilo.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #004aad, #00c6ff);
-      margin: 0;
-      color: #333;
-    }
-    nav {
-      background: #004aad;
-      padding: 12px 20px;
-      display: flex;
-      gap: 15px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #004aad;
-      margin-bottom: 30px;
-    }
-    .cursos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .curso-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .curso-card h2 {
-      color: #004aad;
-      margin-top: 0;
-    }
-    .curso-card p {
-      margin: 10px 0;
-    }
-    .btn {
-      background: #004aad;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #003580;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      background: #002d6b;
-      color: #fff;
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <a href="/indice.html">Inicio</a>
-    <a href="/cursos.html">Cursos</a>
-    <a href="/certificados.html">Certificados</a>
-    <a href="/acerca-de.html">Acerca de</a>
-    <a href="/contactanos.html">Contáctanos</a>
-  </nav>
-
-  <div class="container">
-    <h1>Nuestros Cursos</h1>
-    <p style="text-align:center;">Selecciona un aula para entrar y comenzar tu experiencia de aprendizaje.</p>
-    <div class="cursos">
-      <div class="curso-card">
-        <h2>Redes</h2>
-        <p>Instalación, configuración, routing y seguridad de redes.</p>
-        <p>Duración: 6 semanas</p>
-        <p>Modalidad: Aulas virtuales</p>
-        <a href="/aula/Redes" class="btn">Entrar al aula</a>
-      </div>
-      <div class="curso-card">
-        <h2>Programación</h2>
-        <p>JavaScript, backend, frontend y despliegue de proyectos.</p>
-        <p>Duración: 8 semanas</p>
-        <p>Modalidad: Aulas virtuales</p>
-        <a href="/aula/Programación" class="btn">Entrar al aula</a>
-      </div>
-      <div class="curso-card">
-        <h2>Ciberseguridad</h2>
-        <p>Defensa, pentesting y prácticas seguras en infraestructuras reales.</p>
-        <p>Duración: 6 semanas</p>
-        <p>Modalidad: Aulas virtuales</p>
-        <a href="/aula/Ciberseguridad" class="btn">Entrar al aula</a>
-      </div>
+<section class="programas">
+  <h2 class="section-title">Conoce nuestros programas</h2>
+  <div class="cards-container">
+    <div class="card">
+      <h3>FINANZAS Y CONTABILIDAD</h3>
+      <p>Aprende a gestionar finanzas, contabilidad y análisis financiero profesional.</p>
+    </div>
+    <div class="card">
+      <h3>DISEÑO E IMAGEN</h3>
+      <p>Desarrolla habilidades en diseño gráfico, branding y comunicación visual.</p>
+    </div>
+    <div class="card">
+      <h3>OPERACIONES Y LOGÍSTICA</h3>
+      <p>Optimiza procesos, distribución y gestión logística en empresas modernas.</p>
+    </div>
+    <div class="card">
+      <h3>NEGOCIOS</h3>
+      <p>Aprende emprendimiento, estrategia, marketing y gestión de negocios.</p>
+    </div>
+    <div class="card">
+      <h3>TECNOLOGÍA</h3>
+      <p>Domina herramientas digitales, programación, redes y ciberseguridad.</p>
+    </div>
+    <div class="card">
+      <h3>OFFICE</h3>
+      <p>Perfecciona tu manejo de Excel, Word, PowerPoint y herramientas de oficina.</p>
     </div>
   </div>
+</section>
 
-  <footer>
-    © Mi Curso en Línea. Todos los derechos reservados.
-  </footer>
-</body>
-</html>
+<style>
+  .programas {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .section-title {
+    font-size: 36px;
+    color: #004aad;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .card {
+    background: linear-gradient(135deg, #004aad, #00c6ff);
+    color: #fff;
+    padding: 30px 20px;
+    border-radius: 15px;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+  }
+  .card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  .card p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .cards-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .card {
+      width: 90%;
+    }
+  }
+</style>
