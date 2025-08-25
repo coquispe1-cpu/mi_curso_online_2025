@@ -1,30 +1,37 @@
 {
   "inicio": {
-    "titulo": "Bienvenido a Mi Curso Online",
-    "descripcion": "Aprende de manera práctica y didáctica con nuestros cursos virtuales. Domina nuevas habilidades con soporte de bots y materiales interactivos.",
-    "colorFondo": "#f0f8ff",
-    "colorPrincipal": "#004aad",
-    "colorSecundario": "#00bfff"
+    "titulo": "Bienvenido a Mi Curso Online 2025",
+    "descripcion": "Aprende desde cero con nuestros cursos didácticos, con videos, diapositivas y prácticas.",
+    "colorFondo": "#f5f7fa",
+    "colorPrimario": "#004aad",
+    "colorSecundario": "#00bfff",
+    "banner": "videos/banner-intro.mp4"
   },
   "certificados": {
     "titulo": "Certificados",
-    "descripcion": "Todos los cursos completados generan un certificado digital que puedes descargar o compartir.",
-    "colorFondo": "#e6f2ff",
-    "colorPrincipal": "#004aad",
-    "colorSecundario": "#00bfff"
+    "descripcion": "Al finalizar cada curso, obtén tu certificado digital validado y listo para descargar.",
+    "colorFondo": "#e0f0ff",
+    "colorPrimario": "#004aad",
+    "colorSecundario": "#00bfff",
+    "icono": "images/certificado.png"
   },
-  "acerca_de": {
+  "acercaDe": {
     "titulo": "Acerca de Nosotros",
-    "descripcion": "Somos un equipo dedicado a la educación virtual, ofreciendo cursos de calidad con metodologías modernas y soporte automatizado.",
+    "descripcion": "Somos una plataforma educativa dedicada a la formación online profesional, con metodologías modernas y prácticas.",
     "colorFondo": "#f0f8ff",
-    "colorPrincipal": "#004aad",
-    "colorSecundario": "#00bfff"
+    "colorPrimario": "#004aad",
+    "colorSecundario": "#00bfff",
+    "imagen": "images/equipo.png"
   },
   "contactanos": {
     "titulo": "Contáctanos",
-    "descripcion": "Si tienes dudas, sugerencias o quieres más información, envíanos un mensaje y nuestro equipo te responderá.",
+    "descripcion": "Escríbenos y responderemos tus dudas sobre nuestros cursos, horarios y certificados.",
     "colorFondo": "#e6f2ff",
-    "colorPrincipal": "#004aad",
-    "colorSecundario": "#00bfff"
+    "colorPrimario": "#004aad",
+    "colorSecundario": "#00bfff",
+    "formulario": {
+      "campos": ["Nombre Completo", "Correo", "Teléfono", "Mensaje"],
+      "boton": "Enviar"
+    }
   }
 }
