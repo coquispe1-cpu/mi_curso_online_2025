@@ -5,6 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Curso en Línea</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .hero {
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .hero h1 {
+            color: #007bff;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            color: #555;
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .intro-section, .features-section {
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .intro-section h2, .features-section h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card h3 {
+            color: #007bff;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -24,69 +73,36 @@
             <a href="acceder.html">Acceder</a>
             <a href="crear-cuenta.html">Crear una Cuenta</a>
         </div>
-        <a href="https://wa.me/tunumerodetelefono" class="whatsapp-btn">
+        <a href="https://wa.me/51921717515" class="whatsapp-btn">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
             <span class="btn-text">WhatsApp</span>
         </a>
     </nav>
     <main class="container">
         <section class="hero">
-            <h1>¡Domina el futuro!</h1>
-            <p>Aprende las habilidades más demandadas en innovación y automatización con nuestros cursos únicos.</p>
-            <a href="cursos.html" class="cta-button">Ver todos los cursos</a>
+            <h1>Bienvenido a la Escuela de Cursos en Línea</h1>
+            <p>Descubre el conocimiento y expande tus habilidades con nuestros cursos de alta calidad.</p>
         </section>
 
-        <section class="presentacion-section">
-            <div class="presentacion-content">
-                <div class="presentacion-imagen">
-                    <img src="90B05F95-8AF4-4A66-B1C1-208CD9D0E3B8.jpg" alt="Personas mostrando su certificado">
-                </div>
-                <div class="presentacion-texto">
-                    <h2>Capacitación 100% Virtual</h2>
-                    <p class="subtitle">Estudia con más de 4.000 cursos. Opción de certificado oficial, por un precio ajustado a tu país.</p>
-                    <ul class="lista-beneficios">
-                        <li>Estudia online desde cualquier lugar del mundo</li>
-                        <li>Aprende de profesores expertos en su área</li>
-                        <li>Certifica tu aprendizaje a nivel internacional</li>
-                    </ul>
-                    <a href="crear-cuenta.html" class="cta-button">Crear cuenta gratis</a>
-                    <p class="small-text">Acceso gratis por siempre, sin límites de tiempo.</p>
-                </div>
-            </div>
+        <section class="intro-section">
+            <h2>¿Qué aprenderás?</h2>
+            <p>Con nuestros cursos, podrás dominar nuevas herramientas, desarrollar tu creatividad y avanzar en tu carrera profesional. Te ofrecemos clases de diversas áreas, con instructores expertos y un método de aprendizaje flexible.</p>
         </section>
 
-        <section class="most-popular-section">
-            <h2>Nuestros Cursos Más Adquiridos</h2>
-            <div class="course-card-list">
-                <div class="course-details">
-                    <span class="course-promo">¡2x1 por S/. 150!</span>
-                    <img src="https://via.placeholder.com/400x250.png?text=Fundamentos+de+Programación" alt="Imagen del curso">
-                    <h3>Fundamentos de Programación</h3>
-                    <p class="instructor">Instructor: JAVO</p>
-                    <p class="price">S/. 115</p>
-                    <p class="description">Aprende los conceptos básicos y la lógica detrás de la programación para empezar tu carrera.</p>
-                    <a href="crear-cuenta.html" class="btn-info">Registrarse</a>
-                    <a href="pagos.html" class="btn-matricula">Pagar</a>
+        <section class="features-section">
+            <h2>Nuestras Ventajas</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Acceso 24/7</h3>
+                    <p>Aprende a tu propio ritmo, desde cualquier lugar y en cualquier momento.</p>
                 </div>
-                <div class="course-details">
-                    <span class="course-promo">¡2x1 por S/. 150!</span>
-                    <img src="https://via.placeholder.com/400x250.png?text=Desarrollo+Web" alt="Imagen del curso">
-                    <h3>Desarrollo Web</h3>
-                    <p class="instructor">Instructor: JAVO</p>
-                    <p class="price">S/. 115</p>
-                    <p class="description">Crea sitios web modernos y funcionales desde cero.</p>
-                    <a href="crear-cuenta.html" class="btn-info">Registrarse</a>
-                    <a href="pagos.html" class="btn-matricula">Pagar</a>
+                <div class="feature-card">
+                    <h3>Instructores Expertos</h3>
+                    <p>Clases impartidas por profesionales con experiencia en cada campo.</p>
                 </div>
-                <div class="course-details">
-                    <span class="course-promo">¡2x1 por S/. 150!</span>
-                    <img src="https://via.placeholder.com/400x250.png?text=Inteligencia+Artificial" alt="Imagen del curso">
-                    <h3>Inteligencia Artificial</h3>
-                    <p class="instructor">Instructor: JAVO</p>
-                    <p class="price">S/. 115</p>
-                    <p class="description">Conoce los fundamentos de la IA y cómo se aplica en la vida real.</p>
-                    <a href="crear-cuenta.html" class="btn-info">Registrarse</a>
-                    <a href="pagos.html" class="btn-matricula">Pagar</a>
+                <div class="feature-card">
+                    <h3>Contenido Actualizado</h3>
+                    <p>Accede a los últimos conocimientos y tendencias de la industria.</p>
                 </div>
             </div>
         </section>
