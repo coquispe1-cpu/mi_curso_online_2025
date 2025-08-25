@@ -1,180 +1,178 @@
-/* =========================
-   Reset y configuración básica
-========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Importar la fuente 'Inter' de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* Definición de colores base */
+:root {
+    --color-principal: #004aad;
+    --color-secundario: #00bfff;
+    --color-fondo: #f0f8ff;
+    --color-texto-claro: #ffffff;
+    --color-texto-oscuro: #374151;
+    --color-gris-claro: #f3f4f6;
+    --color-gris-oscuro: #111827;
 }
+
+/* Estilos de la página */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-oscuro);
 }
 
-/* =========================
-   Header y navegación
-========================= */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
-    position: fixed;
+/* Clases de utilidad para colores y fondo */
+.primary-text {
+    color: var(--color-principal);
+}
+
+.secondary-text {
+    color: var(--color-secundario);
+}
+
+.bg-primary {
+    background-color: var(--color-principal);
+}
+
+.bg-secondary {
+    background-color: var(--color-secundario);
+}
+
+.bg-dark {
+    background-color: var(--color-gris-oscuro);
+}
+
+.text-white {
+    color: var(--color-texto-claro);
+}
+
+/* Estilos para el menú de navegación activo */
+.active-nav {
+    color: var(--color-secundario);
+    font-weight: 700;
+}
+
+/* Estilos generales para el diseño */
+.container {
     width: 100%;
-    top: 0;
-    z-index: 100;
-}
-header h1 {
-    font-size: 24px;
-}
-nav a {
-    margin-left: 20px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-}
-nav a:hover {
-    color: #00c6ff;
-}
-
-/* =========================
-   Main
-========================= */
-main {
-    padding: 100px 20px 40px 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* =========================
-   Lemas y bienvenida (index.html)
-========================= */
-.lemas {
-    text-align: center;
-    margin-bottom: 60px;
-}
-.lemas h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
-    color: #00c6ff;
-}
-.lemas p {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #ddd;
-}
-
-/* =========================
-   Cursos (cursos.html)
-========================= */
-.cursos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-.curso {
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.curso:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,198,255,0.6);
-}
-.curso h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #00c6ff;
-}
-.curso p {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #ccc;
-}
-.curso button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    background: #00c6ff;
-    color: #000;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.curso button:hover {
-    background: #00a1d6;
-    color: #fff;
-}
-
-/* =========================
-   Bot o chat (aula.html)
-========================= */
-.bot-window {
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    padding: 20px;
-    max-width: 600px;
-    margin: 20px auto;
-}
-.bot-window .messages {
-    height: 200px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-}
-.msg {
-    padding: 8px 12px;
-    margin-bottom: 6px;
-    border-radius: 8px;
-    max-width: 80%;
-}
-.msg.user {
-    background: #00c6ff;
-    color: #000;
     margin-left: auto;
-    text-align: right;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
-.msg.bot {
-    background: rgba(255,255,255,0.2);
-}
-.bot-input {
+
+/* Flexbox utilities */
+.flex {
     display: flex;
 }
-.bot-input input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    margin-right: 10px;
+.flex-col {
+    flex-direction: column;
 }
-.bot-input button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    background: #00c6ff;
-    cursor: pointer;
+.items-center {
+    align-items: center;
 }
-.bot-input button:hover {
-    background: #00a1d6;
-    color: #fff;
+.justify-center {
+    justify-content: center;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.space-x-8 > * + * {
+    margin-left: 2rem;
+}
+.space-y-4 > * + * {
+    margin-top: 1rem;
 }
 
-/* =========================
-   Footer
-========================= */
-footer {
+/* Typography utilities */
+.text-center {
     text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.3);
-    margin-top: 40px;
-    font-size: 14px;
-    color: #ccc;
+}
+.text-4xl {
+    font-size: 2.25rem;
+}
+.font-bold {
+    font-weight: 700;
+}
+.font-extrabold {
+    font-weight: 800;
+}
+
+/* Spacing utilities */
+.py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.mb-4 {
+    margin-bottom: 1rem;
+}
+.mt-8 {
+    margin-top: 2rem;
+}
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Componentes */
+.rounded-full {
+    border-radius: 9999px;
+}
+.rounded-xl {
+    border-radius: 0.75rem;
+}
+.rounded-2xl {
+    border-radius: 1rem;
+}
+.shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+.hover\:secondary-text:hover {
+    color: var(--color-secundario);
+}
+.hover\:bg-blue-600:hover {
+    background-color: #2563eb;
+}
+.hidden {
+    display: none;
+}
+.block {
+    display: block;
+}
+
+/* Media queries para responsividad */
+@media (min-width: 768px) {
+    .md\:flex {
+        display: flex;
+    }
+    .md\:space-x-8 > * + * {
+        margin-left: 2rem;
+    }
+    .md\:hidden {
+        display: none;
+    }
+    .md\:text-5xl {
+        font-size: 3rem;
+        line-height: 1;
+    }
+}
+@media (max-width: 767px) {
+    .md\:hidden {
+        display: block;
+    }
 }
