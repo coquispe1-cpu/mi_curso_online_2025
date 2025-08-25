@@ -1,61 +1,51 @@
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json());
 
-// Archivos de datos
-const USERS_FILE = path.join(__dirname, 'users.json');
-const ASISTENCIA_FILE = path.join(__dirname, 'asistencia.json');
-const PAGOS_FILE = path.join(__dirname, 'pagos.json');
-const CURSOS_FILE = path.join(__dirname, 'cursos.json');
+// Aula virtual placeholder
+app.get('/aula/:curso', (req, res) => {
+  const curso = req.params.curso;
+  res.send(`
+    <!doctype html><html lang="es"><head>
+      <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Aula - ${curso}</title><link rel="stylesheet" href="/estilo.css">
+    </head><body>
+      <nav style="position:fixed;top:12px;left:12px;right:12px;"><a href="/cursos.html" style="color:#fff">← Volver</a></nav>
+      <div style="max-width:1100px;margin:96px auto;padding:20px">
+        <h1 style="color:var(--accent)">Aula: ${curso}</h1>
+        <p style="color:var(--muted)">Bot instructor activo. Escribe tu pregunta abajo para comenzar.</p>
 
-// Crear archivos si no existen
-if (!fs.existsSync(USERS_FILE)) fs.writeFileSync(USERS_FILE, JSON.stringify([]));
-if (!fs.existsSync(ASISTENCIA_FILE)) fs.writeFileSync(ASISTENCIA_FILE, JSON.stringify([]));
-if (!fs.existsSync(PAGOS_FILE)) fs.writeFileSync(PAGOS_FILE, JSON.stringify([]));
-if (!fs.existsSync(CURSOS_FILE)) fs.writeFileSync(CURSOS_FILE, JSON.stringify([]));
+        <div class="bot-window">
+          <div class="messages" id="messages">
+            <div class="msg bot">Hola, soy tu asistente. ¿En qué puedo ayudarte hoy?</div>
+          </div>
+          <div class="bot-input">
+            <input id="botInput" placeholder="Escribe tu pregunta..."/>
+            <button class="btn" id="sendBtn">Enviar</button>
+          </div>
+          <div class="note small">Esta es una simulación de aula con un bot. En producción conectaremos la IA real.</div>
+        </div>
+      </div>
 
-// Cargar el bot administrador
-require('./adminBot');
-
-// Registro de usuario
-app.post('/api/registro', (req, res) => {
-    const { nombre, correo } = req.body;
-    if (!nombre || !correo) return res.status(400).json({ error: 'Nombre y correo obligatorios' });
-    const usuarios = JSON.parse(fs.readFileSync(USERS_FILE));
-    usuarios.push({ nombre, correo, fecha: new Date() });
-    fs.writeFileSync(USERS_FILE, JSON.stringify(usuarios, null, 2));
-    res.json({ message: 'Usuario registrado correctamente' });
+      <script>
+        const messages = document.getElementById('messages');
+        document.getElementById('sendBtn').addEventListener('click', async () => {
+          const input = document.getElementById('botInput');
+          const text = input.value.trim();
+          if(!text) return;
+          const u = document.createElement('div'); u.className='msg user'; u.innerText = text; messages.appendChild(u);
+          input.value='';
+          // respuesta simulada (en producción conectar con backend/IA)
+          const b = document.createElement('div'); b.className='msg bot'; b.innerText = 'Procesando...';
+          messages.appendChild(b);
+          setTimeout(()=>{ b.innerText = 'Respuesta del bot: excelente pregunta — en breve lo explico.'; messages.scrollTop = messages.scrollHeight; }, 900);
+        });
+      </script>
+    </body></html>
+  `);
 });
 
-// Control de asistencia
-app.post('/api/asistencia', (req, res) => {
-    const { correo } = req.body;
-    if (!correo) return res.status(400).json({ error: 'Correo obligatorio' });
-    let asistencia = JSON.parse(fs.readFileSync(ASISTENCIA_FILE));
-    asistencia.push({ correo, fecha: new Date() });
-    fs.writeFileSync(ASISTENCIA_FILE, JSON.stringify(asistencia, null, 2));
-    res.json({ message: 'Asistencia registrada correctamente' });
-});
-
-// Pagos
-app.post('/api/pagos', (req, res) => {
-    const { correo, metodo } = req.body;
-    if (!correo || !metodo) return res.status(400).json({ error: 'Correo y método obligatorios' });
-    let pagos = JSON.parse(fs.readFileSync(PAGOS_FILE));
-    pagos.push({ correo, metodo, fecha: new Date() });
-    fs.writeFileSync(PAGOS_FILE, JSON.stringify(pagos, null, 2));
-    res.json({ message: `Pago registrado con éxito (${metodo})` });
-});
-
-// API para obtener la lista de cursos
-app.get('/api/cursos', (req, res) => {
-    const cursos = JSON.parse(fs.readFileSync(CURSOS_FILE));
-    res.json(cursos);
-});
-
-app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+app.listen(PORT, ()=> console.log('Servidor iniciado en puerto', PORT));
