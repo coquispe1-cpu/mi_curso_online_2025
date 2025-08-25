@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 10000;
 // Carpeta pública
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Ruta de aulas virtuales (placeholder)
+// Aula virtual (placeholder)
 app.get('/aula/:curso', (req, res) => {
   const curso = req.params.curso;
   res.send(`
@@ -16,13 +16,13 @@ app.get('/aula/:curso', (req, res) => {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Aula - ${curso}</title>
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/estilo.css">
       </head>
       <body>
         <nav><a href="/cursos.html">← Volver a Cursos</a></nav>
         <div class="aula-container">
           <h1>Aula: ${curso}</h1>
-          <p>Esta es una simulación de aula virtual.</p>
+          <p>Simulación de aula virtual. Próximamente IA real.</p>
         </div>
       </body>
     </html>
