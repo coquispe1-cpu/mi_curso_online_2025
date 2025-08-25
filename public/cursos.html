@@ -1,121 +1,112 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Curso en Línea - Cursos</title>
-<link rel="stylesheet" href="estilo.css">
-<style>
-body {
-    font-family: 'Arial', sans-serif;
-    background: #0e0e0e;
-    color: #f0f0f0;
-    margin: 0;
-}
-header {
-    background: #111;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-header h1 { color: #fff; margin:0; }
-header nav a {
-    color: #fff;
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-.cursos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-    gap: 20px;
-    padding: 40px;
-}
-.curso {
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.curso:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(255,255,255,0.2);
-}
-.curso h3 { margin-top:0; }
-.curso p { margin:5px 0; }
-button {
-    background: linear-gradient(45deg,#ff6ec4,#7873f5);
-    color:#fff;
-    border:none;
-    padding:10px 15px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(255,255,255,0.3);
-}
-footer {
-    text-align:center;
-    padding:20px;
-    background:#111;
-}
-</style>
-</head>
-<body>
+<!-- Curso 1 -->
+<div class="curso" style="background: linear-gradient(135deg, #ffb347, #ffcc33); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Especialista en Preparación de Superficies y Aplicación de Recubrimientos</h3>
+  <p>Curso dividido en 2 etapas para dominar la preparación de superficies y la correcta aplicación de recubrimientos industriales.</p>
+  <ul style="list-style-type: none; padding-left: 0;">
+    <li style="margin-bottom: 10px;"><strong>Etapa 1:</strong> Especialista en Preparación de Superficies</li>
+    <li style="margin-bottom: 10px;"><strong>Etapa 2:</strong> Especialista en Aplicación de Recubrimientos</li>
+  </ul>
+  <p>Duración total: 10 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;"
+          onclick="location.href='registro.html'">Registrarme</button>
+</div>
 
-<header>
-    <h1>Mi Curso en Línea</h1>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="cursos.html">Cursos</a>
-        <a href="certificados.html">Certificados</a>
-        <a href="acerca-de.html">Acerca de</a>
-        <a href="contactanos.html">Contáctanos</a>
-    </nav>
-</header>
+<!-- Curso 2 -->
+<div class="curso" style="background: linear-gradient(135deg, #6a11cb, #2575fc); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Redes: Infraestructura y Seguridad</h3>
+  <p>Aprende a instalar, configurar y proteger redes empresariales.</p>
+  <p>Duración: 6 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
 
-<main>
-    <h2 style="text-align:center; margin-bottom:40px;">Nuestros Cursos</h2>
+<!-- Curso 3 -->
+<div class="curso" style="background: linear-gradient(135deg, #f7971e, #ffd200); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Programación Full Stack</h3>
+  <p>JavaScript, backend y frontend con proyectos reales.</p>
+  <p>Duración: 8 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
 
-    <div class="cursos">
+<!-- Curso 4 -->
+<div class="curso" style="background: linear-gradient(135deg, #00c6ff, #0072ff); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Ciberseguridad y Pentesting</h3>
+  <p>Defensa, ataques éticos y buenas prácticas en infraestructuras reales.</p>
+  <p>Duración: 6 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
 
-        <!-- Generamos 50 cursos -->
-        <script>
-            const cursos = [];
-            for(let i=1;i<=50;i++){
-                cursos.push({
-                    nombre: `Curso ${i}`,
-                    descripcion: `Descripción detallada del curso ${i}. Aprende habilidades prácticas y útiles.`,
-                    duracion: `${Math.floor(Math.random()*8)+3} semanas`,
-                    modalidad: 'Virtual',
-                    color: `hsl(${i*7},70%,30%)`
-                });
-            }
+<!-- Curso 5 -->
+<div class="curso" style="background: linear-gradient(135deg, #ff5f6d, #ffc371); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Finanzas y Contabilidad</h3>
+  <p>Domina contabilidad, análisis financiero y gestión empresarial.</p>
+  <p>Duración: 5 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
 
-            const cont = document.querySelector('.cursos');
-            cursos.forEach(c=>{
-                const div = document.createElement('div');
-                div.className='curso';
-                div.style.background=c.color;
-                div.innerHTML = `<h3>${c.nombre}</h3>
-                <p>${c.descripcion}</p>
-                <p>Duración: ${c.duracion}</p>
-                <p>Modalidad: ${c.modalidad}</p>
-                <button onclick="location.href='registro.html'">Registrarme</button>`;
-                cont.appendChild(div);
-            });
-        </script>
+<!-- Curso 6 -->
+<div class="curso" style="background: linear-gradient(135deg, #11998e, #38ef7d); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Diseño Gráfico y Creatividad</h3>
+  <p>Aprende diseño, branding, UX/UI y herramientas creativas.</p>
+  <p>Duración: 6 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
 
-    </div>
-</main>
+<!-- Curso 7 -->
+<div class="curso" style="background: linear-gradient(135deg, #f7971e, #ffd200); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Marketing Digital</h3>
+  <p>Estrategias online, redes sociales y SEO.</p>
+  <p>Duración: 4 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
 
-<footer>
-    © Mi Curso en Línea. Todos los derechos reservados.
-</footer>
+<!-- Curso 8 -->
+<div class="curso" style="background: linear-gradient(135deg, #fc4a1a, #f7b733); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Office y Productividad</h3>
+  <p>Word, Excel, PowerPoint y herramientas colaborativas.</p>
+  <p>Duración: 3 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
 
-</body>
-</html>
+<!-- Curso 9 -->
+<div class="curso" style="background: linear-gradient(135deg, #43cea2, #185a9d); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Administración de Empresas</h3>
+  <p>Gestión, liderazgo y optimización de recursos.</p>
+  <p>Duración: 6 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
+
+<!-- Curso 10 -->
+<div class="curso" style="background: linear-gradient(135deg, #fc5c7d, #6a82fb); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Logística y Operaciones</h3>
+  <p>Planificación, transporte y gestión de almacenes.</p>
+  <p>Duración: 5 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
+
+<!-- Curso 11 -->
+<div class="curso" style="background: linear-gradient(135deg, #ff416c, #ff4b2b); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Big Data y Analítica</h3>
+  <p>Procesamiento de datos y toma de decisiones basada en información.</p>
+  <p>Duración: 8 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</div>
+
+<!-- Curso 12 -->
+<div class="curso" style="background: linear-gradient(135deg, #11998e, #38ef7d); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+  <h3>Inteligencia Artificial Básica</h3>
+  <p>Introducción a IA, machine learning y redes neuronales.</p>
+  <p>Duración: 6 semanas</p>
+  <p>Modalidad: Virtual</p>
+  <button onclick="location.href='registro.html'" style="background-color:#004aad; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer;">Registrarme</button>
+</
