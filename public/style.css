@@ -1,178 +1,32 @@
-/* Importar la fuente 'Inter' de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-
-/* Definición de colores base */
-:root {
-    --color-principal: #004aad;
-    --color-secundario: #00bfff;
-    --color-fondo: #f0f8ff;
-    --color-texto-claro: #ffffff;
-    --color-texto-oscuro: #374151;
-    --color-gris-claro: #f3f4f6;
-    --color-gris-oscuro: #111827;
-}
-
-/* Estilos de la página */
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    background-color: var(--color-fondo);
-    color: var(--color-texto-oscuro);
-}
-
-/* Clases de utilidad para colores y fondo */
-.primary-text {
-    color: var(--color-principal);
-}
-
-.secondary-text {
-    color: var(--color-secundario);
-}
-
-.bg-primary {
-    background-color: var(--color-principal);
-}
-
-.bg-secondary {
-    background-color: var(--color-secundario);
-}
-
-.bg-dark {
-    background-color: var(--color-gris-oscuro);
-}
-
-.text-white {
-    color: var(--color-texto-claro);
-}
-
-/* Estilos para el menú de navegación activo */
-.active-nav {
-    color: var(--color-secundario);
-    font-weight: 700;
-}
-
-/* Estilos generales para el diseño */
-.container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
-/* Flexbox utilities */
-.flex {
+nav {
     display: flex;
-}
-.flex-col {
-    flex-direction: column;
-}
-.items-center {
-    align-items: center;
-}
-.justify-center {
-    justify-content: center;
-}
-.justify-between {
     justify-content: space-between;
-}
-.space-x-8 > * + * {
-    margin-left: 2rem;
-}
-.space-y-4 > * + * {
-    margin-top: 1rem;
+    align-items: center;
+    background-color: #004aad; /* azul */
+    padding: 10px 20px;
+    flex-wrap: wrap;
 }
 
-/* Typography utilities */
-.text-center {
-    text-align: center;
-}
-.text-4xl {
-    font-size: 2.25rem;
-}
-.font-bold {
-    font-weight: 700;
-}
-.font-extrabold {
-    font-weight: 800;
+nav .logo img {
+    height: 50px;
 }
 
-/* Spacing utilities */
-.py-12 {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-.py-16 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
-.px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-.mb-4 {
-    margin-bottom: 1rem;
-}
-.mt-8 {
-    margin-top: 2rem;
-}
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
+nav .nav-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-/* Componentes */
-.rounded-full {
-    border-radius: 9999px;
-}
-.rounded-xl {
-    border-radius: 0.75rem;
-}
-.rounded-2xl {
-    border-radius: 1rem;
-}
-.shadow-md {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-.shadow-xl {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-.transition-colors {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
-}
-.hover\:secondary-text:hover {
-    color: var(--color-secundario);
-}
-.hover\:bg-blue-600:hover {
-    background-color: #2563eb;
-}
-.hidden {
-    display: none;
-}
-.block {
-    display: block;
+nav .nav-links a {
+    color: #00ffff; /* celeste */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-/* Media queries para responsividad */
-@media (min-width: 768px) {
-    .md\:flex {
-        display: flex;
-    }
-    .md\:space-x-8 > * + * {
-        margin-left: 2rem;
-    }
-    .md\:hidden {
-        display: none;
-    }
-    .md\:text-5xl {
-        font-size: 3rem;
-        line-height: 1;
-    }
-}
-@media (max-width: 767px) {
-    .md\:hidden {
-        display: block;
-    }
+nav .nav-links a:hover {
+    background-color: #0066ff; /* azul más fuerte */
+    color: #e0ffff; /* celeste claro */
 }
