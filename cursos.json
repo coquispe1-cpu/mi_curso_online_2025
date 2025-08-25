@@ -1,52 +1,39 @@
-[
-  {
-    "id": "curso-001",
-    "titulo": "Especialista en Preparación de Superficies y Aplicación de Recubrimientos",
-    "descripcion": "Aprende técnicas profesionales de preparación de superficies y aplicación de recubrimientos industriales.",
-    "videos": [
-      "videos/curso-especialista-recubrimientos/curso-especialista-recubrimientos.mp4"
-    ],
-    "duracion": "10 semanas",
-    "modalidad": "Virtual"
+{
+  "inicio": {
+    "titulo": "Bienvenido a Mi Curso Online 2025",
+    "descripcion": "Tu plataforma de formación profesional con cursos virtuales, certificados y seguimiento automatizado.",
+    "destacado": "Explora nuestros cursos y aprende a tu ritmo.",
+    "colorFondo": "#004aad", 
+    "colorTexto": "#00ffff"
   },
-  {
-    "id": "curso-002",
-    "titulo": "Desarrollo Web Frontend",
-    "descripcion": "Curso completo de HTML, CSS y JavaScript para crear sitios web modernos.",
-    "videos": [
-      "videos/desarrollo-web/desarrollo-web.mp4"
+  "certificados": {
+    "titulo": "Certificados de Finalización",
+    "descripcion": "Todos nuestros cursos cuentan con un certificado digital verificable al completar la formación.",
+    "instrucciones": [
+      "Completa todas las lecciones del curso.",
+      "Aprueba las evaluaciones finales.",
+      "Descarga tu certificado desde la sección de 'Mis cursos'."
     ],
-    "duracion": "8 semanas",
-    "modalidad": "Virtual"
+    "colorFondo": "#004aad",
+    "colorTexto": "#00ffff"
   },
-  {
-    "id": "curso-003",
-    "titulo": "Computación en la Nube",
-    "descripcion": "Aprende sobre servicios en la nube, despliegue y administración de servidores virtuales.",
-    "videos": [
-      "videos/cloud-computing/cloud-computing.mp4"
-    ],
-    "duracion": "6 semanas",
-    "modalidad": "Virtual"
+  "acercaDe": {
+    "titulo": "Sobre Nosotros",
+    "descripcion": "Mi Curso Online 2025 es una plataforma educativa enfocada en cursos prácticos y actualizados, diseñados para profesionales y estudiantes.",
+    "mision": "Proporcionar educación accesible y de calidad para todos.",
+    "vision": "Ser líderes en formación online en Latinoamérica.",
+    "colorFondo": "#004aad",
+    "colorTexto": "#00ffff"
   },
-  {
-    "id": "curso-004",
-    "titulo": "Seguridad en Redes Wi-Fi",
-    "descripcion": "Domina técnicas de seguridad, vulnerabilidades y protección de redes inalámbricas.",
-    "videos": [
-      "videos/seguridad-wifi/seguridad-wifi.mp4"
-    ],
-    "duracion": "4 semanas",
-    "modalidad": "Virtual"
-  },
-  {
-    "id": "curso-005",
-    "titulo": "Administración de Empresas",
-    "descripcion": "Conoce los fundamentos de la gestión empresarial, finanzas y liderazgo.",
-    "videos": [
-      "videos/administracion-empresas/administracion-empresas.mp4"
-    ],
-    "duracion": "8 semanas",
-    "modalidad": "Virtual"
+  "contactanos": {
+    "titulo": "Contáctanos",
+    "descripcion": "Si tienes dudas o necesitas soporte, escríbenos y te responderemos a la brevedad.",
+    "formularios": {
+      "email": "coquispe1-cpu@gmail.com",
+      "telefono": "+51 987 654 321",
+      "mensaje": "Escribe tu consulta aquí..."
+    },
+    "colorFondo": "#004aad",
+    "colorTexto": "#00ffff"
   }
-]
+}
