@@ -1,63 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Certificados - JAOV</title>
-  <link rel="stylesheet" href="estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificados</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cert-section {
+            padding: 40px;
+            text-align: center;
+        }
+        .cert-section h1 {
+            color: #007bff;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .cert-section p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <div class="brand">
-      <div class="logo">JAOV</div>
-      <div style="color:#dff9ff;font-weight:700;margin-left:8px">JAOV Cursos</div>
-    </div>
-    <div class="links">
-      <a href="index.html">Inicio</a>
-      <a href="cursos.html">Cursos</a>
-      <a href="certificados.html">Certificados</a>
-      <a href="acerca-de.html">Acerca de</a>
-      <a href="contactanos.html">Contáctanos</a>
-    </div>
-  </nav>
-
-  <div class="container" style="margin-top:96px">
-    <h1 style="color:var(--accent)">Certificados Verificables</h1>
-    <p class="small">Introduce el correo con el que te registraste para ver/solicitar tu certificado.</p>
-
-    <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px">
-      <main class="form-panel">
-        <label for="emailCert">Correo registrado</label>
-        <input id="emailCert" type="email" placeholder="tu@correo.com">
-        <button class="btn" id="btnCheck">Verificar</button>
-
-        <div id="resultado" class="small" style="margin-top:12px"></div>
-      </main>
-
-      <aside class="form-panel">
-        <h3 style="color:var(--accent)">Información</h3>
-        <p class="small">Si tu registro aparece verificado, podrás solicitar el certificado oficial. Un correo de confirmación se enviará al finalizar el proceso.</p>
-        <p class="small">¿No te registraste? Vuelve a <a href="registro.html">registrarte aquí</a>.</p>
-      </aside>
-    </div>
-
-    <footer class="site-footer">
-      © JAOV Cursos. Todos los derechos reservados.
+    <header>
+        Mi Curso en Línea
+    </header>
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="https://via.placeholder.com/150x50.png?text=JAVO+Logo" alt="Logo de JAVO">
+        </a>
+        <div class="nav-links">
+            <a href="cursos.html">Cursos</a>
+            <a href="contactanos.html">Contáctanos</a>
+            <a href="acerca-de.html">Nosotros</a>
+            <a href="certificados.html">Certificados</a>
+            <a href="que-aprender.html">¿Qué quieres aprender?</a>
+            <a href="servicios.html">Nuestros Servicios</a>
+            <a href="acceder.html">Acceder</a>
+            <a href="crear-cuenta.html">Crear una Cuenta</a>
+        </div>
+        <a href="https://wa.me/51921717515" class="whatsapp-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+            <span class="btn-text">WhatsApp</span>
+        </a>
+    </nav>
+    <main class="container">
+        <section class="cert-section">
+            <h1>Nuestros Certificados</h1>
+            <p>
+                [Aquí puedes describir la importancia de tus certificados, cómo se obtienen, la calidad que garantizan, etc. También puedes añadir imágenes de certificados de muestra.]
+            </p>
+        </section>
+    </main>
+    <footer>
+        © Mi Curso en Línea. Todos los derechos reservados.
     </footer>
-  </div>
-
-  <script>
-  // prefill email from registro
-  const params = new URLSearchParams(window.location.search);
-  const e = params.get('email');
-  if(e) document.getElementById('emailCert').value = e;
-
-  document.getElementById('btnCheck').addEventListener('click', function(){
-    const email = document.getElementById('emailCert').value.trim();
-    if(!email){ alert('Ingresa tu correo.'); return; }
-    // placeholder verification (en el futuro lo conectaremos con tu servidor o DB)
-    document.getElementById('resultado').innerText = '✅ Registro verificado para ' + email + '. Puedes solicitar tu certificado. Te enviaremos un correo con instrucciones.';
-    // aquí podrías mostrar botón para "Solicitar certificado" que envíe un email o genere PDF
-  });
-  </script>
 </body>
 </html>
