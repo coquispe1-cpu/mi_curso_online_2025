@@ -1,46 +1,82 @@
-<!-- ======= Sección: Acerca de Nosotros (JAOV Cursos) ======= -->
-<section id="about" style="padding:60px 20px; background: #f8fbff;">
-  <div style="max-width:1100px; margin:0 auto; display:flex; gap:30px; align-items:center; flex-wrap:wrap;">
-    
-    <!-- Imagen / Logo -->
-    <div style="flex:1 1 320px; min-width:260px; display:flex; justify-content:center;">
-      <!-- Reemplaza src por la ruta de tu logo o imagen -->
-      <img src="/assets/logo-jaov.png" alt="JAOV Cursos" style="max-width:320px; width:100%; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.12);" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JAOV Cursos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <nav>
+    <div class="brand">
+      <div class="logo">JAOV</div>
+      <div style="color:#dff9ff;font-weight:700;margin-left:8px">JAOV Cursos</div>
     </div>
-
-    <!-- Texto -->
-    <div style="flex:1 1 420px; min-width:280px;">
-      <h2 style="margin:0 0 12px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; font-size:28px; color:#003a8c;">
-        Acerca de <strong>JAOV Cursos</strong>
-      </h2>
-
-      <p style="margin:0 0 16px; color:#233; line-height:1.6; font-size:16px;">
-        En <strong>JAOV Cursos</strong> nos apasiona transformar vidas a través del conocimiento. Nuestra misión es ofrecer
-        formación práctica, actualizada y accesible en áreas clave como <em>Redes, Programación</em> y <em>Ciberseguridad</em>,
-        para que cada estudiante pueda alcanzar sus objetivos profesionales.
-      </p>
-
-      <p style="margin:0 0 20px; color:#233; line-height:1.6; font-size:16px;">
-        Contamos con instructores con experiencia real en la industria y metodologías orientadas a resultados. Nos diferenciamos
-        por nuestro acompañamiento personalizado y por actualizar constantemente los contenidos para que siempre estén alineados
-        con las necesidades del mercado laboral.
-      </p>
-
-      <ul style="padding-left:20px; margin:0 0 18px; color:#233; line-height:1.6;">
-        <li><strong>Clases prácticas</strong> con ejercicios reales.</li>
-        <li><strong>Soporte y seguimiento</strong> durante todo el curso.</li>
-        <li><strong>Material actualizado</strong> y casos de estudio del mundo real.</li>
-      </ul>
-
-      <a href="/registro.html" style="display:inline-block; background:#004aad; color:white; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:600;">
-        Inscríbete ahora
-      </a>
+    <div class="links">
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="certificados.html">Certificados</a>
+      <a href="acerca-de.html">Acerca de</a>
+      <a href="contactanos.html">Contáctanos</a>
     </div>
-  </div>
+  </nav>
 
-  <!-- Footer corto -->
-  <div style="max-width:1100px; margin:28px auto 0; text-align:center; color:#6b7280; font-size:14px;">
-    © JAOV Cursos. Todos los derechos reservados.
+  <section class="hero">
+    <div class="hero-card container">
+      <div class="hero-left">
+        <h1 class="h-title">Aprende con bots. Aulas virtuales. Certificados reales.</h1>
+        <p class="h-sub">Formación práctica en Redes, Programación y Ciberseguridad, impartida por asistentes/bots instructores. Accede a aulas virtuales, proyectos y certificaciones verificables.</p>
+        <div>
+          <button class="btn" onclick="location.href='cursos.html'">Explorar Cursos</button>
+          <button class="btn alt" onclick="location.href='certificados.html'" style="margin-left:12px">Solicitar Certificado</button>
+        </div>
+        <p class="note" style="margin-top:12px">Aulas virtuales basadas en asistentes IA. Próximamente integración avanzada de bots.</p>
+      </div>
+
+      <div style="flex:1">
+        <div class="card" style="padding:18px">
+          <h3 style="margin:0 0 8px;color:#eaffff">Cursos destacados</h3>
+          <div class="grid">
+            <div class="card">
+              <div class="course-title">Redes</div>
+              <div class="course-desc">Aprende infraestructura de redes, configuración y troubleshooting.</div>
+              <div class="course-footer">
+                <span class="small">Duración: 6 semanas</span>
+                <button class="btn" onclick="location.href='cursos.html#redes'">Entrar al aula</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="course-title">Programación</div>
+              <div class="course-desc">Fundamentos y desarrollo full-stack con proyectos reales.</div>
+              <div class="course-footer">
+                <span class="small">Duración: 8 semanas</span>
+                <button class="btn" onclick="location.href='cursos.html#programacion'">Entrar al aula</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="course-title">Ciberseguridad</div>
+              <div class="course-desc">Ataques y defensa, pentesting y buenas prácticas.</div>
+              <div class="course-footer">
+                <span class="small">Duración: 6 semanas</span>
+                <button class="btn" onclick="location.href='cursos.html#ciberseguridad'">Entrar al aula</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="container">
+    <section style="margin-top:12px">
+      <h3 style="color:#dff9ff">¿Por qué JAOV?</h3>
+      <p style="color:var(--muted)">Bots instructores, ejercicios prácticos y certificaciones verificables. Acompañamiento continuo y soporte técnico 24/7.</p>
+    </section>
+
+    <footer class="site-footer">
+      © JAOV Cursos. Todos los derechos reservados.
+    </footer>
   </div>
-</section>
-<!-- ======= Fin sección Acerca de Nosotros ======= -->
+</body>
+</html>
