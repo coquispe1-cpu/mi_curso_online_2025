@@ -1,105 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso: Especialista en Preparación de Superficies y Aplicación de Recubrimientos</title>
-  <link rel="stylesheet" href="estilo.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 20px;
-    }
-    h1 {
-      color: #004aad;
-      text-align: center;
-    }
-    .description {
-      margin: 20px 0;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    .video-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 30px 0;
-    }
-    video {
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      max-width: 100%;
-    }
-    .stages {
-      margin: 30px 0;
-      background: linear-gradient(135deg, #004aad, #00bfff);
-      color: white;
-      padding: 20px;
-      border-radius: 12px;
-    }
-    .stages ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    .stages li {
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
-    .register-btn {
-      display: block;
-      text-align: center;
-      margin: 30px auto;
-      padding: 12px 25px;
-      background-color: #004aad;
-      color: #00ffff;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      text-decoration: none;
-      width: 200px;
-    }
-    .register-btn:hover {
-      background-color: #0066ff;
-      color: #e0ffff;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Especialista en Preparación de Superficies y Aplicación de Recubrimientos</h1>
+// server.js
+const express = require('express');
+const path = require('path');
+const app = express();
 
-    <p class="description">
-      Este curso completo está dividido en dos etapas para dominar la preparación de superficies y la correcta aplicación de recubrimientos industriales.
-    </p>
+// Carpeta de archivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
 
-    <div class="video-wrapper">
-      <video controls>
-        <source src="videos/curso-especialista-recubrimientos/curso-especialista-recubrimientos.mp4" type="video/mp4">
-        Tu navegador no soporta video.
-      </video>
-      <small>Video del curso</small>
-    </div>
-
-    <div class="stages">
-      <h2>Etapas del curso</h2>
-      <ul>
-        <li>Etapa 1: Especialista en Preparación de Superficies</li>
-        <li>Etapa 2: Especialista en Aplicación de Recubrimientos</li>
-      </ul>
-      <p>Duración total: 10 semanas | Modalidad: Virtual</p>
-    </div>
-
-    <a class="register-btn" href="registro.html">Registrarme</a>
-  </div>
-</body>
-</html>
+// Puerto
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
