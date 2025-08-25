@@ -1,77 +1,231 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contactanos - JAOV</title>
-  <link rel="stylesheet" href="estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctanos - Mi Curso Online</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f0f8ff; /* colorFondo */
+        }
+        .primary-text {
+            color: #004aad; /* colorPrincipal */
+        }
+        .secondary-text {
+            color: #00bfff; /* colorSecundario */
+        }
+        .bg-primary {
+            background-color: #004aad;
+        }
+        .bg-secondary {
+            background-color: #00bfff;
+        }
+        .active-nav {
+            color: #00bfff;
+            font-weight: 700;
+        }
+        /* Estilos de Tailwind para la página */
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .md\:flex { display: flex; }
+            .md\:space-x-8 > * + * { margin-left: 2rem; }
+            .md\:hidden { display: none; }
+        }
+        @media (max-width: 767px) {
+            .md\:hidden { display: block; }
+        }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .text-center { text-align: center; }
+        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+        .md\:text-5xl { font-size: 3rem; line-height: 1; }
+        .font-extrabold { font-weight: 800; }
+        .mb-4 { margin-bottom: 1rem; }
+        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .md\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-gray-700 { color: #4b5563; }
+        .max-w-3xl { max-width: 48rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .mb-12 { margin-bottom: 3rem; }
+        .rounded-2xl { border-radius: 1rem; }
+        .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .p-8 { padding: 2rem; }
+        .max-w-md { max-width: 28rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .block { display: block; }
+        .text-left { text-align: left; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .font-medium { font-weight: 500; }
+        .mt-1 { margin-top: 0.25rem; }
+        .w-full { width: 100%; }
+        .rounded-md { border-radius: 0.375rem; }
+        .border-gray-300 { border-color: #d1d5db; }
+        .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+        .focus\:border-indigo-500:focus { border-color: #6366f1; }
+        .focus\:ring-indigo-500:focus { --tw-ring-color: #6366f1; }
+        .sm\:text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .p-2 { padding: 0.5rem; }
+        .border { border-width: 1px; }
+        .bg-blue-500 { background-color: #3b82f6; }
+        .text-white { color: #fff; }
+        .font-bold { font-weight: 700; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .rounded-full { border-radius: 9999px; }
+        .hover\:bg-blue-600:hover { background-color: #2563eb; }
+        .transition-colors { transition-property: background-color, border-color, color, fill, stroke; }
+        .duration-300 { transition-duration: 0.3s; }
+        .bg-gray-900 { background-color: #111827; }
+        .mt-16 { margin-top: 4rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .md\:flex-row { flex-direction: row; }
+        .justify-center { justify-content: center; }
+        .items-center { align-items: center; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .md\:space-y-0 > * + * { margin-top: 0; }
+        .md\:space-x-8 > * + * { margin-left: 2rem; }
+        .hover\:text-gray-400:hover { color: #9ca3af; }
+        .mt-8 { margin-top: 2rem; }
+        .text-gray-500 { color: #6b7280; }
+        .bg-gray-50 { background-color: #f9fafb; }
+        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .justify-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+        .space-x-2 > * + * { margin-left: 0.5rem; }
+        .h-8 { height: 2rem; }
+        .w-8 { width: 2rem; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-gray-600 { color: #4b5563; }
+        .hidden { display: none; }
+        .block { display: block; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .hover\:bg-gray-100:hover { background-color: #f3f4f6; }
+        .focus\:outline-none:focus { outline: 2px solid transparent; outline-offset: 2px; }
+        .h-6 { height: 1.5rem; }
+        .w-6 { width: 1.5rem; }
+    </style>
 </head>
-<body>
-  <nav>
-    <div class="brand">
-      <div class="logo">JAOV</div>
-      <div style="color:#dff9ff;font-weight:700;margin-left:8px">JAOV Cursos</div>
-    </div>
-    <div class="links">
-      <a href="index.html">Inicio</a>
-      <a href="cursos.html">Cursos</a>
-      <a href="certificados.html">Certificados</a>
-      <a href="acerca-de.html">Acerca de</a>
-      <a href="contactanos.html">Contáctanos</a>
-    </div>
-  </nav>
-
-  <div class="container" style="margin-top:96px">
-    <h1 style="color:var(--accent)">Contáctanos</h1>
-    <p class="small">Estamos aquí para ayudarte. Escríbenos y te responderemos lo antes posible.</p>
-
-    <div style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px">
-      <main class="form-panel">
-        <form id="contactForm">
-          <label>Nombre</label><input name="name" required>
-          <label>Email</label><input name="email" type="email" required>
-          <label>Mensaje</label><textarea name="message" rows="5" required></textarea>
-          <button class="btn" type="submit">Enviar</button>
-        </form>
-        <div id="contactStatus" class="small" style="margin-top:12px"></div>
-      </main>
-
-      <aside class="form-panel">
-        <h3 style="color:var(--accent)">Nuestra ubicación</h3>
-        <div style="width:100%;height:260px;border-radius:10px;overflow:hidden;margin-top:12px">
-          <!-- Mapa embebido (ejemplo) -->
-          <iframe width="100%" height="100%" frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.77523301716!2d-77.062?..." allowfullscreen>
-          </iframe>
+<body class="bg-gray-50">
+    <!-- Navbar (Barra de navegación) -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6m0-6h6m-6 0h-6m-6 5l9 5 9-5m-9 5v6"/>
+                </svg>
+                <span class="text-2xl font-bold primary-text">Mi Curso Online</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/cursos.html" class="text-gray-600 hover:secondary-text transition-colors duration-300">Cursos</a>
+                <a href="/aulas-virtuales.html" class="text-gray-600 hover:secondary-text transition-colors duration-300">Aulas Virtuales</a>
+                <a href="/certificados.html" class="text-gray-600 hover:secondary-text transition-colors duration-300">Certificados</a>
+                <a href="/contactanos.html" class="text-gray-600 hover:secondary-text transition-colors duration-300 active-nav">Contáctanos</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden primary-text focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu (Menú para móviles) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md py-4">
+            <a href="/cursos.html" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Cursos</a>
+            <a href="/aulas-virtuales.html" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Aulas Virtuales</a>
+            <a href="/certificados.html" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Certificados</a>
+            <a href="/contactanos.html" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Contáctanos</a>
         </div>
-        <p class="small" style="margin-top:12px">Soporte 24/7: coquispe1@gmail.com</p>
-      </aside>
-    </div>
+    </header>
 
-    <footer class="site-footer">
-      © JAOV Cursos. Todos los derechos reservados.
+    <!-- Main Content (Contenido Principal) -->
+    <main class="py-16 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold primary-text mb-4">Contáctanos</h1>
+            <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-12">
+                Envíanos un mensaje y te responderemos lo antes posible.
+            </p>
+
+            <!-- Contact Form (Formulario de Contacto) -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-left text-sm font-medium text-gray-700">Nombre completo:</label>
+                        <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-left text-sm font-medium text-gray-700">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-left text-sm font-medium text-gray-700">Tu mensaje:</label>
+                        <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-600 transition-colors duration-300">
+                            Enviar Mensaje
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Pie de página) -->
+    <footer class="bg-gray-900 text-white py-12 px-6 mt-16">
+        <div class="container mx-auto text-center">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+                <a href="/contactanos.html" class="hover:text-gray-400">Contáctanos</a>
+                <a href="#" class="hover:text-gray-400">Política de Privacidad</a>
+            </div>
+            <p class="mt-8 text-gray-500">&copy; 2025 Mi Curso Online. Todos los derechos reservados.</p>
+        </div>
     </footer>
-  </div>
 
-  <script>
-  // Contact form via Web3Forms
-  document.getElementById('contactForm').addEventListener('submit', async function(e){
-    e.preventDefault();
-    const fd = new FormData(this);
-    fd.append('access_key','807051c5-e765-49cd-b83b-d2cf1ed10532');
+    <script>
+        // Lógica para el menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    try{
-      const res = await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});
-      const j = await res.json();
-      if(j.success){
-        document.getElementById('contactStatus').innerText = 'Mensaje enviado, gracias.';
-        this.reset();
-      } else {
-        document.getElementById('contactStatus').innerText = 'Error al enviar. Intenta más tarde.';
-      }
-    }catch(err){
-      document.getElementById('contactStatus').innerText = 'Error de conexión.';
-    }
-  });
-  </script>
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Lógica para el formulario de contacto (simulada)
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Simula el envío exitoso del formulario
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            
+            // Limpia los campos del formulario después del envío
+            document.getElementById('contact-form').reset();
+        });
+        
+        // Lógica para resaltar el enlace de la página actual
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').replace(/^\//, '');
+            const currentFilePath = currentPath.replace(/^\//, '');
+            
+            if (linkPath === currentFilePath) {
+                link.classList.add('active-nav');
+            }
+        });
+    </script>
 </body>
 </html>
