@@ -5,147 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cursos - Mi Curso en Línea</title>
   <link rel="stylesheet" href="estilo.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #004aad;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    nav {
-      background: #003580;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 12px 0;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .curso-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin-bottom: 30px;
-      transition: transform 0.3s;
-    }
-    .curso-card:hover {
-      transform: translateY(-5px);
-    }
-    .curso-card h2 {
-      color: #004aad;
-      margin-top: 0;
-    }
-    .curso-card p {
-      color: #555;
-    }
-    .curso-card .duracion, .curso-card .modalidad {
-      font-weight: bold;
-      margin-top: 8px;
-    }
-    .curso-card button {
-      margin-top: 12px;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      background: #004aad;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .curso-card button:hover {
-      background: #003580;
-    }
-  </style>
 </head>
 <body>
   <header>
-    <h1>Cursos - Mi Curso en Línea</h1>
+    <h1>Mi Curso en Línea</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="certificados.html">Certificados</a>
+      <a href="acerca-de.html">Acerca de</a>
+      <a href="contactanos.html">Contáctanos</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="cursos.html">Cursos</a>
-    <a href="certificados.html">Certificados</a>
-    <a href="acerca-de.html">Acerca de</a>
-    <a href="contactanos.html">Contáctanos</a>
-  </nav>
+  <main>
+    <section class="cursos">
+      <h2>Nuestros Cursos</h2>
 
-  <div class="container">
-    <!-- Redes -->
-    <div class="curso-card">
-      <h2>Redes</h2>
-      <p>Aprende infraestructura de redes, instalación, configuración, routing y seguridad de redes.</p>
-      <p class="duracion">Duración: 6 semanas</p>
-      <p class="modalidad">Modalidad: Registro en línea</p>
-      <button onclick="location.href='registro.html?curso=Redes'">Registrarme</button>
-    </div>
+      <div class="curso">
+        <h3>Redes</h3>
+        <p>Instalación, configuración, routing y seguridad de redes.</p>
+        <p>Duración: 6 semanas</p>
+        <p>Modalidad: Registro en línea</p>
+        <button onclick="window.location.href='registro.html'">Registrarme</button>
+      </div>
 
-    <!-- Programación -->
-    <div class="curso-card">
-      <h2>Programación</h2>
-      <p>JavaScript, backend, frontend y despliegue de proyectos reales con ejemplos prácticos.</p>
-      <p class="duracion">Duración: 8 semanas</p>
-      <p class="modalidad">Modalidad: Registro en línea</p>
-      <button onclick="location.href='registro.html?curso=Programacion'">Registrarme</button>
-    </div>
+      <div class="curso">
+        <h3>Programación</h3>
+        <p>JavaScript, backend, frontend y despliegue de proyectos.</p>
+        <p>Duración: 8 semanas</p>
+        <p>Modalidad: Registro en línea</p>
+        <button onclick="window.location.href='registro.html'">Registrarme</button>
+      </div>
 
-    <!-- Ciberseguridad -->
-    <div class="curso-card">
-      <h2>Ciberseguridad</h2>
-      <p>Defensa, pentesting y prácticas seguras en infraestructuras reales y simuladas.</p>
-      <p class="duracion">Duración: 6 semanas</p>
-      <p class="modalidad">Modalidad: Registro en línea</p>
-      <button onclick="location.href='registro.html?curso=Ciberseguridad'">Registrarme</button>
-    </div>
+      <div class="curso">
+        <h3>Ciberseguridad</h3>
+        <p>Defensa, pentesting y prácticas seguras en infraestructuras reales.</p>
+        <p>Duración: 6 semanas</p>
+        <p>Modalidad: Registro en línea</p>
+        <button onclick="window.location.href='registro.html'">Registrarme</button>
+      </div>
 
-    <!-- Otros cursos ejemplo -->
-    <div class="curso-card">
-      <h2>Finanzas y Contabilidad</h2>
-      <p>Conceptos financieros y contables aplicados a la gestión de empresas.</p>
-      <p class="duracion">Duración: 5 semanas</p>
-      <p class="modalidad">Modalidad: Registro en línea</p>
-      <button onclick="location.href='registro.html?curso=Finanzas'">Registrarme</button>
-    </div>
+    </section>
+  </main>
 
-    <div class="curso-card">
-      <h2>Diseño e Imagen</h2>
-      <p>Diseño gráfico, branding y herramientas de edición profesional.</p>
-      <p class="duracion">Duración: 6 semanas</p>
-      <p class="modalidad">Modalidad: Registro en línea</p>
-      <button onclick="location.href='registro.html?curso=Diseno'">Registrarme</button>
-    </div>
-
-    <div class="curso-card">
-      <h2>Tecnología</h2>
-      <p>Últimas tendencias en tecnología, hardware, software y soluciones digitales.</p>
-      <p class="duracion">Duración: 4 semanas</p>
-      <p class="modalidad">Modalidad: Registro en línea</p>
-      <button onclick="location.href='registro.html?curso=Tecnologia'">Registrarme</button>
-    </div>
-
-    <!-- Puedes seguir agregando más cursos siguiendo el mismo formato -->
-  </div>
+  <footer>
+    <p>© Mi Curso en Línea. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
