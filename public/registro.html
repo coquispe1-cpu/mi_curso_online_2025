@@ -1,102 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Registro - JAOV</title>
-  <link rel="stylesheet" href="estilo.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro - Mi Curso en Línea</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #e6f0fa;
+    color: #004aad;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background: linear-gradient(135deg, #004aad, #00c6ff);
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+  }
+  .registro-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #cce6ff, #e6f7ff);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .registro-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #004080;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #004aad;
+    font-size: 14px;
+  }
+  .btn-registro {
+    background: linear-gradient(135deg, #004aad, #00c6ff);
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  .btn-registro:hover {
+    background: linear-gradient(135deg, #003580, #0078d7);
+  }
+  .campos-inline {
+    display: flex;
+    gap: 10px;
+  }
+  .campos-inline input {
+    flex: 1;
+  }
+  footer {
+    text-align:center;
+    padding:20px 0;
+    color:#004aad;
+    margin-top: 50px;
+  }
+</style>
 </head>
 <body>
-  <nav>
-    <div class="brand">
-      <div class="logo">JAOV</div>
-      <div style="color:#dff9ff;font-weight:700;margin-left:8px">JAOV Cursos</div>
+
+<header>
+  <h2>Registro - Mi Curso en Línea</h2>
+</header>
+
+<div class="registro-container">
+  <h2>Crear cuenta</h2>
+  <form action="registro_procesar.html" method="POST">
+    <div class="campos-inline">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="text" name="apellido" placeholder="Apellido" required>
     </div>
-    <div class="links">
-      <a href="index.html">Inicio</a>
-      <a href="cursos.html">Cursos</a>
-      <a href="certificados.html">Certificados</a>
-      <a href="acerca-de.html">Acerca de</a>
-      <a href="contactanos.html">Contáctanos</a>
-    </div>
-  </nav>
+    <input type="email" name="email" placeholder="Correo electrónico" required>
+    <input type="password" name="password" placeholder="Contraseña" required>
+    <button type="submit" class="btn-registro">Registrarme</button>
+  </form>
+</div>
 
-  <div class="container" style="margin-top:96px">
-    <div style="display:grid;grid-template-columns:1fr 360px;gap:24px">
-      <div>
-        <h1 style="color:var(--accent)">Regístrate</h1>
-        <p class="small">Completa tus datos para acceder a las aulas virtuales y solicitar certificados.</p>
+<footer>
+  © Mi Curso en Línea. Todos los derechos reservados.
+</footer>
 
-        <form id="registroForm" class="form-panel" style="margin-top:12px">
-          <label>Nombre completo</label>
-          <input type="text" name="name" required>
-
-          <label>Correo electrónico</label>
-          <input type="email" name="email" required>
-
-          <label>Teléfono</label>
-          <input type="tel" name="phone">
-
-          <label>Curso de interés</label>
-          <select name="curso" required>
-            <option value="">Selecciona</option>
-            <option value="Redes">Redes</option>
-            <option value="Programación">Programación</option>
-            <option value="Ciberseguridad">Ciberseguridad</option>
-          </select>
-
-          <label class="small">Deseo certificado (al finalizar)</label>
-          <select name="certificado">
-            <option value="No">No</option>
-            <option value="Sí">Sí</option>
-          </select>
-
-          <label>Mensaje (opcional)</label>
-          <textarea name="message" rows="3"></textarea>
-
-          <div style="display:flex;gap:12px;align-items:center">
-            <button class="btn" type="submit">Enviar registro</button>
-            <div class="small" style="color:var(--muted)">Recibirás confirmación por correo.</div>
-          </div>
-        </form>
-
-      </div>
-
-      <aside class="form-panel">
-        <h3 style="color:var(--accent);margin:0 0 8px">Beneficios de inscribirte</h3>
-        <ul class="small" style="padding-left:16px">
-          <li>Clases con bots instructores</li>
-          <li>Proyectos prácticos y revisión</li>
-          <li>Certificados verificables</li>
-          <li>Soporte 24/7</li>
-        </ul>
-      </aside>
-    </div>
-
-    <footer class="site-footer">
-      © JAOV Cursos. Todos los derechos reservados.
-    </footer>
-  </div>
-
-  <script>
-  document.getElementById('registroForm').addEventListener('submit', async function(e){
-    e.preventDefault();
-    const data = new FormData(this);
-    data.append('access_key','807051c5-e765-49cd-b83b-d2cf1ed10532'); // tu Access Key Web3Forms
-
-    try{
-      const res = await fetch('https://api.web3forms.com/submit',{method:'POST',body:data});
-      const json = await res.json();
-      if(json.success){
-        // redirige a la página de certificados con email como parámetro
-        const email = data.get('email') || '';
-        window.location.href = 'certificados.html?email=' + encodeURIComponent(email);
-      } else {
-        alert('Error al enviar: ' + (json.message||'Inténtalo de nuevo'));
-      }
-    } catch(err){
-      alert('Error de conexión. Intenta más tarde.');
-    }
-  });
-  </script>
 </body>
 </html>
