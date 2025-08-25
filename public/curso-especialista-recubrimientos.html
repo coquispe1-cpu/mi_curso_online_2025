@@ -33,13 +33,10 @@
       align-items: center;
       margin: 30px 0;
     }
-    .video-wrapper h2 {
-      margin-bottom: 15px;
-      color: #004aad;
-    }
     video {
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      max-width: 100%;
     }
     .stages {
       margin: 30px 0;
@@ -82,26 +79,28 @@
     <h1>Especialista en Preparación de Superficies y Aplicación de Recubrimientos</h1>
 
     <p class="description">
-      Este curso completo está dividido en dos etapas para que domines la preparación de superficies y la correcta aplicación de recubrimientos industriales.
-      Aprenderás técnicas profesionales, buenas prácticas y métodos aplicables a proyectos reales.
+      Este curso completo está dividido en dos etapas para dominar la preparación de superficies y la correcta aplicación de recubrimientos industriales.
     </p>
 
+    <!-- Video Introductorio -->
     <div class="video-wrapper">
       <h2>Video Introductorio</h2>
-      <video controls width="720">
+      <video controls>
         <source src="videos/especialista-recubrimientos/intro.mp4" type="video/mp4">
         Tu navegador no soporta video.
       </video>
     </div>
 
+    <!-- Video del Curso -->
     <div class="video-wrapper">
       <h2>Video del Curso</h2>
-      <video controls width="720">
+      <video controls>
         <source src="videos/especialista-recubrimientos/curso-especialista-recubrimientos.mp4" type="video/mp4">
         Tu navegador no soporta video.
       </video>
     </div>
 
+    <!-- Etapas del Curso -->
     <div class="stages">
       <h2>Etapas del curso</h2>
       <ul>
@@ -111,6 +110,7 @@
       <p>Duración total: 10 semanas | Modalidad: Virtual</p>
     </div>
 
+    <!-- Botón de registro -->
     <a class="register-btn" href="registro.html">Registrarme</a>
   </div>
 </body>
