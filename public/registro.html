@@ -3,385 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Curso</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Registro - Mi Curso Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .form-section {
-            padding: 40px;
-            background-color: #f0f8ff;
-            text-align: center;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f8ff; /* Color de fondo */
         }
-        .form-section h1 {
-            color: #007bff;
-            font-size: 3em;
-            margin-bottom: 10px;
+        .primary-text {
+            color: #004aad; /* Color principal */
         }
-        .form-section p {
-            color: #555;
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto 20px;
-        }
-        .registration-form {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        .registration-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        .registration-form input[type="text"],
-        .registration-form input[type="email"],
-        .registration-form input[type="tel"],
-        .registration-form select,
-        .registration-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        .registration-form button {
-            background-color: #007bff;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
-        }
-        .registration-form button:hover {
-            background-color: #0056b3;
+        .secondary-text {
+            color: #00bfff; /* Color secundario */
         }
     </style>
 </head>
-<body>
-    <header>
-        Mi Curso en Línea
+<body class="text-gray-900 bg-gray-50">
+
+    <!-- Header - Navegación -->
+    <header class="bg-gradient-to-r from-[#004aad] to-[#00bfff] text-white py-4 px-6 shadow-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl">Mi Curso Online</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="index.html" class="hover:text-gray-200">Inicio</a>
+                <a href="cursos.html" class="hover:text-gray-200">Cursos</a>
+                <a href="certificados.html" class="hover:text-gray-200">Certificados</a>
+                <a href="aula.html" class="hover:text-gray-200">Aula Virtual</a>
+                <a href="contactanos.html" class="hover:text-gray-200">Contáctanos</a>
+            </div>
+        </nav>
     </header>
-    <nav>
-        <a href="index.html" class="logo">
-            <img src="https://via.placeholder.com/150x50.png?text=JAVO+Logo" alt="Logo de JAVO">
-        </a>
-        <div class="nav-links">
-            <a href="cursos.html">Cursos</a>
-            <a href="contactanos.html">Contáctanos</a>
-            <a href="acerca-de.html">Nosotros</a>
-            <a href="certificados.html">Certificados</a>
-            <a href="que-aprender.html">¿Qué quieres aprender?</a>
-            <a href="servicios.html">Nuestros Servicios</a>
-            <a href="acceder.html">Acceder</a>
-            <a href="crear-cuenta.html">Crear una Cuenta</a>
-        </div>
-        <a href="https://wa.me/51921717515" class="whatsapp-btn">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
-            <span class="btn-text">WhatsApp</span>
-        </a>
-    </nav>
-    <main class="container">
-        <section class="form-section">
-            <h1 id="course-title">Formulario de Inscripción</h1>
-            <div id="course-details-section">
+
+    <!-- Sección del Formulario de Registro -->
+    <section class="py-16 md:py-24 px-6 flex justify-center items-center">
+        <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 w-full max-w-xl">
+            <h1 class="text-3xl md:text-4xl font-extrabold primary-text text-center mb-6">
+                Regístrate ahora
+            </h1>
+            <p class="text-center text-gray-600 mb-8">
+                Completa el formulario para empezar a aprender hoy mismo.
+            </p>
+
+            <form id="registrationForm" class="space-y-6">
+                <!-- Nombre Completo -->
+                <div>
+                    <label for="fullName" class="block text-sm font-semibold text-gray-700">Nombre Completo</label>
+                    <input type="text" id="fullName" name="fullName" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500">
                 </div>
-            <p>Por favor, completa tus datos para inscribirte en el curso.</p>
 
-            <form class="registration-form" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="807051c5-e765-49cd-b83b-d2cf1ed10532">
-                
-                <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" name="name" required>
+                <!-- Correo Electrónico -->
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-gray-700">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500">
+                </div>
 
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" required>
+                <!-- Contraseña -->
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-gray-700">Contraseña</label>
+                    <input type="password" id="password" name="password" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500">
+                </div>
 
-                <label for="telefono">Número de Teléfono:</label>
-                <input type="tel" id="telefono" name="phone">
-                
-                <label for="curso-interes">Curso de Interés:</label>
-                <input type="text" id="curso-interes" name="course" readonly required>
-                
-                <label for="mensaje">Mensaje (opcional):</label>
-                <textarea id="mensaje" name="message" rows="4"></textarea>
+                <!-- Curso Opcional (pre-poblado) -->
+                <div>
+                    <label for="courseName" class="block text-sm font-semibold text-gray-700">Curso Seleccionado (opcional)</label>
+                    <input type="text" id="courseName" name="courseName" readonly
+                        class="mt-1 block w-full rounded-md bg-gray-100 border-gray-300 shadow-sm p-3 cursor-not-allowed">
+                </div>
 
-                <button type="submit">Enviar Información</button>
+                <!-- Botón de Envío -->
+                <button type="submit"
+                    class="w-full py-3 px-4 border border-transparent rounded-full shadow-sm text-lg font-bold text-white bg-blue-500 hover:bg-blue-600 transition-colors">
+                    Crear Cuenta
+                </button>
             </form>
-        </section>
-    </main>
-    <footer>
-        © Mi Curso en Línea. Todos los derechos reservados.
+        </div>
+    </section>
+
+    <!-- Footer - Pie de página -->
+    <footer class="bg-gray-800 text-gray-300 py-8 px-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Mi Curso Online. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
     <script>
-        const courseData = {
-            'Desarrollo Web': {
-                description: 'Domina los fundamentos de HTML, CSS y JavaScript para crear sitios web modernos y atractivos.',
-                topics: [
-                    'Conceptos de HTML5 y estructura de páginas web',
-                    'Estilización con CSS3 y diseño responsivo',
-                    'Fundamentos de JavaScript para interactividad',
-                    'Herramientas de desarrollo y buenas prácticas',
-                    'Creación de un proyecto web completo'
-                ]
-            },
-            'Cloud Computing': {
-                description: 'Domina las tecnologías de la nube para almacenar, gestionar y proteger tu información.',
-                topics: [
-                    'Conceptos básicos de la nube (IaaS, PaaS, SaaS)',
-                    'Servicios de almacenamiento y bases de datos',
-                    'Seguridad y gestión de identidades',
-                    'Despliegue y escalado de aplicaciones',
-                    'Costos y optimización en la nube'
-                ]
-            },
-            'Productividad Digital': {
-                description: 'Aprende a usar herramientas digitales para ser más eficiente en tu trabajo.',
-                topics: [
-                    'Gestión de tiempo y tareas',
-                    'Automatización de procesos',
-                    'Herramientas de colaboración en línea',
-                    'Uso de inteligencia artificial',
-                    'Creación de flujos de trabajo eficientes'
-                ]
-            },
-            'Mantenimiento': {
-                description: 'Aprende a realizar reparaciones y a mantener equipos.',
-                topics: [
-                    'Diagnóstico de problemas comunes',
-                    'Mantenimiento preventivo',
-                    'Seguridad en el trabajo',
-                    'Herramientas y equipos esenciales',
-                    'Reparación de componentes'
-                ]
-            },
-            'Cocina': {
-                description: 'Domina nuevas recetas y técnicas culinarias para sorprender.',
-                topics: [
-                    'Técnicas de corte y preparación',
-                    'Cocina internacional',
-                    'Pastelería básica',
-                    'Manipulación de alimentos',
-                    'Presentación de platillos'
-                ]
-            },
-            'Moda': {
-                description: 'Descubre las tendencias y el diseño en la industria de la moda.',
-                topics: [
-                    'Historia de la moda',
-                    'Análisis de tendencias',
-                    'Creación de colecciones',
-                    'Marketing de moda',
-                    'Estilismo y fotografía'
-                ]
-            },
-            'Creativos': {
-                description: 'Desarrolla tu lado artístico y aprende a pensar de forma innovadora.',
-                topics: [
-                    'Técnicas de creatividad',
-                    'Brainstorming y generación de ideas',
-                    'Diseño gráfico',
-                    'Ilustración digital',
-                    'Narrativa visual'
-                ]
-            },
-            'Arte': {
-                description: 'Sumérgete en la historia y la práctica de diversas formas de arte.',
-                topics: [
-                    'Historia del arte',
-                    'Técnicas de pintura',
-                    'Escultura y modelado',
-                    'Análisis de obras maestras',
-                    'Crítica de arte'
-                ]
-            },
-            'Salud': {
-                description: 'Conoce los principios básicos para cuidar tu bienestar y el de otros.',
-                topics: [
-                    'Nutrición y dietética',
-                    'Primeros auxilios',
-                    'Higiene personal',
-                    'Ejercicio y bienestar',
-                    'Salud mental'
-                ]
-            },
-            'Negocios': {
-                description: 'Aprende a crear, gestionar y expandir tu propia empresa.',
-                topics: [
-                    'Plan de negocios',
-                    'Estrategias de marketing',
-                    'Gestión de finanzas',
-                    'Liderazgo y trabajo en equipo',
-                    'Innovación y emprendimiento'
-                ]
-            },
-            'Marketing': {
-                description: 'Descubre las mejores estrategias para promover productos y servicios.',
-                topics: [
-                    'Marketing digital',
-                    'Estrategia de contenido',
-                    'Redes sociales',
-                    'Análisis de mercado',
-                    'Publicidad en línea'
-                ]
-            },
-            'Deporte': {
-                description: 'Mejora tu rendimiento físico y tu conocimiento sobre el entrenamiento.',
-                topics: [
-                    'Técnicas de entrenamiento',
-                    'Nutrición deportiva',
-                    'Prevención de lesiones',
-                    'Anatomía básica',
-                    'Planificación de rutinas'
-                ]
-            },
-            'Idiomas': {
-                description: 'Aprende a comunicarte en diferentes idiomas de forma efectiva.',
-                topics: [
-                    'Gramática y vocabulario',
-                    'Conversación y pronunciación',
-                    'Comprensión auditiva',
-                    'Expresión escrita',
-                    'Inmersión cultural'
-                ]
-            },
-            'Psicología': {
-                description: 'Explora los principios de la mente humana y el comportamiento.',
-                topics: [
-                    'Psicología cognitiva',
-                    'Psicología del desarrollo',
-                    'Trastornos comunes',
-                    'Terapia y consejería',
-                    'Neurociencia básica'
-                ]
-            },
-            'Ingeniería': {
-                description: 'Aprende las bases de la ingeniería y cómo se aplican en proyectos.',
-                topics: [
-                    'Fundamentos de diseño',
-                    'Materiales y estructuras',
-                    'Resolución de problemas',
-                    'Software de ingeniería',
-                    'Proyectos prácticos'
-                ]
-            },
-            'Ciencias': {
-                description: 'Explora los principios de las ciencias naturales y experimentales.',
-                topics: [
-                    'Biología molecular',
-                    'Química general',
-                    'Física cuántica',
-                    'Astronomía',
-                    'Método científico'
-                ]
-            },
-            'Lengua de Señas': {
-                description: 'Comunícate de forma inclusiva y aprende el lenguaje de señas.',
-                topics: [
-                    'Alfabeto y números',
-                    'Vocabulario básico',
-                    'Conversación cotidiana',
-                    'Expresión facial y corporal',
-                    'Cultura de la comunidad sorda'
-                ]
-            },
-            'Humanidades': {
-                description: 'Explora el conocimiento y la cultura de la sociedad humana.',
-                topics: [
-                    'Filosofía',
-                    'Historia del mundo',
-                    'Literatura universal',
-                    'Ética y moral',
-                    'Sociología'
-                ]
-            },
-            'Talento Humano': {
-                description: 'Aprende a gestionar y desarrollar el capital humano de una empresa.',
-                topics: [
-                    'Reclutamiento y selección',
-                    'Evaluación de desempeño',
-                    'Clima laboral',
-                    'Capacitación y desarrollo',
-                    'Gestión de conflictos'
-                ]
-            },
-            'Ventas': {
-                description: 'Mejora tus técnicas de venta y cierra más negocios.',
-                topics: [
-                    'Técnicas de persuasión',
-                    'Negociación',
-                    'Gestión de objeciones',
-                    'Venta consultiva',
-                    'Servicio al cliente'
-                ]
-            },
-            'Fisioterapia': {
-                description: 'Aprende técnicas para la rehabilitación y el cuidado físico.',
-                topics: [
-                    'Anatomía y fisiología',
-                    'Técnicas de masaje',
-                    'Rehabilitación deportiva',
-                    'Ejercicio terapéutico',
-                    'Primeros auxilios'
-                ]
-            },
-            'Atención al Cliente': {
-                description: 'Domina las técnicas para ofrecer un servicio de alta calidad.',
-                topics: [
-                    'Comunicación efectiva',
-                    'Manejo de quejas',
-                    'Fidelización de clientes',
-                    'Atención telefónica',
-                    'Uso de software de soporte'
-                ]
-            },
-            'Bienes Raíces': {
-                description: 'Descubre cómo invertir y negociar en el mercado de propiedades.',
-                topics: [
-                    'Valoración de propiedades',
-                    'Estrategias de inversión',
-                    'Aspectos legales',
-                    'Marketing inmobiliario',
-                    'Negociación y cierre de ventas'
-                ]
-            },
-            'Habilidades Blandas': {
-                description: 'Mejora tus habilidades interpersonales para el éxito profesional.',
-                topics: [
-                    'Liderazgo y trabajo en equipo',
-                    'Comunicación asertiva',
-                    'Inteligencia emocional',
-                    'Resolución de conflictos',
-                    'Adaptabilidad'
-                ]
+        // Función para obtener parámetros de la URL
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Simulación de una base de datos de cursos (podría ser una API real)
+        const courses = {
+            'html-css': 'Fundamentos de HTML y CSS',
+            'python-intro': 'Introducción a la Programación con Python',
+            'ui-ux-design': 'Diseño de Experiencia de Usuario',
+            // Agrega más cursos aquí
+        };
+
+        // Rellenar el campo del curso si se pasa un parámetro en la URL
+        window.onload = function() {
+            const courseId = getUrlParameter('course');
+            const courseNameInput = document.getElementById('courseName');
+            if (courseId && courses[courseId]) {
+                courseNameInput.value = courses[courseId];
             }
         };
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const courseName = params.get('curso');
-            
-            if (courseName && courseData[courseName]) {
-                const course = courseData[courseName];
-                document.getElementById('curso-interes').value = courseName;
-                document.getElementById('course-title').innerText = courseName;
+        // Manejar el envío del formulario
+        const registrationForm = document.getElementById('registrationForm');
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-                const detailsSection = document.getElementById('course-details-section');
-                detailsSection.innerHTML = `
-                    <p>${course.description}</p>
-                    <h2>Temario del Curso</h2>
-                    <ul>
-                        ${course.topics.map(topic => `<li>${topic}</li>`).join('')}
-                    </ul>
-                `;
-            }
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const courseName = document.getElementById('courseName').value;
+
+            console.log("Datos del registro:");
+            console.log("Nombre:", fullName);
+            console.log("Email:", email);
+            console.log("Contraseña:", password);
+            console.log("Curso Seleccionado:", courseName);
+
+            // Aquí se enviaría la información a un servidor real
+            alert('¡Registro exitoso!');
+            registrationForm.reset();
         });
     </script>
 </body>
