@@ -8,21 +8,39 @@ const PORT = process.env.PORT || 3000;
 // Carpeta pública donde están tus HTML, CSS, imágenes y videos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rutas para tus páginas específicas (opcional)
-// Esto permite acceder directamente a cada curso o página
-app.get('/curso-especialista-recubrimientos.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/curso-especialista-recubrimientos.html'));
+// ====== RUTAS PARA TUS PÁGINAS ======
+
+// Página principal
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.get('/registro.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/registro.html'));
-});
-
-app.get('/cursos.html', (req, res) => {
+// Cursos
+app.get('/cursos', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/cursos.html'));
 });
 
-// Ruta por defecto: index.html
+// Aula virtual
+app.get('/aulas_virtuales', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/aulas_virtuales.html'));
+});
+
+// Registro
+app.get('/registro', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/registro.html'));
+});
+
+// Contáctanos
+app.get('/contactanos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/contactanos.html'));
+});
+
+// Curso especial
+app.get('/curso-especialista-recubrimientos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/curso-especialista-recubrimientos.html'));
+});
+
+// ====== CUALQUIER OTRA RUTA: DEVUELVE INDEX ======
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
