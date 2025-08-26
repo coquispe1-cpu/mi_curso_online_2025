@@ -5,47 +5,31 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Carpeta pública donde están tus HTML, CSS, imágenes y videos
+// Middleware: Servir archivos estáticos (CSS, JS, imágenes, videos)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ====== RUTAS PARA TUS PÁGINAS ======
+// ====== RUTAS DEFINIDAS ======
+const rutas = [
+  { url: '/', archivo: 'index.html' },
+  { url: '/cursos', archivo: 'cursos.html' },
+  { url: '/aulas_virtuales', archivo: 'aulas_virtuales.html' },
+  { url: '/registro', archivo: 'registro.html' },
+  { url: '/contactanos', archivo: 'contactanos.html' },
+  { url: '/curso-especialista-recubrimientos', archivo: 'curso-especialista-recubrimientos.html' }
+];
 
-// Página principal
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+rutas.forEach(r => {
+  app.get(r.url, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', r.archivo));
+  });
 });
 
-// Cursos
-app.get('/cursos', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/cursos.html'));
-});
-
-// Aula virtual
-app.get('/aulas_virtuales', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/aulas_virtuales.html'));
-});
-
-// Registro
-app.get('/registro', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/registro.html'));
-});
-
-// Contáctanos
-app.get('/contactanos', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/contactanos.html'));
-});
-
-// Curso especial
-app.get('/curso-especialista-recubrimientos', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/curso-especialista-recubrimientos.html'));
-});
-
-// ====== CUALQUIER OTRA RUTA: DEVUELVE INDEX ======
+// ====== CUALQUIER OTRA RUTA: INDEX ======
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Inicia el servidor
+// ====== INICIAR SERVIDOR ======
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
