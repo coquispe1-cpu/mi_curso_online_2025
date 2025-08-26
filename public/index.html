@@ -3,35 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Curso Online - Inicio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Inicio - Mi Curso Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f8ff; /* Color de fondo */
+        }
+        .primary-text {
+            color: #004aad; /* Color principal */
+        }
+        .secondary-text {
+            color: #00bfff; /* Color secundario */
+        }
+        .hero-background {
+            background-image: linear-gradient(to right, #004aad, #00bfff);
+        }
+    </style>
 </head>
-<body>
-    <!-- Header con navegación -->
-    <header>
-        <nav style="background: linear-gradient(135deg, #004aad, #00bfff); padding: 15px; display: flex; align-items: center; justify-content: space-between;">
-            <a href="index.html" class="logo" style="color:white; font-weight:bold; font-size:1.5em; text-decoration:none;">Mi Curso Online</a>
-            <div class="nav-links">
-                <a href="index.html" style="color:white; margin:0 10px; text-decoration:none;">Inicio</a>
-                <a href="cursos.html" style="color:white; margin:0 10px; text-decoration:none;">Cursos</a>
-                <a href="certificados.html" style="color:white; margin:0 10px; text-decoration:none;">Certificados</a>
-                <a href="aula.html" style="color:white; margin:0 10px; text-decoration:none;">Aula Virtual</a>
-                <a href="contactanos.html" style="color:white; margin:0 10px; text-decoration:none;">Contáctanos</a>
+<body class="text-gray-900 bg-gray-50">
+
+    <!-- Header - Navegación -->
+    <header class="bg-gradient-to-r from-[#004aad] to-[#00bfff] text-white py-4 px-6 shadow-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl">Mi Curso Online</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="index.html" class="hover:text-gray-200">Inicio</a>
+                <a href="cursos.html" class="hover:text-gray-200">Cursos</a>
+                <a href="certificados.html" class="hover:text-gray-200">Certificados</a>
+                <a href="aula.html" class="hover:text-gray-200">Aula Virtual</a>
+                <a href="contactanos.html" class="hover:text-gray-200">Contáctanos</a>
             </div>
         </nav>
     </header>
 
-    <!-- Contenido principal -->
-    <main style="padding:50px; text-align:center;">
-        <h1 style="color:#004aad;">Bienvenido a Mi Curso Online</h1>
-        <p style="color:#333; font-size:1.2em;">Aquí encontrarás cursos de alta calidad para impulsar tu carrera.</p>
-        <a href="cursos.html" style="background:#00bfff; color:white; padding:10px 20px; border-radius:8px; text-decoration:none;">Ver Cursos</a>
-    </main>
-</<style>
-  /* Pega aquí el CSS que te di antes */
-</style>
-<script>
-  function openTab(evt, tabId) { ... }
-</script>
+    <!-- Sección de Héroe (Bienvenida) -->
+    <section class="hero-background text-white py-16 md:py-24 px-6">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                Aprende, Crece, Certifícate.
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+                Descubre nuestra amplia variedad de cursos en línea diseñados para impulsar tu carrera y tus pasiones.
+            </p>
+            <a href="cursos.html" class="bg-white primary-text font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transition-colors">
+                Explorar Cursos
+            </a>
+        </div>
+    </section>
 
+    <!-- Sección de Cursos Destacados -->
+    <section class="py-16 md:py-24 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-extrabold primary-text text-center mb-12">
+                Nuestros Cursos Populares
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Tarjeta de Curso 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/004aad/ffffff?text=Marketing+Digital" alt="Curso de Marketing Digital" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl primary-text mb-2">Marketing Digital 2024</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Aprende las estrategias más actuales para dominar el mundo digital y hacer crecer cualquier negocio.
+                        </p>
+                        <a href="#" class="secondary-text font-semibold hover:underline">Ver más &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Curso 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/00bfff/000000?text=Desarrollo+Web" alt="Curso de Desarrollo Web" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl primary-text mb-2">Desarrollo Web con React</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Construye aplicaciones web modernas y dinámicas utilizando la librería de JavaScript más popular.
+                        </p>
+                        <a href="#" class="secondary-text font-semibold hover:underline">Ver más &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Curso 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                    <img src="https://placehold.co/600x400/004aad/ffffff?text=Diseño+Gráfico" alt="Curso de Diseño Gráfico" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl primary-text mb-2">Fundamentos del Diseño Gráfico</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Domina las bases del diseño, la teoría del color y la composición para crear gráficos impresionantes.
+                        </p>
+                        <a href="#" class="secondary-text font-semibold hover:underline">Ver más &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Pie de página -->
+    <footer class="bg-gray-800 text-gray-300 py-8 px-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Mi Curso Online. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
 </html>
