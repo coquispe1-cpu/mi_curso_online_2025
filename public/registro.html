@@ -17,9 +17,146 @@
         .secondary-text {
             color: #00bfff; /* Color secundario */
         }
+        /* Estilos para el modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            position: relative;
+            width: 90%;
+            max-width: 420px;
+        }
     </style>
 </head>
 <body class="text-gray-900 bg-gray-50">
+
+    <!-- Firebase SDKs -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables for Firebase
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db, auth;
+        let userId = null;
+
+        // Function to show the modal with a message
+        function showModal(message, isError = false) {
+            const modal = document.getElementById('statusModal');
+            const messageElement = document.getElementById('modalMessage');
+            messageElement.textContent = message;
+            if (isError) {
+                messageElement.style.color = 'red';
+            } else {
+                messageElement.style.color = '#004aad';
+            }
+            modal.classList.remove('hidden');
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('statusModal').classList.add('hidden');
+        }
+
+        // Initialize Firebase and Auth
+        async function initializeFirebase() {
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(auth);
+                }
+                userId = auth.currentUser.uid;
+                document.getElementById('userIdDisplay').textContent = `ID de Usuario: ${userId}`;
+            } catch (error) {
+                console.error("Error initializing Firebase:", error);
+                showModal("Error al inicializar la aplicación. Inténtalo de nuevo más tarde.", true);
+            }
+        }
+
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Simulated course database
+        const courses = {
+            'html-css': 'Fundamentos de HTML y CSS',
+            'python-intro': 'Introducción a la Programación con Python',
+            'ui-ux-design': 'Diseño de Experiencia de Usuario',
+        };
+
+        // Populate the course field from URL
+        window.onload = function() {
+            const courseId = getUrlParameter('course');
+            const courseNameInput = document.getElementById('courseName');
+            if (courseId && courses[courseId]) {
+                courseNameInput.value = courses[courseId];
+            }
+        };
+
+        // Handle form submission and save to Firestore
+        const registrationForm = document.getElementById('registrationForm');
+        registrationForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!db || !userId) {
+                showModal("La aplicación no está lista. Por favor, espera un momento.", true);
+                return;
+            }
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const courseName = document.getElementById('courseName').value;
+
+            try {
+                const userRef = doc(db, `artifacts/${appId}/users/${userId}/registrations`, email);
+                await setDoc(userRef, {
+                    fullName,
+                    email,
+                    courseName,
+                    registrationDate: new Date()
+                });
+
+                showModal("¡Registro exitoso! Tus datos han sido guardados de forma segura.");
+                registrationForm.reset();
+            } catch (error) {
+                console.error("Error al guardar en Firestore:", error);
+                showModal("Error al registrarse. Por favor, inténtalo de nuevo.", true);
+            }
+        });
+
+        // Event listener for modal close button
+        document.getElementById('closeModal').addEventListener('click', closeModal);
+
+        // Initialize Firebase on page load
+        initializeFirebase();
+    </script>
 
     <!-- Header - Navegación -->
     <header class="bg-gradient-to-r from-[#004aad] to-[#00bfff] text-white py-4 px-6 shadow-lg">
@@ -36,7 +173,7 @@
     </header>
 
     <!-- Sección del Formulario de Registro -->
-    <section class="py-16 md:py-24 px-6 flex justify-center items-center">
+    <section class="py-16 md:py-24 px-6 flex flex-col justify-center items-center">
         <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 w-full max-w-xl">
             <h1 class="text-3xl md:text-4xl font-extrabold primary-text text-center mb-6">
                 Regístrate ahora
@@ -44,6 +181,8 @@
             <p class="text-center text-gray-600 mb-8">
                 Completa el formulario para empezar a aprender hoy mismo.
             </p>
+            <!-- Display User ID -->
+            <p id="userIdDisplay" class="text-sm text-center text-gray-400 mb-4"></p>
 
             <form id="registrationForm" class="space-y-6">
                 <!-- Nombre Completo -->
@@ -83,59 +222,22 @@
         </div>
     </section>
 
+    <!-- Modal para notificaciones -->
+    <div id="statusModal" class="modal-overlay hidden">
+        <div class="modal-content text-center">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-300">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <p id="modalMessage" class="text-xl font-semibold primary-text mb-4"></p>
+            <button onclick="closeModal()" class="py-2 px-6 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors">Aceptar</button>
+        </div>
+    </div>
+
     <!-- Footer - Pie de página -->
     <footer class="bg-gray-800 text-gray-300 py-8 px-6">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 Mi Curso Online. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <script>
-        // Función para obtener parámetros de la URL
-        function getUrlParameter(name) {
-            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-            const results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
-
-        // Simulación de una base de datos de cursos (podría ser una API real)
-        const courses = {
-            'html-css': 'Fundamentos de HTML y CSS',
-            'python-intro': 'Introducción a la Programación con Python',
-            'ui-ux-design': 'Diseño de Experiencia de Usuario',
-            // Agrega más cursos aquí
-        };
-
-        // Rellenar el campo del curso si se pasa un parámetro en la URL
-        window.onload = function() {
-            const courseId = getUrlParameter('course');
-            const courseNameInput = document.getElementById('courseName');
-            if (courseId && courses[courseId]) {
-                courseNameInput.value = courses[courseId];
-            }
-        };
-
-        // Manejar el envío del formulario
-        const registrationForm = document.getElementById('registrationForm');
-        registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const fullName = document.getElementById('fullName').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const courseName = document.getElementById('courseName').value;
-
-            console.log("Datos del registro:");
-            console.log("Nombre:", fullName);
-            console.log("Email:", email);
-            console.log("Contraseña:", password);
-            console.log("Curso Seleccionado:", courseName);
-
-            // Aquí se enviaría la información a un servidor real
-            alert('¡Registro exitoso!');
-            registrationForm.reset();
-        });
-    </script>
 </body>
 </html>
