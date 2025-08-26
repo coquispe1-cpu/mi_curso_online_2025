@@ -4,172 +4,422 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursos - Mi Curso en Linea</title>
-    <!-- Incluir Tailwind CSS para el estilo de la barra de navegación -->
+    <!-- Incluye el CDN de Tailwind CSS para el estilo -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Incluye Font Awesome para los iconos de los cursos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Importar la fuente Inter para mantener la consistencia */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
-        
-        /* Estilos generales y colores base del otro código */
+        /* Importa la fuente Inter de Google Fonts para un aspecto moderno */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f8ff; /* colorFondo */
         }
-        .primary-text {
-            color: #004aad; /* colorPrincipal */
+        /* Estilos para el gradiente del fondo */
+        .hero-gradient {
+            background: linear-gradient(180deg, #FFFFFF 0%, #E6EEF5 100%);
         }
-        .secondary-text {
-            color: #00bfff; /* colorSecundario */
-        }
-
-        /* Estilos de la página de cursos (adaptados para funcionar con el nuevo esquema) */
-        .cursos-container {
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .curso {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            color: white;
-            width: 280px;
-            min-height: 220px;
-            box-sizing: border-box;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .curso:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-        .curso h3 {
-            margin-top: 0;
-            font-size: 1.5rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-        .curso p {
-            margin: 5px 0;
-            font-size: 0.9rem;
-        }
-        .curso button {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            align-self: flex-start;
-            transition: background-color 0.3s ease;
-        }
-        .curso button:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-        @media (max-width: 768px) {
-            .curso {
-                width: 90%;
-            }
+        /* Gradiente para el texto de los títulos */
+        .text-gradient {
+            background: linear-gradient(90deg, #004AAD 0%, #00BFFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
     </style>
 </head>
-<body class="text-gray-900 bg-gray-50">
+<body class="bg-gray-50 text-gray-900">
 
-    <!-- Navbar (Barra de navegación) copiada del otro código -->
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v8M12 14l9-5M12 14l-9-5M5 12h14" />
+    <!-- Barra de navegación -->
+    <header class="bg-white sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-3">
+                <!-- Icono de gorro de graduación en SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-blue-500">
+                    <path d="M11.667 1.229a.75.75 0 01.666 0L20.25 5.86a.75.75 0 01.44 1.15l-3.52 5.868a.75.75 0 01-1.25.184L9 8.25V18a3.75 3.75 0 003.75 3.75c1.077 0 2.062-.518 2.658-1.39A.75.75 0 0116.5 21a.75.75 0 01-.73-.578c-.46-.667-1.259-1.096-2.195-1.164a2.25 2.25 0 01-1.848-2.203V8.25L3.337 5.86a.75.75 0 01.44-1.15L11.667 1.23z"></path>
                 </svg>
-                <span class="text-2xl font-extrabold primary-text">Mi Curso en Linea</span>
+                <!-- Texto del logo de MiCurso en Línea -->
+                <span class="text-3xl font-extrabold text-blue-800">MiCurso</span>
+                <span class="text-3xl font-extrabold text-blue-500">Online</span>
             </a>
-            <div class="hidden md:flex md:space-x-8 text-gray-700">
-                <a href="index.html" class="hover:text-gray-900 transition-colors duration-300">Inicio</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300 font-bold primary-text">Cursos</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Aulas Virtuales</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Registro</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Contáctanos</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium">Inicio</a>
+                <a href="#" class="text-blue-500 font-bold transition-colors duration-200">Cursos</a>
+                <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium">Aula virtual</a>
+                <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium">Registro</a>
+                <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors duration-200 font-medium">Contáctanos</a>
             </div>
-            <!-- Botón para el menú móvil -->
-            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <!-- Menú móvil -->
+            <button class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
             </button>
         </nav>
-        <!-- Menú móvil (oculto por defecto) -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="flex flex-col py-4">
-                <a href="index.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Inicio</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300 font-bold primary-text">Cursos</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Aulas Virtuales</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Registro</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Contáctanos</a>
-            </div>
-        </div>
     </header>
 
-    <!-- Contenido de los cursos -->
-    <div class="cursos-container">
-        <!-- Curso 36: Java Avanzado -->
-        <div class="curso" style="background: linear-gradient(135deg, #FF6B6B, #F8A5C2);">
-            <h3>Java Avanzado</h3>
-            <p>Profundiza en programación Java, POO, hilos y proyectos completos.</p>
-            <p>Duración: 8 semanas</p>
-            <p>Modalidad: Virtual</p>
-            <button onclick="location.href='registro.html'">Registrarme</button>
+    <!-- Contenido principal de la página de cursos -->
+    <main class="container mx-auto px-6 py-12 md:py-20">
+        <h1 class="text-3xl md:text-5xl font-black text-center mb-12 md:mb-16 text-blue-800">Nuestros Cursos</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Curso 1: Java Avanzado -->
+            <div class="bg-blue-600 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-mug-hot text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Java Avanzado</h3>
+                <p class="text-sm opacity-90 mb-4">Profundiza en programación Java, POO, hilos y proyectos completos.</p>
+                <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 2: Python Avanzado -->
+            <div class="bg-green-600 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-laptop-code text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Python Avanzado</h3>
+                <p class="text-sm opacity-90 mb-4">Aprende Python avanzado, data science y automatización de procesos.</p>
+                <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-green-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 3: Machine Learning -->
+            <div class="bg-purple-600 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-brain text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Machine Learning</h3>
+                <p class="text-sm opacity-90 mb-4">Fundamentos, algoritmos y proyectos prácticos de inteligencia artificial.</p>
+                <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-purple-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 4: Big Data -->
+            <div class="bg-orange-600 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-database text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Big Data</h3>
+                <p class="text-sm opacity-90 mb-4">Análisis de grandes volúmenes de datos, herramientas y tecnologías.</p>
+                <p class="text-sm font-medium mb-1">Duración: 9 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-orange-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 5: Desarrollo Web con React -->
+            <div class="bg-blue-400 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fab fa-react text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Desarrollo Web con React</h3>
+                <p class="text-sm opacity-90 mb-4">Creación de interfaces de usuario dinámicas con la librería React.</p>
+                <p class="text-sm font-medium mb-1">Duración: 12 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-blue-400 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 6: Ciberseguridad -->
+            <div class="bg-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-shield-alt text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Ciberseguridad</h3>
+                <p class="text-sm opacity-90 mb-4">Protege sistemas y redes de amenazas digitales con las mejores prácticas.</p>
+                <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-gray-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 7: Inteligencia de Negocios -->
+            <div class="bg-rose-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-chart-bar text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Inteligencia de Negocios</h3>
+                <p class="text-sm opacity-90 mb-4">Analiza datos para tomar decisiones estratégicas y mejorar el rendimiento.</p>
+                <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-rose-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 8: Fundamentos de la Nube -->
+            <div class="bg-teal-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-cloud text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Fundamentos de la Nube</h3>
+                <p class="text-sm opacity-90 mb-4">Comprende la arquitectura y los servicios esenciales de la computación en la nube.</p>
+                <p class="text-sm font-medium mb-1">Duración: 6 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-teal-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+            
+            <!-- Curso 9: Desarrollo de Apps Móviles -->
+            <div class="bg-indigo-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-mobile-alt text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Desarrollo de Apps Móviles</h3>
+                <p class="text-sm opacity-90 mb-4">Crea aplicaciones para Android y iOS utilizando frameworks modernos.</p>
+                <p class="text-sm font-medium mb-1">Duración: 14 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-indigo-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 10: Marketing Digital Estratégico -->
+            <div class="bg-yellow-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-bullhorn text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Marketing Digital</h3>
+                <p class="text-sm opacity-90 mb-4">Estrategias de SEO, SEM, redes sociales y análisis de campañas.</p>
+                <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-yellow-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 11: Diseño Gráfico Esencial -->
+            <div class="bg-pink-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-paint-brush text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Diseño Gráfico</h3>
+                <p class="text-sm opacity-90 mb-4">Domina herramientas como Photoshop e Illustrator y crea proyectos visuales impactantes.</p>
+                <p class="text-sm font-medium mb-1">Duración: 12 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-pink-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 12: Gestión de Proyectos Ágiles -->
+            <div class="bg-red-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-tasks text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Gestión de Proyectos</h3>
+                <p class="text-sm opacity-90 mb-4">Aprende metodologías ágiles como Scrum y Kanban para gestionar equipos y proyectos.</p>
+                <p class="text-sm font-medium mb-1">Duración: 6 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-red-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 13: Fotografía Digital -->
+            <div class="bg-slate-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-camera-retro text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Fotografía Digital</h3>
+                <p class="text-sm opacity-90 mb-4">Desde la composición hasta la postproducción, domina el arte de la fotografía.</p>
+                <p class="text-sm font-medium mb-1">Duración: 7 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-slate-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 14: Edición de Video Profesional -->
+            <div class="bg-fuchsia-600 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-video text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Edición de Video</h3>
+                <p class="text-sm opacity-90 mb-4">Aprende a contar historias a través de la edición de video con software profesional.</p>
+                <p class="text-sm font-medium mb-1">Duración: 9 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-fuchsia-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 15: UX/UI Design -->
+            <div class="bg-orange-400 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-sitemap text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">UX/UI Design</h3>
+                <p class="text-sm opacity-90 mb-4">Diseña experiencias de usuario intuitivas y interfaces atractivas.</p>
+                <p class="text-sm font-medium mb-1">Duración: 11 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-orange-400 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 16: Programación en C++ -->
+            <div class="bg-cyan-600 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-file-code text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Programación C++</h3>
+                <p class="text-sm opacity-90 mb-4">Aprende la base de la programación de sistemas y videojuegos con C++.</p>
+                <p class="text-sm font-medium mb-1">Duración: 15 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-cyan-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 17: Contabilidad para Emprendedores -->
+            <div class="bg-amber-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-calculator text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Contabilidad</h3>
+                <p class="text-sm opacity-90 mb-4">Conoce los principios contables para gestionar las finanzas de tu negocio.</p>
+                <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-amber-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 18: Hojas de Cálculo Avanzadas -->
+            <div class="bg-emerald-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-table text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Hojas de Cálculo</h3>
+                <p class="text-sm opacity-90 mb-4">Domina las funciones, macros y tablas dinámicas en Excel y Google Sheets.</p>
+                <p class="text-sm font-medium mb-1">Duración: 5 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-emerald-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 19: Robótica y Automatización -->
+            <div class="bg-violet-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-cogs text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Robótica y Automatización</h3>
+                <p class="text-sm opacity-90 mb-4">Introducción al diseño, construcción y programación de robots.</p>
+                <p class="text-sm font-medium mb-1">Duración: 13 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-violet-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 20: Inteligencia Artificial Avanzada -->
+            <div class="bg-zinc-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-robot text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">IA Avanzada</h3>
+                <p class="text-sm opacity-90 mb-4">Algoritmos de aprendizaje profundo, redes neuronales y visión por computadora.</p>
+                <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-zinc-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+            
+            <!-- Curso 21: Análisis de Datos con R -->
+            <div class="bg-lime-600 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-chart-line text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Análisis de Datos con R</h3>
+                <p class="text-sm opacity-90 mb-4">Aprende a manipular, visualizar y analizar datos con el lenguaje R.</p>
+                <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-lime-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 22: Desarrollo con Angular -->
+            <div class="bg-red-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fab fa-angular text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Desarrollo con Angular</h3>
+                <p class="text-sm opacity-90 mb-4">Construye aplicaciones web robustas y escalables con el framework Angular.</p>
+                <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-red-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 23: Blockchain y Criptomonedas -->
+            <div class="bg-cyan-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-link text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Blockchain y Criptomonedas</h3>
+                <p class="text-sm opacity-90 mb-4">Entiende la tecnología de cadena de bloques y el mundo de las criptomonedas.</p>
+                <p class="text-sm font-medium mb-1">Duración: 12 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-cyan-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 24: E-commerce y Ventas Online -->
+            <div class="bg-amber-600 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-store text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">E-commerce</h3>
+                <p class="text-sm opacity-90 mb-4">Crea y gestiona tu propia tienda online y domina las estrategias de ventas.</p>
+                <p class="text-sm font-medium mb-1">Duración: 9 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-amber-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 25: Arquitectura de Software -->
+            <div class="bg-slate-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-layer-group text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Arquitectura de Software</h3>
+                <p class="text-sm opacity-90 mb-4">Diseña y construye sistemas de software robustos y escalables.</p>
+                <p class="text-sm font-medium mb-1">Duración: 14 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-slate-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 26: Inteligencia Emocional -->
+            <div class="bg-pink-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-hand-holding-heart text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Inteligencia Emocional</h3>
+                <p class="text-sm opacity-90 mb-4">Desarrolla habilidades de autoconocimiento y gestión de emociones.</p>
+                <p class="text-sm font-medium mb-1">Duración: 6 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-pink-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 27: Programación de Videojuegos con Unity -->
+            <div class="bg-indigo-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-gamepad text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Programación de Videojuegos</h3>
+                <p class="text-sm opacity-90 mb-4">Crea juegos 2D y 3D desde cero con el motor de Unity.</p>
+                <p class="text-sm font-medium mb-1">Duración: 15 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-indigo-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 28: Automatización de Pruebas -->
+            <div class="bg-teal-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-check-double text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Automatización de Pruebas</h3>
+                <p class="text-sm opacity-90 mb-4">Aprende a crear scripts de prueba para automatizar el control de calidad.</p>
+                <p class="text-sm font-medium mb-1">Duración: 9 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-teal-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 29: Fundamentos de DevOps -->
+            <div class="bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-terminal text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Fundamentos de DevOps</h3>
+                <p class="text-sm opacity-90 mb-4">Integra el desarrollo y operaciones para optimizar la entrega de software.</p>
+                <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-gray-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 30: Diseño y Animación 3D -->
+            <div class="bg-orange-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-cube text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Diseño y Animación 3D</h3>
+                <p class="text-sm opacity-90 mb-4">Crea modelos y animaciones 3D con software profesional.</p>
+                <p class="text-sm font-medium mb-1">Duración: 11 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-orange-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+            
+            <!-- Curso 31: Especialista en Preparación de Superficie -->
+            <div class="bg-blue-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-tools text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Especialista en Preparación de Superficie</h3>
+                <p class="text-sm opacity-90 mb-4">Curso especializado en técnicas de limpieza y preparación de superficies industriales.</p>
+                <p class="text-sm font-medium mb-1">Duración: 7 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Presencial</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-blue-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 32: Especialista en Aplicación de Recubrimientos -->
+            <div class="bg-green-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-paint-roller text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Especialista en Aplicación de Recubrimientos</h3>
+                <p class="text-sm opacity-90 mb-4">Domina las técnicas y equipos para aplicar recubrimientos protectores.</p>
+                <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Presencial</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-green-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 33: Operador de Tolva de Limpieza con Chorro Abrasivo a Presión -->
+            <div class="bg-purple-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-spray-can text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Operador de Tolva de Limpieza con Chorro Abrasivo a Presión</h3>
+                <p class="text-sm opacity-90 mb-4">Capacitación para operar tolvas de limpieza con chorro abrasivo a presión.</p>
+                <p class="text-sm font-medium mb-1">Duración: 6 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Presencial</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-purple-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 34: Operador de Equipo de Airless (con sistema Neumático, Eléctrico, Gasolinero) -->
+            <div class="bg-red-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-air-freshener text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Operador de Equipo de Airless (con sistema Neumático, Eléctrico, Gasolinero)</h3>
+                <p class="text-sm opacity-90 mb-4">Aprende a operar sistemas de aplicación de pintura sin aire.</p>
+                <p class="text-sm font-medium mb-1">Duración: 5 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Presencial</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-red-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
+            <!-- Curso 35: Operador de Equipo Convencional de Aplicación de Pinturas -->
+            <div class="bg-gray-500 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105 text-white">
+                <i class="fas fa-brush text-4xl mb-4 opacity-75"></i>
+                <h3 class="text-2xl font-bold mb-2">Operador de Equipo Convencional de Aplicación de Pinturas</h3>
+                <p class="text-sm opacity-90 mb-4">Dominio de equipos de aplicación de recubrimientos tradicionales.</p>
+                <p class="text-sm font-medium mb-1">Duración: 4 semanas</p>
+                <p class="text-sm font-medium mb-4">Modalidad: Presencial</p>
+                <button onclick="location.href='registro.html'" class="bg-white text-gray-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+            </div>
+
         </div>
+    </main>
 
-        <!-- Curso 37: Python Avanzado -->
-        <div class="curso" style="background: linear-gradient(135deg, #1A936F, #66B2B2);">
-            <h3>Python Avanzado</h3>
-            <p>Aprende Python avanzado, data science y automatización de procesos.</p>
-            <p>Duración: 8 semanas</p>
-            <p>Modalidad: Virtual</p>
-            <button onclick="location.href='registro.html'">Registrarme</button>
+    <!-- Pie de página -->
+    <footer class="bg-gray-800 text-gray-300 py-8 text-center mt-auto">
+        <div class="container mx-auto px-6">
+            <p>&copy; 2024 MiCurso Online. Todos los derechos reservados.</p>
         </div>
-
-        <!-- Curso 38: Machine Learning -->
-        <div class="curso" style="background: linear-gradient(135deg, #5D54A4, #B993D6);">
-            <h3>Machine Learning</h3>
-            <p>Fundamentos, algoritmos y proyectos prácticos de inteligencia artificial.</p>
-            <p>Duración: 10 semanas</p>
-            <p>Modalidad: Virtual</p>
-            <button onclick="location.href='registro.html'">Registrarme</button>
-        </div>
-
-        <!-- Curso 39: Big Data -->
-        <div class="curso" style="background: linear-gradient(135deg, #FFD700, #F08080);">
-            <h3>Big Data</h3>
-            <p>Análisis de grandes volúmenes de datos, herramientas y tecnologías.</p>
-            <p>Duración: 9 semanas</p>
-            <p>Modalidad: Virtual</p>
-            <button onclick="location.href='registro.html'">Registrarme</button>
-        </div>
-
-        <!-- Curso 40: Desarrollo Web con React -->
-        <div class="curso" style="background: linear-gradient(135deg, #3498db, #2c3e50);">
-            <h3>Desarrollo Web con React</h3>
-            <p>Creación de interfaces de usuario dinámicas con la librería React.</p>
-            <p>Duración: 12 semanas</p>
-            <p>Modalidad: Virtual</p>
-            <button onclick="location.href='registro.html'">Registrarme</button>
-        </div>
-
-    </div>
-
-    <script>
-        // Funcionalidad para el menú móvil
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+    </footer>
 </body>
 </html>
