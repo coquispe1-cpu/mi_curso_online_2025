@@ -1,3 +1,11 @@
+<!-- 
+  Este es el archivo HTML para la página de Cursos, ahora con la navegación corregida.
+  
+  - Se utilizan las clases de Tailwind CSS para el diseño.
+  - Los enlaces (`<a>`) de la barra de navegación (tanto en la versión de escritorio como
+    en la móvil) han sido actualizados para apuntar a los archivos HTML correctos.
+  - Esto asegura que al hacer clic, te lleve a la página que deseas.
+-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -81,7 +89,7 @@
 </head>
 <body class="text-gray-900 bg-gray-50">
 
-    <!-- Navbar (Barra de navegación) copiada del otro código -->
+    <!-- Navbar (Barra de navegación) con enlaces corregidos -->
     <header class="bg-white shadow-md">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2">
@@ -92,11 +100,12 @@
                 <span class="text-2xl font-extrabold primary-text">Mi Curso en Linea</span>
             </a>
             <div class="hidden md:flex md:space-x-8 text-gray-700">
+                <!-- Enlaces de escritorio corregidos -->
                 <a href="index.html" class="hover:text-gray-900 transition-colors duration-300">Inicio</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300 font-bold primary-text">Cursos</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Aulas Virtuales</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Registro</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Contáctanos</a>
+                <a href="cursos.html" class="hover:text-gray-900 transition-colors duration-300 font-bold primary-text">Cursos</a>
+                <a href="aulas-virtuales.html" class="hover:text-gray-900 transition-colors duration-300">Aulas Virtuales</a>
+                <a href="registro.html" class="hover:text-gray-900 transition-colors duration-300">Registro</a>
+                <a href="contactanos.html" class="hover:text-gray-900 transition-colors duration-300">Contáctanos</a>
             </div>
             <!-- Botón para el menú móvil -->
             <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
@@ -106,11 +115,12 @@
         <!-- Menú móvil (oculto por defecto) -->
         <div id="mobile-menu" class="hidden md:hidden">
             <div class="flex flex-col py-4">
+                <!-- Enlaces móviles corregidos -->
                 <a href="index.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Inicio</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300 font-bold primary-text">Cursos</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Aulas Virtuales</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Registro</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Contáctanos</a>
+                <a href="cursos.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300 font-bold primary-text">Cursos</a>
+                <a href="aulas-virtuales.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Aulas Virtuales</a>
+                <a href="registro.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Registro</a>
+                <a href="contactanos.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Contáctanos</a>
             </div>
         </div>
     </header>
@@ -172,4 +182,4 @@
         });
     </script>
 </body>
-</htm
+</html>
