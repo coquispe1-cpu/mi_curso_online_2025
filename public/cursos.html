@@ -3,127 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos - Mi Curso Online</title>
+    <title>Cursos - Mi Curso en Linea</title>
+    <!-- Incluir Tailwind CSS para el estilo de la barra de navegación -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Importar la fuente Inter para mantener la consistencia */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+        
+        /* Estilos generales y colores base del otro código */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f8ff; /* Color de fondo */
+            background-color: #f0f8ff; /* colorFondo */
         }
         .primary-text {
-            color: #004aad; /* Color principal */
+            color: #004aad; /* colorPrincipal */
         }
         .secondary-text {
-            color: #00bfff; /* Color secundario */
+            color: #00bfff; /* colorSecundario */
+        }
+
+        /* Estilos de la página de cursos (adaptados para funcionar con el nuevo esquema) */
+        .cursos-container {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .curso {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+            width: 280px;
+            min-height: 220px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .curso:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .curso h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .curso p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+        .curso button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            align-self: flex-start;
+            transition: background-color 0.3s ease;
+        }
+        .curso button:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        @media (max-width: 768px) {
+            .curso {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body class="text-gray-900 bg-gray-50">
 
-    <!-- Header - Navegación -->
-    <header class="bg-gradient-to-r from-[#004aad] to-[#00bfff] text-white py-4 px-6 shadow-lg">
-        <nav class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl">Mi Curso Online</a>
-            <div class="hidden md:flex space-x-4">
-                <a href="index.html" class="hover:text-gray-200">Inicio</a>
-                <a href="cursos.html" class="hover:text-gray-200">Cursos</a>
-                <a href="certificados.html" class="hover:text-gray-200">Certificados</a>
-                <a href="aula.html" class="hover:text-gray-200">Aula Virtual</a>
-                <a href="contactanos.html" class="hover:text-gray-200">Contáctanos</a>
+    <!-- Navbar (Barra de navegación) copiada del otro código -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v8M12 14l9-5M12 14l-9-5M5 12h14" />
+                </svg>
+                <span class="text-2xl font-extrabold primary-text">Mi Curso en Linea</span>
+            </a>
+            <div class="hidden md:flex md:space-x-8 text-gray-700">
+                <a href="index.html" class="hover:text-gray-900 transition-colors duration-300">Inicio</a>
+                <a href="#" class="hover:text-gray-900 transition-colors duration-300 font-bold primary-text">Cursos</a>
+                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Aulas Virtuales</a>
+                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Registro</a>
+                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Contáctanos</a>
             </div>
+            <!-- Botón para el menú móvil -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
         </nav>
+        <!-- Menú móvil (oculto por defecto) -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="flex flex-col py-4">
+                <a href="index.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Inicio</a>
+                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300 font-bold primary-text">Cursos</a>
+                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Aulas Virtuales</a>
+                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Registro</a>
+                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Contáctanos</a>
+            </div>
+        </div>
     </header>
 
-    <!-- Sección de Cursos -->
-    <section class="py-16 md:py-24 px-6">
-        <div class="container mx-auto">
-            <h1 class="text-4xl md:text-5xl font-extrabold primary-text text-center mb-4">
-                Todos nuestros Cursos
-            </h1>
-            <p class="text-lg text-center text-gray-600 mb-12">
-                Explora nuestra biblioteca de cursos y encuentra el ideal para ti.
-            </p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-
-                <!-- Tarjeta de Curso 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/004aad/ffffff?text=Marketing+Digital" alt="Curso de Marketing Digital" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm font-semibold text-white bg-blue-500 px-3 py-1 rounded-full mb-2 inline-block">Negocios</span>
-                        <h3 class="font-bold text-xl primary-text mb-2">Marketing Digital 2024</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Aprende las estrategias más actuales para dominar el mundo digital.
-                        </p>
-                        <a href="#" class="secondary-text font-semibold hover:underline">Inscríbete &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta de Curso 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/00bfff/000000?text=Desarrollo+Web" alt="Curso de Desarrollo Web" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm font-semibold text-white bg-green-500 px-3 py-1 rounded-full mb-2 inline-block">Tecnología</span>
-                        <h3 class="font-bold text-xl primary-text mb-2">Desarrollo Web con React</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Construye aplicaciones web modernas y dinámicas con React.
-                        </p>
-                        <a href="#" class="secondary-text font-semibold hover:underline">Inscríbete &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta de Curso 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/004aad/ffffff?text=Diseño+Gráfico" alt="Curso de Diseño Gráfico" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm font-semibold text-white bg-purple-500 px-3 py-1 rounded-full mb-2 inline-block">Diseño</span>
-                        <h3 class="font-bold text-xl primary-text mb-2">Fundamentos del Diseño Gráfico</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Domina las bases del diseño, la teoría del color y la composición.
-                        </p>
-                        <a href="#" class="secondary-text font-semibold hover:underline">Inscríbete &rarr;</a>
-                    </div>
-                </div>
-                
-                <!-- Tarjeta de Curso 4 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/00bfff/000000?text=Inglés+Avanzado" alt="Curso de Inglés Avanzado" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm font-semibold text-white bg-red-500 px-3 py-1 rounded-full mb-2 inline-block">Idiomas</span>
-                        <h3 class="font-bold text-xl primary-text mb-2">Inglés Avanzado</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Perfecciona tus habilidades de conversación y escritura en inglés.
-                        </p>
-                        <a href="#" class="secondary-text font-semibold hover:underline">Inscríbete &rarr;</a>
-                    </div>
-                </div>
-                
-                <!-- Tarjeta de Curso 5 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/004aad/ffffff?text=Finanzas+Personales" alt="Curso de Finanzas Personales" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm font-semibold text-white bg-yellow-500 px-3 py-1 rounded-full mb-2 inline-block">Finanzas</span>
-                        <h3 class="font-bold text-xl primary-text mb-2">Finanzas Personales</h3>
-                        <p class="text-gray-600 text-sm mb-4">
-                            Organiza tus finanzas y aprende a invertir para el futuro.
-                        </p>
-                        <a href="#" class="secondary-text font-semibold hover:underline">Inscríbete &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Puedes agregar más tarjetas de curso aquí -->
-
-            </div>
+    <!-- Contenido de los cursos -->
+    <div class="cursos-container">
+        <!-- Curso 36: Java Avanzado -->
+        <div class="curso" style="background: linear-gradient(135deg, #FF6B6B, #F8A5C2);">
+            <h3>Java Avanzado</h3>
+            <p>Profundiza en programación Java, POO, hilos y proyectos completos.</p>
+            <p>Duración: 8 semanas</p>
+            <p>Modalidad: Virtual</p>
+            <button onclick="location.href='registro.html'">Registrarme</button>
         </div>
-    </section>
 
-    <!-- Footer - Pie de página -->
-    <footer class="bg-gray-800 text-gray-300 py-8 px-6">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 Mi Curso Online. Todos los derechos reservados.</p>
+        <!-- Curso 37: Python Avanzado -->
+        <div class="curso" style="background: linear-gradient(135deg, #1A936F, #66B2B2);">
+            <h3>Python Avanzado</h3>
+            <p>Aprende Python avanzado, data science y automatización de procesos.</p>
+            <p>Duración: 8 semanas</p>
+            <p>Modalidad: Virtual</p>
+            <button onclick="location.href='registro.html'">Registrarme</button>
         </div>
-    </footer>
 
+        <!-- Curso 38: Machine Learning -->
+        <div class="curso" style="background: linear-gradient(135deg, #5D54A4, #B993D6);">
+            <h3>Machine Learning</h3>
+            <p>Fundamentos, algoritmos y proyectos prácticos de inteligencia artificial.</p>
+            <p>Duración: 10 semanas</p>
+            <p>Modalidad: Virtual</p>
+            <button onclick="location.href='registro.html'">Registrarme</button>
+        </div>
+
+        <!-- Curso 39: Big Data -->
+        <div class="curso" style="background: linear-gradient(135deg, #FFD700, #F08080);">
+            <h3>Big Data</h3>
+            <p>Análisis de grandes volúmenes de datos, herramientas y tecnologías.</p>
+            <p>Duración: 9 semanas</p>
+            <p>Modalidad: Virtual</p>
+            <button onclick="location.href='registro.html'">Registrarme</button>
+        </div>
+
+        <!-- Curso 40: Desarrollo Web con React -->
+        <div class="curso" style="background: linear-gradient(135deg, #3498db, #2c3e50);">
+            <h3>Desarrollo Web con React</h3>
+            <p>Creación de interfaces de usuario dinámicas con la librería React.</p>
+            <p>Duración: 12 semanas</p>
+            <p>Modalidad: Virtual</p>
+            <button onclick="location.href='registro.html'">Registrarme</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Funcionalidad para el menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
-</html>
+</htm
