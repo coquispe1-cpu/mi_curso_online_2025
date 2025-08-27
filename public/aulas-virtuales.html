@@ -1,20 +1,21 @@
 <!-- Main Content Section - Slogans and Virtual Classrooms Access -->
-<section class="py-16 md:py-24 px-6 flex items-center justify-center min-h-[60vh]">
+<section class="py-16 md:py-24 px-6 flex items-center justify-center min-h-[60vh] bg-gray-50">
     <div class="container mx-auto text-center">
+
         <!-- Title introducing slogans -->
-        <h1 class="text-4xl md:text-5xl font-extrabold primary-text mb-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-8">
             Elige tu Eslogan
         </h1>
 
         <!-- Slogan buttons -->
         <div id="slogan-container" class="flex flex-col md:flex-row justify-center items-center gap-4 mb-12 max-w-5xl mx-auto">
-            <button type="button" class="slogan-button text-base md:text-xl font-bold px-10 py-4 flex-1">
+            <button type="button" class="slogan-button text-base md:text-xl font-bold px-8 py-4 flex-1 bg-white rounded-lg shadow hover:shadow-lg transition duration-300">
                 Mientras más aprendes, más creces. ¡Nunca te detengas!
             </button>
-            <button type="button" class="slogan-button text-base md:text-xl font-bold px-10 py-4 flex-1">
+            <button type="button" class="slogan-button text-base md:text-xl font-bold px-8 py-4 flex-1 bg-white rounded-lg shadow hover:shadow-lg transition duration-300">
                 El conocimiento te impulsa. Aprende, crece, y ve más allá.
             </button>
-            <button type="button" class="slogan-button text-base md:text-xl font-bold px-10 py-4 flex-1">
+            <button type="button" class="slogan-button text-base md:text-xl font-bold px-8 py-4 flex-1 bg-white rounded-lg shadow hover:shadow-lg transition duration-300">
                 Tu viaje de aprendizaje es infinito. ¡Continúa creciendo cada día!
             </button>
         </div>
@@ -25,20 +26,20 @@
             <p class="text-lg text-gray-600 mb-8">
                 Inicia sesión o regístrate para acceder a todos los recursos de tus cursos y conectar con otros estudiantes.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <button id="open-login-modal" class="cta-button bg-blue-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-600">
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button id="open-login-modal" class="cta-button bg-blue-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-600 transition">
                     Iniciar Sesión
                 </button>
-                <button id="open-register-modal" class="cta-button bg-sky-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-sky-600">
+                <button id="open-register-modal" class="cta-button bg-sky-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-sky-600 transition">
                     Registrarse
                 </button>
             </div>
         </div>
 
         <!-- Logged In Section -->
-        <div id="logged-in-section" class="hidden">
-            <div class="logged-in-container p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-                <h2 class="text-3xl font-bold primary-text mb-4">¡Bienvenido a tu aula virtual!</h2>
+        <div id="logged-in-section" class="hidden mt-12">
+            <div class="logged-in-container p-8 rounded-xl shadow-lg max-w-2xl mx-auto bg-white">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">¡Bienvenido a tu aula virtual!</h2>
                 <p class="text-gray-700 text-lg mb-6">
                     ¡Hemos guardado tu eslogan! Disfruta de la experiencia de aprendizaje.
                 </p>
@@ -52,5 +53,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
