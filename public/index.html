@@ -56,13 +56,6 @@
             border-radius: 0.5rem;
             text-align: center;
         }
-        .loading-message {
-            color: #004aad; /* azul */
-            background-color: #e0f2fe; /* fondo azul claro */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            text-align: center;
-        }
     </style>
 </head>
 <body class="text-gray-900 bg-gray-50">
@@ -163,6 +156,7 @@
             <!-- Contenedor para mensajes -->
             <div id="form-message" class="mb-4 hidden"></div>
 
+            <!-- FORMULARIO CORREGIDO -->
             <form id="registrationForm" class="space-y-6">
                 <div>
                     <label for="curso" class="block text-sm font-medium text-gray-700">Curso</label>
@@ -229,8 +223,8 @@
                 registerModal.classList.add('hidden');
             }
         });
-
-        // Nueva funcionalidad para manejar el envío del formulario
+        
+        // Nueva funcionalidad para manejar el envío del formulario con fetch
         registrationForm.addEventListener('submit', async function(e) {
             // Prevenir el comportamiento por defecto de recargar la página
             e.preventDefault();
@@ -238,13 +232,14 @@
             // Limpiar mensajes anteriores
             formMessage.classList.add('hidden');
             formMessage.textContent = '';
-            formMessage.classList.remove('success-message', 'error-message', 'loading-message');
+            formMessage.classList.remove('success-message', 'error-message');
 
+            // Recolectar datos del formulario
             const curso = document.getElementById('curso').value;
             const nombre = document.getElementById('nombre').value;
             const email = document.getElementById('email').value;
 
-            // Simple validación de campos
+            // Validación básica de campos
             if (!curso || !nombre || !email) {
                 formMessage.classList.remove('hidden');
                 formMessage.classList.add('error-message');
@@ -252,50 +247,39 @@
                 return;
             }
 
-            // Mostrar mensaje de carga
-            formMessage.classList.remove('hidden');
-            formMessage.classList.add('loading-message');
-            formMessage.textContent = 'Enviando...';
-
-            // Preparar los datos del formulario
-            const formData = {
-                curso: curso,
-                nombre: nombre,
-                email: email
-            };
-
             try {
-                // Realizar la solicitud POST al servidor
-                const response = await fetch('/register', {
+                // Enviar los datos al servidor usando fetch
+                const response = await fetch('/registrar', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(formData)
+                    // Convertir los datos a formato JSON
+                    body: JSON.stringify({ curso, nombre, email })
                 });
 
-                // Comprobar si la respuesta del servidor es exitosa
+                const result = await response.json();
+
+                // Mostrar mensaje de acuerdo a la respuesta del servidor
                 if (response.ok) {
-                    const result = await response.text();
-                    formMessage.classList.remove('loading-message');
+                    formMessage.classList.remove('hidden');
                     formMessage.classList.add('success-message');
-                    formMessage.textContent = result;
+                    formMessage.textContent = result.message;
+                    // Limpiar el formulario
                     registrationForm.reset();
                 } else {
-                    const errorText = await response.text();
-                    formMessage.classList.remove('loading-message');
+                    formMessage.classList.remove('hidden');
                     formMessage.classList.add('error-message');
-                    formMessage.textContent = `Error: ${errorText}`;
+                    formMessage.textContent = result.message || 'Error en el registro. Inténtalo de nuevo.';
                 }
 
             } catch (error) {
                 console.error('Error al enviar el formulario:', error);
-                formMessage.classList.remove('loading-message');
+                formMessage.classList.remove('hidden');
                 formMessage.classList.add('error-message');
-                formMessage.textContent = 'Error de conexión. Inténtalo de nuevo más tarde.';
+                formMessage.textContent = 'Error de conexión. Por favor, intenta más tarde.';
             }
         });
-        
     </script>
 </body>
 </html>
