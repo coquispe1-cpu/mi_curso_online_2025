@@ -4,27 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Curso en Línea</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-  <h1>Bienvenido a Mi Curso en Línea</h1>
+  <header>
+    <h1>Mi Curso en Línea</h1>
+    <nav>
+      <a href="/">Inicio</a>
+      <a href="/cursos">Cursos</a>
+      <a href="/aulas_virtuales">Aulas Virtuales</a>
+      <a href="/registro">Registro</a>
+      <a href="/contactanos">Contáctanos</a>
+    </nav>
+  </header>
 
-  <h2>Selecciona tu curso:</h2>
-  <select id="cursoSelect">
-    <option value="">-- Selecciona un curso --</option>
-    <option value="HTML y CSS">HTML y CSS</option>
-    <option value="JavaScript">JavaScript</option>
-    <option value="Python">Python</option>
-  </select>
+  <main>
+    <h2>Selecciona tu curso:</h2>
+    <select id="cursoSelect">
+      <option value="">-- Selecciona un curso --</option>
+      <option value="HTML y CSS">HTML y CSS</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="Python">Python</option>
+    </select>
 
-  <div id="formulario" style="display:none;">
-    <h2>Registro</h2>
-    <form id="registroForm">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu email" required>
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
+    <div id="formulario" style="display:none;">
+      <h2>Registro</h2>
+      <form id="registroForm">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu email" required>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Mi Curso en Línea
+  </footer>
 
   <script>
     const cursoSelect = document.getElementById('cursoSelect');
