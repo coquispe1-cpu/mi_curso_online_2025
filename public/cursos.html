@@ -1,38 +1,37 @@
-<!-- Curso 1: Java Avanzado -->
-<div class="bg-blue-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fas fa-mug-hot text-4xl mb-4 opacity-75"></i>
+<!-- Contenedor general de cursos -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
+
+  <!-- Curso 1: Java Avanzado -->
+  <div class="bg-blue-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <i class="fab fa-java text-4xl mb-4 opacity-75"></i>
     <h3 class="text-2xl font-bold mb-2">Java Avanzado</h3>
     <p class="text-sm opacity-90 mb-4">Profundiza en programación Java, POO, hilos y proyectos completos.</p>
     <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
     <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-    
+
     <button onclick="document.getElementById('form-curso1').classList.toggle('hidden')" 
         class="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
         Registrarme
     </button>
 
     <form id="form-curso1" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Java Avanzado" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-
-        <button type="submit" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-300">
-            Enviar registro
-        </button>
+      <label class="block mb-2 font-medium">Nombre completo</label>
+      <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
+      <label class="block mb-2 font-medium">Correo electrónico</label>
+      <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
+      <label class="block mb-2 font-medium">Teléfono</label>
+      <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
+      <label class="block mb-2 font-medium">Curso</label>
+      <input type="text" name="curso" value="Java Avanzado" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-300">
+        Enviar registro
+      </button>
     </form>
-</div>
+  </div>
 
-<!-- Curso 2: Python Avanzado -->
-<div class="bg-green-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fas fa-laptop-code text-4xl mb-4 opacity-75"></i>
+  <!-- Curso 2: Python Avanzado -->
+  <div class="bg-green-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <i class="fab fa-python text-4xl mb-4 opacity-75"></i>
     <h3 class="text-2xl font-bold mb-2">Python Avanzado</h3>
     <p class="text-sm opacity-90 mb-4">Aprende Python avanzado, data science y automatización de procesos.</p>
     <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
@@ -44,26 +43,22 @@
     </button>
 
     <form id="form-curso2" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Python Avanzado" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-
-        <button type="submit" class="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300">
-            Enviar registro
-        </button>
+      <label class="block mb-2 font-medium">Nombre completo</label>
+      <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
+      <label class="block mb-2 font-medium">Correo electrónico</label>
+      <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
+      <label class="block mb-2 font-medium">Teléfono</label>
+      <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
+      <label class="block mb-2 font-medium">Curso</label>
+      <input type="text" name="curso" value="Python Avanzado" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300">
+        Enviar registro
+      </button>
     </form>
-</div>
+  </div>
 
-<!-- Curso 3: Machine Learning -->
-<div class="bg-purple-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+  <!-- Curso 3: Machine Learning -->
+  <div class="bg-purple-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
     <i class="fas fa-brain text-4xl mb-4 opacity-75"></i>
     <h3 class="text-2xl font-bold mb-2">Machine Learning</h3>
     <p class="text-sm opacity-90 mb-4">Fundamentos, algoritmos y proyectos prácticos de inteligencia artificial.</p>
@@ -76,556 +71,436 @@
     </button>
 
     <form id="form-curso3" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Machine Learning" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-
-        <button type="submit" class="bg-purple-600 text-white font-semibold py-2 px-4 rounded hover:bg-purple-700 transition-colors duration-300">
-            Enviar registro
-        </button>
+      <label class="block mb-2 font-medium">Nombre completo</label>
+      <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
+      <label class="block mb-2 font-medium">Correo electrónico</label>
+      <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
+      <label class="block mb-2 font-medium">Teléfono</label>
+      <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
+      <label class="block mb-2 font-medium">Curso</label>
+      <input type="text" name="curso" value="Machine Learning" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-purple-600 text-white font-semibold py-2 px-4 rounded hover:bg-purple-700 transition-colors duration-300">
+        Enviar registro
+      </button>
     </form>
-</div>
+  </div>
 
-<!-- Curso 4: Big Data -->
-<div class="bg-orange-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fas fa-database text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Big Data</h3>
-    <p class="text-sm opacity-90 mb-4">Análisis de grandes volúmenes de datos, herramientas y tecnologías.</p>
-    <p class="text-sm font-medium mb-1">Duración: 9 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
+  <!-- Agregar más cursos aquí siguiendo el mismo patrón -->
+</<!-- Contenedor general de cursos -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
 
-    <button onclick="document.getElementById('form-curso4').classList.toggle('hidden')" 
-        class="bg-white text-orange-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso4" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Big Data" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-
-        <button type="submit" class="bg-orange-600 text-white font-semibold py-2 px-4 rounded hover:bg-orange-700 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 5: Desarrollo Web con React -->
-<div class="bg-blue-400 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-react text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Desarrollo Web con React</h3>
-    <p class="text-sm opacity-90 mb-4">Creación de interfaces de usuario dinámicas con la librería React.</p>
-    <p class="text-sm font-medium mb-1">Duración: 12 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso5').classList.toggle('hidden')" 
-        class="bg-white text-blue-400 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso5" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Desarrollo Web con React" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-
-        <button type="submit" class="bg-blue-400 text-white font-semibold py-2 px-4 rounded hover:bg-blue-500 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-<!-- Curso 6: Angular Avanzado -->
-<div class="bg-red-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-angular text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Angular Avanzado</h3>
-    <p class="text-sm opacity-90 mb-4">Desarrollo de aplicaciones web dinámicas usando Angular.</p>
-    <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso6').classList.toggle('hidden')" 
-        class="bg-white text-red-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso6" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Angular Avanzado" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-red-600 text-white font-semibold py-2 px-4 rounded hover:bg-red-700 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 7: Node.js -->
-<div class="bg-green-700 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-node text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Node.js</h3>
-    <p class="text-sm opacity-90 mb-4">Servidor, APIs y desarrollo backend con Node.js.</p>
-    <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso7').classList.toggle('hidden')" 
-        class="bg-white text-green-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso7" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Node.js" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-green-700 text-white font-semibold py-2 px-4 rounded hover:bg-green-800 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 8: Django -->
-<div class="bg-teal-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fas fa-leaf text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Django</h3>
-    <p class="text-sm opacity-90 mb-4">Desarrollo backend con Python y el framework Django.</p>
-    <p class="text-sm font-medium mb-1">Duración: 9 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso8').classList.toggle('hidden')" 
-        class="bg-white text-teal-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso8" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Django" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-teal-600 text-white font-semibold py-2 px-4 rounded hover:bg-teal-700 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 9: Flutter -->
-<div class="bg-indigo-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-google text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Flutter</h3>
-    <p class="text-sm opacity-90 mb-4">Desarrollo de aplicaciones móviles multiplataforma con Flutter.</p>
-    <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso9').classList.toggle('hidden')" 
-        class="bg-white text-indigo-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso9" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Flutter" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded hover:bg-indigo-700 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-<!-- Curso 10: React.js -->
-<div class="bg-blue-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-react text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">React.js</h3>
-    <p class="text-sm opacity-90 mb-4">Desarrollo de interfaces web modernas y dinámicas con React.</p>
-    <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso10').classList.toggle('hidden')" 
-        class="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso10" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="React.js" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 11: Vue.js -->
-<div class="bg-green-500 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-vuejs text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Vue.js</h3>
-    <p class="text-sm opacity-90 mb-4">Framework progresivo de JavaScript para construir interfaces web.</p>
-    <p class="text-sm font-medium mb-1">Duración: 7 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso11').classList.toggle('hidden')" 
-        class="bg-white text-green-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso11" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Vue.js" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 12: Python Avanzado -->
-<div class="bg-yellow-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-python text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Python Avanzado</h3>
-    <p class="text-sm opacity-90 mb-4">Profundiza en Python, desde estructuras hasta programación orientada a objetos.</p>
-    <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso12').classList.toggle('hidden')" 
-        class="bg-white text-yellow-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso12" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Python Avanzado" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-yellow-600 text-white font-semibold py-2 px-4 rounded hover:bg-yellow-700 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 13: C# y .NET -->
-<div class="bg-purple-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-microsoft text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">C# y .NET</h3>
-    <p class="text-sm opacity-90 mb-4">Desarrollo de aplicaciones de escritorio y web con C# y .NET.</p>
-    <p class="text-sm font-medium mb-1">Duración: 9 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso13').classList.toggle('hidden')" 
-        class="bg-white text-purple-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso13" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="C# y .NET" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-purple-600 text-white font-semibold py-2 px-4 rounded hover:bg-purple-700 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-<!-- Curso 14: Java Avanzado -->
-<div class="bg-red-500 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-java text-4xl mb-4 opacity-75"></i>
+  <!-- Curso 1: Java Avanzado -->
+  <div class="bg-blue-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
     <h3 class="text-2xl font-bold mb-2">Java Avanzado</h3>
-    <p class="text-sm opacity-90 mb-4">Programación orientada a objetos, estructuras de datos y diseño de software en Java.</p>
-    <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso14').classList.toggle('hidden')" 
-        class="bg-white text-red-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
+    <p class="text-sm opacity-90 mb-4">Profundiza en programación Java, POO, hilos y proyectos completos.</p>
+    <button onclick="document.getElementById('form-curso1').classList.toggle('hidden')" class="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
+      Registrarme
     </button>
-
-    <form id="form-curso14" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Java Avanzado" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-red-500 text-white font-semibold py-2 px-4 rounded hover:bg-red-600 transition-colors duration-300">
-            Enviar registro
-        </button>
+    <form id="form-curso1" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Java Avanzado" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-300">Enviar registro</button>
     </form>
-</div>
+  </div>
 
-<!-- Curso 15: Kotlin para Android -->
-<div class="bg-indigo-500 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-android text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Kotlin para Android</h3>
-    <p class="text-sm opacity-90 mb-4">Desarrollo de aplicaciones móviles nativas para Android con Kotlin.</p>
-    <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso15').classList.toggle('hidden')" 
-        class="bg-white text-indigo-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso15" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Kotlin para Android" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-indigo-500 text-white font-semibold py-2 px-4 rounded hover:bg-indigo-600 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 16: Swift para iOS -->
-<div class="bg-pink-500 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-apple text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Swift para iOS</h3>
-    <p class="text-sm opacity-90 mb-4">Desarrollo de aplicaciones móviles para iPhone y iPad usando Swift.</p>
-    <p class="text-sm font-medium mb-1">Duración: 8 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso16').classList.toggle('hidden')" 
-        class="bg-white text-pink-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso16" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Swift para iOS" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-pink-500 text-white font-semibold py-2 px-4 rounded hover:bg-pink-600 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 17: Node.js -->
-<div class="bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-node-js text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Node.js</h3>
-    <p class="text-sm opacity-90 mb-4">Backend en JavaScript para construir aplicaciones rápidas y escalables.</p>
-    <p class="text-sm font-medium mb-1">Duración: 9 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso17').classList.toggle('hidden')" 
-        class="bg-white text-gray-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso17" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Node.js" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-gray-800 text-white font-semibold py-2 px-4 rounded hover:bg-gray-900 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-<!-- Curso 18: Python Avanzado -->
-<div class="bg-yellow-500 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fab fa-python text-4xl mb-4 opacity-75"></i>
+  <!-- Curso 2: Python Avanzado -->
+  <div class="bg-green-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
     <h3 class="text-2xl font-bold mb-2">Python Avanzado</h3>
-    <p class="text-sm opacity-90 mb-4">Temas avanzados: programación funcional, manejo de APIs, automatización y Data Science.</p>
-    <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso18').classList.toggle('hidden')" 
-        class="bg-white text-yellow-500 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
+    <p class="text-sm opacity-90 mb-4">Aprende Python avanzado, data science y automatización de procesos.</p>
+    <button onclick="document.getElementById('form-curso2').classList.toggle('hidden')" class="bg-white text-green-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
+      Registrarme
     </button>
-
-    <form id="form-curso18" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Python Avanzado" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-yellow-500 text-white font-semibold py-2 px-4 rounded hover:bg-yellow-600 transition-colors duration-300">
-            Enviar registro
-        </button>
+    <form id="form-curso2" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Python Avanzado" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300">Enviar registro</button>
     </form>
-</div>
+  </div>
 
-<!-- Curso 19: Inteligencia Artificial -->
-<div class="bg-purple-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fas fa-robot text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Inteligencia Artificial</h3>
-    <p class="text-sm opacity-90 mb-4">Conceptos y prácticas de IA: aprendizaje automático, redes neuronales y deep learning.</p>
-    <p class="text-sm font-medium mb-1">Duración: 12 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso19').classList.toggle('hidden')" 
-        class="bg-white text-purple-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso19" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Inteligencia Artificial" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-purple-600 text-white font-semibold py-2 px-4 rounded hover:bg-purple-700 transition-colors duration-300">
-            Enviar registro
-        </button>
-    </form>
-</div>
-
-<!-- Curso 20: Machine Learning -->
-<div class="bg-green-600 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fas fa-brain text-4xl mb-4 opacity-75"></i>
+  <!-- Curso 3: Machine Learning -->
+  <div class="bg-purple-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
     <h3 class="text-2xl font-bold mb-2">Machine Learning</h3>
-    <p class="text-sm opacity-90 mb-4">Aprende algoritmos de ML, clasificación, regresión y clustering aplicado a proyectos reales.</p>
-    <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso20').classList.toggle('hidden')" 
-        class="bg-white text-green-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
+    <p class="text-sm opacity-90 mb-4">Fundamentos, algoritmos y proyectos prácticos de inteligencia artificial.</p>
+    <button onclick="document.getElementById('form-curso3').classList.toggle('hidden')" class="bg-white text-purple-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
+      Registrarme
     </button>
-
-    <form id="form-curso20" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Machine Learning" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300">
-            Enviar registro
-        </button>
+    <form id="form-curso3" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Machine Learning" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-colors duration-300">Enviar registro</button>
     </form>
-</div>
+  </div>
 
-<!-- Curso 21: Big Data -->
-<div class="bg-blue-700 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fas fa-database text-4xl mb-4 opacity-75"></i>
-    <h3 class="text-2xl font-bold mb-2">Big Data</h3>
-    <p class="text-sm opacity-90 mb-4">Procesamiento y análisis de grandes volúmenes de datos con herramientas modernas.</p>
-    <p class="text-sm font-medium mb-1">Duración: 12 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso21').classList.toggle('hidden')" 
-        class="bg-white text-blue-700 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
+  <!-- Cursos 4 al 21 -->
+  <!-- Solo cambia color de fondo, nombre de curso y id de formulario -->
+  <div class="bg-red-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Curso 4: Redes y Seguridad</h3>
+    <p class="text-sm opacity-90 mb-4">Aprende seguridad en redes y protocolos de comunicación.</p>
+    <button onclick="document.getElementById('form-curso4').classList.toggle('hidden')" class="bg-white text-red-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
+      Registrarme
     </button>
-
-    <form id="form-curso21" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Big Data" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-blue-700 text-white font-semibold py-2 px-4 rounded hover:bg-blue-800 transition-colors duration-300">
-            Enviar registro
-        </button>
+    <form id="form-curso4" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Redes y Seguridad" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition-colors duration-300">Enviar registro</button>
     </form>
-</div>
+  </div>
 
-<!-- Curso 22: Ciberseguridad -->
-<div class="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
-    <i class="fas fa-shield-alt text-4xl mb-4 opacity-75"></i>
+  <!-- Repetir para cursos 5 al 21 cambiando id=form-cursoX y nombre del curso -->
+</div>
+<!-- Contenedor general de cursos -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+
+  <!-- Curso 1 -->
+  <div class="bg-blue-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Java Avanzado</h3>
+    <p class="text-sm opacity-90 mb-4">Profundiza en programación Java, POO, hilos y proyectos completos.</p>
+    <button onclick="document.getElementById('form-curso1').classList.toggle('hidden')" class="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso1" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Java Avanzado" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 2 -->
+  <div class="bg-green-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Python Avanzado</h3>
+    <p class="text-sm opacity-90 mb-4">Aprende Python avanzado, data science y automatización de procesos.</p>
+    <button onclick="document.getElementById('form-curso2').classList.toggle('hidden')" class="bg-white text-green-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso2" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Python Avanzado" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 3 -->
+  <div class="bg-purple-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Machine Learning</h3>
+    <p class="text-sm opacity-90 mb-4">Fundamentos, algoritmos y proyectos prácticos de inteligencia artificial.</p>
+    <button onclick="document.getElementById('form-curso3').classList.toggle('hidden')" class="bg-white text-purple-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso3" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Machine Learning" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!--<!-- Contenedor general de cursos -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+
+  <!-- Curso 1 -->
+  <div class="bg-blue-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Java Avanzado</h3>
+    <p class="text-sm opacity-90 mb-4">Profundiza en programación Java, POO, hilos y proyectos completos.</p>
+    <button onclick="document.getElementById('form-curso1').classList.toggle('hidden')" class="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso1" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Java Avanzado" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 2 -->
+  <div class="bg-green-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Python Avanzado</h3>
+    <p class="text-sm opacity-90 mb-4">Aprende Python avanzado, data science y automatización de procesos.</p>
+    <button onclick="document.getElementById('form-curso2').classList.toggle('hidden')" class="bg-white text-green-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso2" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Python Avanzado" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 3 -->
+  <div class="bg-purple-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Machine Learning</h3>
+    <p class="text-sm opacity-90 mb-4">Fundamentos, algoritmos y proyectos prácticos de inteligencia artificial.</p>
+    <button onclick="document.getElementById('form-curso3').classList.toggle('hidden')" class="bg-white text-purple-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso3" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Machine Learning" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 4 -->
+  <div class="bg-red-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">HTML y CSS</h3>
+    <p class="text-sm opacity-90 mb-4">Diseño web moderno y responsive con proyectos prácticos.</p>
+    <button onclick="document.getElementById('form-curso4').classList.toggle('hidden')" class="bg-white text-red-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso4" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="HTML y CSS" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 5 -->
+  <div class="bg-yellow-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">JavaScript Moderno</h3>
+    <p class="text-sm opacity-90 mb-4">Aprende JS avanzado, DOM, fetch API, y frameworks modernos.</p>
+    <button onclick="document.getElementById('form-curso5').classList.toggle('hidden')" class="bg-white text-yellow-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso5" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="JavaScript Moderno" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-yellow-600 text-white py-2 px-4 rounded hover:bg-yellow-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 6 -->
+  <div class="bg-indigo-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">React JS</h3>
+    <p class="text-sm opacity-90 mb-4">Construye aplicaciones web con React, hooks y componentes avanzados.</p>
+    <button onclick="document.getElementById('form-curso6').classList.toggle('hidden')" class="bg-white text-indigo-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso6" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="React JS" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 7 -->
+  <div class="bg-pink-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Node.js</h3>
+    <p class="text-sm opacity-90 mb-4">Servidor y backend con Node.js, Express y bases de datos.</p>
+    <button onclick="document.getElementById('form-curso7').classList.toggle('hidden')" class="bg-white text-pink-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso7" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Node.js" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-pink-600 text-white py-2 px-4 rounded hover:bg-pink-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 8 -->
+  <div class="bg-teal-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Bases de Datos</h3>
+    <p class="text-sm opacity-90 mb-4">SQL, NoSQL, diseño y optimización de bases de datos.</p>
+    <button onclick="document.getElementById('form-curso8').classList.toggle('hidden')" class="bg-white text-teal-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso8" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Bases de Datos" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 9 -->
+  <div class="bg-orange-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">PHP y Laravel</h3>
+    <p class="text-sm opacity-90 mb-4">Desarrollo web backend con PHP y framework Laravel.</p>
+    <button onclick="document.getElementById('form-curso9').classList.toggle('hidden')" class="bg-white text-orange-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso9" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="PHP y Laravel" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 10 -->
+  <div class="bg-cyan-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
     <h3 class="text-2xl font-bold mb-2">Ciberseguridad</h3>
-    <p class="text-sm opacity-90 mb-4">Protección de sistemas, redes y datos frente a ataques y vulnerabilidades.</p>
-    <p class="text-sm font-medium mb-1">Duración: 10 semanas</p>
-    <p class="text-sm font-medium mb-4">Modalidad: Virtual</p>
-
-    <button onclick="document.getElementById('form-curso22').classList.toggle('hidden')" 
-        class="bg-white text-gray-900 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">
-        Registrarme
-    </button>
-
-    <form id="form-curso22" class="hidden mt-6 bg-white text-gray-900 p-4 rounded-lg shadow-md">
-        <label class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="nombre" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="correo" class="w-full mb-4 p-2 border border-gray-300 rounded" required>
-        <label class="block mb-2 font-medium">Teléfono</label>
-        <input type="tel" name="telefono" class="w-full mb-4 p-2 border border-gray-300 rounded">
-        <label class="block mb-2 font-medium">Curso</label>
-        <input type="text" name="curso" value="Ciberseguridad" readonly class="w-full mb-4 p-2 border border-gray-300 rounded bg-gray-100">
-        <button type="submit" class="bg-gray-900 text-white font-semibold py-2 px-4 rounded hover:bg-black transition-colors duration-300">
-            Enviar registro
-        </button>
+    <p class="text-sm opacity-90 mb-4">Protege sistemas y redes con técnicas de seguridad modernas.</p>
+    <button onclick="document.getElementById('form-curso10').classList.toggle('hidden')" class="bg-white text-cyan-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso10" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Ciberseguridad" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-cyan-600 text-white py-2 px-4 rounded hover:bg-cyan-700 transition-colors duration-300">Enviar registro</button>
     </form>
-</div>
+  </div>
+Cursos 4 al 21 -->
+  <!-- Curso 11 -->
+  <div class="bg-lime-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Android Development</h3>
+    <p class="text-sm opacity-90 mb-4">Crea apps móviles completas con Kotlin y Android Studio.</p>
+    <button onclick="document.getElementById('form-curso11').classList.toggle('hidden')" class="bg-white text-lime-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso11" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Android Development" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-lime-600 text-white py-2 px-4 rounded hover:bg-lime-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 12 -->
+  <div class="bg-rose-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">iOS Development</h3>
+    <p class="text-sm opacity-90 mb-4">Desarrollo de apps para iPhone y iPad usando Swift y Xcode.</p>
+    <button onclick="document.getElementById('form-curso12').classList.toggle('hidden')" class="bg-white text-rose-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso12" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="iOS Development" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-rose-600 text-white py-2 px-4 rounded hover:bg-rose-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 13 -->
+  <div class="bg-violet-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">UI/UX Design</h3>
+    <p class="text-sm opacity-90 mb-4">Diseño de interfaces y experiencia de usuario para web y apps.</p>
+    <button onclick="document.getElementById('form-curso13').classList.toggle('hidden')" class="bg-white text-violet-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso13" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="UI/UX Design" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-violet-600 text-white py-2 px-4 rounded hover:bg-violet-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 14 -->
+  <div class="bg-fuchsia-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Data Science</h3>
+    <p class="text-sm opacity-90 mb-4">Análisis de datos, estadística y modelos predictivos con Python.</p>
+    <button onclick="document.getElementById('form-curso14').classList.toggle('hidden')" class="bg-white text-fuchsia-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso14" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Data Science" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-fuchsia-600 text-white py-2 px-4 rounded hover:bg-fuchsia-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 15 -->
+  <div class="bg-sky-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">DevOps</h3>
+    <p class="text-sm opacity-90 mb-4">Integración y entrega continua, Docker, Kubernetes y CI/CD.</p>
+    <button onclick="document.getElementById('form-curso15').classList.toggle('hidden')" class="bg-white text-sky-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso15" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="DevOps" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-sky-600 text-white py-2 px-4 rounded hover:bg-sky-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 16 -->
+  <div class="bg-emerald-600 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Cloud Computing</h3>
+    <p class="text-sm opacity-90 mb-4">AWS, Azure, Google Cloud y despliegue de infraestructuras escalables.</p>
+    <button onclick="document.getElementById('form-curso16').classList.toggle('hidden')" class="bg-white text-emerald-600 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso16" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Cloud Computing" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-emerald-600 text-white py-2 px-4 rounded hover:bg-emerald-700 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+
+  <!-- Curso 17 -->
+  <div class="bg-yellow-800 p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 text-white transition duration-300">
+    <h3 class="text-2xl font-bold mb-2">Blockchain</h3>
+    <p class="text-sm opacity-90 mb-4">Fundamentos de blockchain, smart contracts y criptomonedas.</p>
+    <button onclick="document.getElementById('form-curso17').classList.toggle('hidden')" class="bg-white text-yellow-800 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-300">Registrarme</button>
+    <form id="form-curso17" class="hidden mt-4 bg-white text-gray-900 p-4 rounded-lg shadow-md">
+      <input type="text" name="nombre" placeholder="Nombre completo" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="email" name="correo" placeholder="Correo electrónico" class="w-full mb-2 p-2 border border-gray-300 rounded" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" class="w-full mb-2 p-2 border border-gray-300 rounded">
+      <input type="text" name="curso" value="Blockchain" readonly class="w-full mb-2 p-2 border border-gray-300 rounded bg-gray-100">
+      <button type="submit" class="bg-yellow-800 text-white py-2 px-4 rounded hover:bg-yellow-900 transition-colors duration-300">Enviar registro</button>
+    </form>
+  </div>
+<select name="cursos" id="cursos">
+  <option value="">--Selecciona un curso--</option>
+  <option value="curso-recubrimientos-industriales-marinos">Curso de Especialista en Aplicación de Recubrimientos, Industriales y Marinos</option>
+  <option value="curso-preparacion-superficies">Curso de Especialista en Preparación de Superficies</option>
+  <option value="operador-tolva-limpieza">Operador de Tolva para Limpieza con Chorro a Presión</option>
+  <option value="operador-equipo-airless">Operador de Equipo Airless (Neumático, Eléctrico y Gasolinero)</option>
+  <option value="operador-hidrolavadora">Operador de Hidrolavadora de Alta Presión</option>
+  <option value="control-calidad-limpieza-recubrimientos">Curso Control de Calidad en Operaciones de Limpieza con Chorro Abrasivo y Aplicación de Recubrimientos</option>
+  <option value="mantenimiento-equipo-airless-tolvas">Curso de Mantenimiento de Equipos Airless y Tolvas para Limpieza con Chorro a Presión</option>
+</select>
+<select name="cursos" id="cursos">
+  <option value="">--Selecciona un curso--</option>
+  <option value="curso-recubrimientos-industriales-marinos">Curso de Especialista en Aplicación de Recubrimientos, Industriales y Marinos</option>
+  <option value="curso-preparacion-superficies">Curso de Especialista en Preparación de Superficies</option>
+  <option value="operador-tolva-limpieza">Operador de Tolva para Limpieza con Chorro a Presión</option>
+  <option value="operador-equipo-airless">Operador de Equipo Airless (Neumático, Eléctrico y Gasolinero)</option>
+  <option value="operador-hidrolavadora">Operador de Hidrolavadora de Alta Presión</option>
+  <option value="control-calidad-limpieza-recubrimientos">Curso Control de Calidad en Operaciones de Limpieza con Chorro Abrasivo y Aplicación de Recubrimientos</option>
+  <option value="mantenimiento-equipo-airless-tolvas">Curso de Mantenimiento de Equipos Airless y Tolvas para Limpieza con Chorro a Presión</option>
+</select>
+<form id="inscripcion" action="procesar.php" method="POST">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required><br><br>
+
+  <label for="cursos">Selecciona tus cursos:</label><br>
+  <select name="cursos[]" id="cursos" multiple size="7" required>
+    <option value="curso-recubrimientos-industriales-marinos" data-precio="500">Curso de Especialista en Aplicación de Recubrimientos, Industriales y Marinos - $500</option>
+    <option value="curso-preparacion-superficies" data-precio="400">Curso de Especialista en Preparación de Superficies - $400</option>
+    <option value="operador-tolva-limpieza" data-precio="350">Operador de Tolva para Limpieza con Chorro a Presión - $350</option>
+    <option value="operador-equipo-airless" data-precio="450">Operador de Equipo Airless (Neumático, Eléctrico y Gasolinero) - $450</option>
+    <option value="operador-hidrolavadora" data-precio="300">Operador de Hidrolavadora de Alta Presión - $300</option>
+    <option value="control-calidad-limpieza-recubrimientos" data-precio="400">Curso Control de Calidad en Operaciones de Limpieza con Chorro Abrasivo y Aplicación de Recubrimientos - $400</option>
+    <option value="mantenimiento-equipo-airless-tolvas" data-precio="350">Curso de Mantenimiento de Equipos Airless y Tolvas para Limpieza con Chorro a Presión - $350</option>
+  </select><br><br>
+
+  <label>Total a pagar: $<span id="total">0</span></label><br><br>
+
+  <input type="submit" value="Inscribirme">
+</form>
+
+<script>
+  const cursos = document.querySelectorAll('#cursos option');
+  const totalSpan = document.getElementById('total');
+  const select = document.getElementById('cursos');
+
+  select.addEventListener('change', calcularTotal);
+
+  function calcularTotal() {
+    let total = 0;
+    let seleccionados = Array.from(select.selectedOptions);
+    seleccionados.forEach(option => {
+      total += parseFloat(option.dataset.precio);
+    });
+
+    // Aplicar descuento: si selecciona 3 cursos, paga 2.5 cursos
+    if (seleccionados.length >= 3) {
+      let promedio = total / seleccionados.length;
+      total = promedio * 2.5;
+    }
+
+    totalSpan.textContent = total.toFixed(2);
+  }
+</script>
