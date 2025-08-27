@@ -9,29 +9,23 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f8ff; /* Fallback color */
-            background-image: linear-gradient(to top, #c7d2fe, #e2e8f0); /* Gradient background */
+            background-color: #f0f8ff;
+            background-image: linear-gradient(to top, #c7d2fe, #e2e8f0);
         }
-        .primary-text {
-            color: #4338ca; /* Indigo */
-        }
-        .secondary-text {
-            color: #a78bfa; /* Violet */
-        }
-        /* Style for active tab link */
+        .primary-text { color: #4338ca; }
+        .secondary-text { color: #a78bfa; }
         .tab-link.active {
             font-weight: bold;
             color: #4338ca;
             border-bottom: 2px solid #4338ca;
         }
-        /* Fade-in animation for content */
         .content-section {
-            display: none; /* Hide content sections by default */
+            display: none;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
         .content-section.active {
-            display: block; /* Show active content section */
+            display: block;
             opacity: 1;
         }
     </style>
@@ -42,7 +36,6 @@
     <header class="bg-white shadow-md">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-2">
-                <!-- Academic cap icon (SVG) -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 primary-text">
                     <path fill-rule="evenodd" d="M12.449 2.946a.75.75 0 0 0-.898 0l-7.5 4.5A.75.75 0 0 0 4.5 8.423v6.791l3.522 2.113A3.75 3.75 0 0 0 9.75 18.75h.375a.75.75 0 0 0 .75-.75V11.25a.75.75 0 0 1 1.5 0v6.75a.75.75 0 0 0 1.5 0v-4.667a.75.75 0 0 1 .42-.676l3.522-2.113V8.423a.75.75 0 0 0 .449-.977l-7.5-4.5Z" clip-rule="evenodd" />
                 </svg>
@@ -60,7 +53,9 @@
 
             <!-- Mobile Menu Toggle Button -->
             <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
             </button>
         </nav>
 
@@ -77,52 +72,47 @@
     </header>
 
     <main class="py-20 md:py-32 text-center">
-        <!-- Welcome Message and Slogan -->
         <h1 class="text-4xl md:text-5xl font-extrabold primary-text">¡Bienvenido a Mi Curso en Linea!</h1>
         <p class="mt-4 text-xl md:text-2xl text-secondary-text">Tu futuro comienza hoy. Aprende a tu propio ritmo.</p>
     
         <div class="mt-8 container mx-auto px-6 max-w-2xl">
-            <!-- ---------------------------------------------------- -->
-            <!-- ALL CONTENT SECTIONS ARE HERE, ONE FOR EACH TAB -->
-            <!-- ---------------------------------------------------- -->
-
-            <!-- Inicio Content (Visible by default) -->
-            <div id="inicio" class="content-section active bg-indigo-700 rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+            <!-- Inicio Content -->
+            <div id="inicio" class="content-section active bg-indigo-700 rounded-xl shadow-xl p-8">
                 <h2 class="text-3xl font-bold text-white mb-4">Página de Inicio</h2>
                 <p class="text-lg text-white leading-relaxed text-left">
-                    ¡Nos alegra tenerte aquí! En Mi Curso en Linea, te ofrecemos una amplia variedad de cursos de alta calidad, diseñados para ayudarte a alcanzar tus metas profesionales y personales. Nuestra plataforma es fácil de usar y te permite aprender a tu propio ritmo, desde cualquier lugar y en cualquier momento. Explora nuestra oferta y comienza tu viaje de aprendizaje hoy mismo.
+                    ¡Nos alegra tenerte aquí! Explora nuestros cursos y comienza tu viaje de aprendizaje hoy.
                 </p>
             </div>
 
             <!-- Cursos Content -->
-            <div id="cursos" class="content-section bg-white rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+            <div id="cursos" class="content-section bg-white rounded-xl shadow-xl p-8">
                 <h2 class="text-3xl font-bold primary-text mb-4">Cursos Disponibles</h2>
                 <p class="text-lg text-gray-700 leading-relaxed text-left">
-                    Descubre nuestra amplia selección de cursos en diversas áreas: programación, diseño gráfico, marketing digital, idiomas y más. Cada curso ha sido creado por expertos para garantizar una experiencia de aprendizaje completa y práctica.
+                    Descubre nuestra selección de cursos en diversas áreas.
                 </p>
             </div>
 
-            <!-- Aulas Virtuales Content -->
-            <div id="aulas" class="content-section bg-white rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+            <!-- Aulas Content -->
+            <div id="aulas" class="content-section bg-white rounded-xl shadow-xl p-8">
                 <h2 class="text-3xl font-bold primary-text mb-4">Nuestras Aulas Virtuales</h2>
                 <p class="text-lg text-gray-700 leading-relaxed text-left">
-                    Conéctate con instructores y compañeros en nuestras aulas virtuales. Participa en sesiones en vivo, haz preguntas y colabora en proyectos para enriquecer tu aprendizaje. ¡La comunidad es la clave!
+                    Conéctate con instructores y compañeros en nuestras aulas virtuales.
                 </p>
             </div>
 
             <!-- Registro Content -->
-            <div id="registro" class="content-section bg-white rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+            <div id="registro" class="content-section bg-white rounded-xl shadow-xl p-8">
                 <h2 class="text-3xl font-bold primary-text mb-4">Regístrate Hoy</h2>
                 <p class="text-lg text-gray-700 leading-relaxed text-left">
-                    Crea tu cuenta en pocos minutos y obtén acceso inmediato a todos nuestros recursos. ¡El proceso es rápido y seguro!
+                    Crea tu cuenta y obtén acceso inmediato a todos nuestros recursos.
                 </p>
             </div>
             
             <!-- Contáctanos Content -->
-            <div id="contacto" class="content-section bg-white rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+            <div id="contacto" class="content-section bg-white rounded-xl shadow-xl p-8">
                 <h2 class="text-3xl font-bold primary-text mb-4">Contáctanos</h2>
                 <p class="text-lg text-gray-700 leading-relaxed text-left">
-                    ¿Tienes preguntas? Nuestro equipo de soporte está disponible para ayudarte. Envíanos un mensaje o llámanos para resolver cualquier duda.
+                    Nuestro equipo de soporte está disponible para ayudarte.
                 </p>
             </div>
         </div>
@@ -135,39 +125,30 @@
             const tabLinks = document.querySelectorAll('.tab-link');
             const contentSections = document.querySelectorAll('.content-section');
 
-            // --- Mobile Menu Logic ---
-            if (menuToggle && mobileMenu) {
-                menuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
+            // Mobile Menu Toggle
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
 
-            // --- Tab/Section Switching Logic ---
+            // Show tab function
             function showTab(tabId) {
-                // Hide all content sections and remove 'active' class from links
-                contentSections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                tabLinks.forEach(link => {
-                    link.classList.remove('active');
-                });
-
-                // Show the requested section and add 'active' class to the link
-                const activeSection = document.getElementById(tabId);
-                const activeLink = document.querySelector(`.tab-link[data-tab="${tabId}"]`);
-                
-                if (activeSection && activeLink) {
-                    activeSection.classList.add('active');
-                    activeLink.classList.add('active');
-                }
+                contentSections.forEach(sec => sec.classList.remove('active'));
+                tabLinks.forEach(link => link.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+                document.querySelectorAll(`.tab-link[data-tab="${tabId}"]`).forEach(link => link.classList.add('active'));
             }
 
-            // Add event listener to all navigation links
+            // Attach click events
             tabLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
-                    // Prevent the default anchor jump behavior
-                    event.preventDefault();
-                    // Get the ID of the tab to show from the 'data-tab' attribute
-                    const tabId = this.dataset.tab;
-                    // Call the function to switch the tab
-                    showTab(
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    showTab(link.dataset.tab);
+                    if(!mobileMenu.classList.contains('hidden')){
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
