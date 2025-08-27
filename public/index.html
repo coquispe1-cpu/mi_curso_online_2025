@@ -3,283 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal - Mi Curso en Linea</title>
+    <title>Barra de Navegación Funcional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f8ff; /* colorFondo */
+            background-color: #f0f8ff; /* Fallback color */
+            background-image: linear-gradient(to top, #c7d2fe, #e2e8f0); /* Gradient background */
         }
         .primary-text {
-            color: #004aad; /* colorPrincipal */
+            color: #4338ca; /* Indigo */
         }
         .secondary-text {
-            color: #00bfff; /* colorSecundario */
+            color: #a78bfa; /* Violet */
         }
-        .secondary-bg {
-            background-color: #00bfff; /* colorSecundario */
+        /* Style for active tab link */
+        .tab-link.active {
+            font-weight: bold;
+            color: #4338ca;
+            border-bottom: 2px solid #4338ca;
         }
-        /* Estilos para el modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 50;
+        /* Fade-in animation for content */
+        .content-section {
+            display: none; /* Hide content sections by default */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
-        .modal-content {
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            position: relative;
-            width: 90%;
-            max-width: 420px;
-        }
-        .success-message {
-            color: #15803d; /* verde */
-            background-color: #dcfce7; /* fondo verde claro */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            text-align: center;
-        }
-        .error-message {
-            color: #b91c1c; /* rojo */
-            background-color: #fee2e2; /* fondo rojo claro */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            text-align: center;
+        .content-section.active {
+            display: block; /* Show active content section */
+            opacity: 1;
         }
     </style>
 </head>
 <body class="text-gray-900 bg-gray-50">
 
-    <!-- Navbar (Barra de navegación) -->
+    <!-- Header and Navigation Bar -->
     <header class="bg-white shadow-md">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <!-- Icono de curso -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v8M12 14l9-5M12 14l-9-5M5 12h14" />
+            <a href="#" class="flex items-center space-x-2">
+                <!-- Academic cap icon (SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 primary-text">
+                    <path fill-rule="evenodd" d="M12.449 2.946a.75.75 0 0 0-.898 0l-7.5 4.5A.75.75 0 0 0 4.5 8.423v6.791l3.522 2.113A3.75 3.75 0 0 0 9.75 18.75h.375a.75.75 0 0 0 .75-.75V11.25a.75.75 0 0 1 1.5 0v6.75a.75.75 0 0 0 1.5 0v-4.667a.75.75 0 0 1 .42-.676l3.522-2.113V8.423a.75.75 0 0 0 .449-.977l-7.5-4.5Z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-2xl font-extrabold primary-text">Mi Curso en Linea</span>
             </a>
-            <div class="hidden md:flex md:space-x-8 text-gray-700">
-                <a href="index.html" class="hover:text-gray-900 transition-colors duration-300 font-bold">Inicio</a>
-                <a href="aulas-virtuales.html" class="hover:text-gray-900 transition-colors duration-300">Cursos</a>
-                <a href="aulas-virtuales.html" class="hover:text-gray-900 transition-colors duration-300">Aulas Virtuales</a>
-                <a href="#" id="open-register-modal" class="hover:text-gray-900 transition-colors duration-300">Registro</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Contáctanos</a>
-            </div>
-            <!-- Botón para el menú móvil -->
+
+            <!-- Desktop Navigation Menu -->
+            <ul class="hidden md:flex space-x-6 items-center">
+                <li><a href="#inicio" class="tab-link py-2 px-3 font-bold text-gray-700 hover:text-primary-text transition-colors duration-300" data-tab="inicio">Inicio</a></li>
+                <li><a href="#cursos" class="tab-link py-2 px-3 text-gray-700 hover:text-primary-text transition-colors duration-300" data-tab="cursos">Cursos</a></li>
+                <li><a href="#aulas" class="tab-link py-2 px-3 text-gray-700 hover:text-primary-text transition-colors duration-300" data-tab="aulas">Aulas Virtuales</a></li>
+                <li><a href="#registro" class="tab-link py-2 px-3 text-gray-700 hover:text-primary-text transition-colors duration-300" data-tab="registro">Registro</a></li>
+                <li><a href="#contacto" class="tab-link py-2 px-3 text-gray-700 hover:text-primary-text transition-colors duration-300" data-tab="contacto">Contáctanos</a></li>
+            </ul>
+
+            <!-- Mobile Menu Toggle Button -->
             <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </nav>
-        <!-- Menú móvil (oculto por defecto) -->
+
+        <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden">
-            <div class="flex flex-col py-4">
-                <a href="index.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300 font-bold">Inicio</a>
-                <a href="aulas-virtuales.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Cursos</a>
-                <a href="aulas-virtuales.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Aulas Virtuales</a>
-                <a href="#" id="open-register-modal-mobile" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Registro</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Contáctanos</a>
-            </div>
+            <ul class="flex flex-col py-4">
+                <li><a href="#inicio" class="tab-link py-2 px-6 hover:bg-gray-100 transition-colors duration-300 font-bold block" data-tab="inicio">Inicio</a></li>
+                <li><a href="#cursos" class="tab-link py-2 px-6 hover:bg-gray-100 transition-colors duration-300 block" data-tab="cursos">Cursos</a></li>
+                <li><a href="#aulas" class="tab-link py-2 px-6 hover:bg-gray-100 transition-colors duration-300 block" data-tab="aulas">Aulas Virtuales</a></li>
+                <li><a href="#registro" class="tab-link py-2 px-6 hover:bg-gray-100 transition-colors duration-300 block" data-tab="registro">Registro</a></li>
+                <li><a href="#contacto" class="tab-link py-2 px-6 hover:bg-gray-100 transition-colors duration-300 block" data-tab="contacto">Contáctanos</a></li>
+            </ul>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="bg-gray-100 py-20 md:py-32 px-6 text-center">
-        <div class="container mx-auto">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight primary-text mb-4">
-                Bienvenidos a Mi Curso en Linea
-            </h1>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-700 secondary-text mb-4">
-                Empieza tu camino de aprendizaje
-            </h2>
-            <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
-                Descubre cursos de alta calidad diseñados para tu éxito. Aprende a tu ritmo, en cualquier momento y lugar.
-            </p>
-        </div>
-    </section>
+    <main class="py-20 md:py-32 text-center">
+        <!-- Welcome Message and Slogan -->
+        <h1 class="text-4xl md:text-5xl font-extrabold primary-text">¡Bienvenido a Mi Curso en Linea!</h1>
+        <p class="mt-4 text-xl md:text-2xl text-secondary-text">Tu futuro comienza hoy. Aprende a tu propio ritmo.</p>
+    
+        <div class="mt-8 container mx-auto px-6 max-w-2xl">
+            <!-- ---------------------------------------------------- -->
+            <!-- ALL CONTENT SECTIONS ARE HERE, ONE FOR EACH TAB -->
+            <!-- ---------------------------------------------------- -->
 
-    <!-- Features Section -->
-    <section class="py-16 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-center primary-text mb-12">
-                ¿Por qué elegirnos?
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-300">
-                    <div class="flex justify-center mb-4">
-                        <svg class="h-12 w-12 secondary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold primary-text mb-2">Flexibilidad Total</h3>
-                    <p class="text-gray-600">Aprende a tu propio ritmo, desde cualquier lugar y en cualquier dispositivo.</p>
-                </div>
-                <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-300">
-                    <div class="flex justify-center mb-4">
-                        <svg class="h-12 w-12 secondary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944c-3.195 0-6.237 1.284-8.485 3.532-2.248 2.247-3.532 5.29-3.532 8.485s1.284 6.237 3.532 8.485c2.248 2.248 5.29 3.532 8.485 3.532 3.195 0 6.237-1.284 8.485-3.532-2.248-2.248-3.532-5.29-3.532-8.485z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold primary-text mb-2">Contenido de Calidad</h3>
-                    <p class="text-gray-600">Cursos diseñados por expertos en la industria para un aprendizaje efectivo.</p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-300">
-                    <div class="flex justify-center mb-4">
-                        <svg class="h-12 w-12 secondary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4.5 4.5 0 00-4.5 4.5c0 4.246 7.5 12.146 7.5 12.146s7.5-7.9 7.5-12.146a4.5 4.5 0 00-4.5-4.5zm0 0a4.5 4.5 0 00-4.5 4.5c0 4.246 7.5 12.146 7.5 12.146s7.5-7.9 7.5-12.146a4.5 4.5 0 00-4.5-4.5z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold primary-text mb-2">Comunidad de Apoyo</h3>
-                    <p class="text-gray-600">Conecta con estudiantes y mentores de todo el mundo para resolver tus dudas.</p>
-                </div>
+            <!-- Inicio Content (Visible by default) -->
+            <div id="inicio" class="content-section active bg-indigo-700 rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+                <h2 class="text-3xl font-bold text-white mb-4">Página de Inicio</h2>
+                <p class="text-lg text-white leading-relaxed text-left">
+                    ¡Nos alegra tenerte aquí! En Mi Curso en Linea, te ofrecemos una amplia variedad de cursos de alta calidad, diseñados para ayudarte a alcanzar tus metas profesionales y personales. Nuestra plataforma es fácil de usar y te permite aprender a tu propio ritmo, desde cualquier lugar y en cualquier momento. Explora nuestra oferta y comienza tu viaje de aprendizaje hoy mismo.
+                </p>
+            </div>
+
+            <!-- Cursos Content -->
+            <div id="cursos" class="content-section bg-white rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+                <h2 class="text-3xl font-bold primary-text mb-4">Cursos Disponibles</h2>
+                <p class="text-lg text-gray-700 leading-relaxed text-left">
+                    Descubre nuestra amplia selección de cursos en diversas áreas: programación, diseño gráfico, marketing digital, idiomas y más. Cada curso ha sido creado por expertos para garantizar una experiencia de aprendizaje completa y práctica.
+                </p>
+            </div>
+
+            <!-- Aulas Virtuales Content -->
+            <div id="aulas" class="content-section bg-white rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+                <h2 class="text-3xl font-bold primary-text mb-4">Nuestras Aulas Virtuales</h2>
+                <p class="text-lg text-gray-700 leading-relaxed text-left">
+                    Conéctate con instructores y compañeros en nuestras aulas virtuales. Participa en sesiones en vivo, haz preguntas y colabora en proyectos para enriquecer tu aprendizaje. ¡La comunidad es la clave!
+                </p>
+            </div>
+
+            <!-- Registro Content -->
+            <div id="registro" class="content-section bg-white rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+                <h2 class="text-3xl font-bold primary-text mb-4">Regístrate Hoy</h2>
+                <p class="text-lg text-gray-700 leading-relaxed text-left">
+                    Crea tu cuenta en pocos minutos y obtén acceso inmediato a todos nuestros recursos. ¡El proceso es rápido y seguro!
+                </p>
+            </div>
+            
+            <!-- Contáctanos Content -->
+            <div id="contacto" class="content-section bg-white rounded-xl shadow-xl p-8 transform transition duration-300 ease-in-out">
+                <h2 class="text-3xl font-bold primary-text mb-4">Contáctanos</h2>
+                <p class="text-lg text-gray-700 leading-relaxed text-left">
+                    ¿Tienes preguntas? Nuestro equipo de soporte está disponible para ayudarte. Envíanos un mensaje o llámanos para resolver cualquier duda.
+                </p>
             </div>
         </div>
-    </section>
-
-    <!-- Modal de Registro (oculto por defecto) -->
-    <div id="registerModal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-300">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <h2 class="text-2xl font-bold mb-6 text-center primary-text">Regístrate para empezar</h2>
-            
-            <!-- Contenedor para mensajes -->
-            <div id="form-message" class="mb-4 hidden"></div>
-
-            <!-- FORMULARIO CORREGIDO -->
-            <form id="registrationForm" class="space-y-6">
-                <div>
-                    <label for="curso" class="block text-sm font-medium text-gray-700">Curso</label>
-                    <select id="curso" name="curso" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" required>
-                        <option value="">Selecciona un curso</option>
-                        <option value="Desarrollo Web">Desarrollo Web</option>
-                        <option value="Ciencia de Datos">Ciencia de Datos</option>
-                        <option value="Marketing Digital">Marketing Digital</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
-                    <input type="text" id="nombre" name="nombre" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" required>
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" required>
-                </div>
-                <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white secondary-bg hover:bg-blue-600 transition-colors duration-300">
-                    Crear Cuenta
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-8">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 Mi Curso en Linea. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    </main>
 
     <script>
-        // Funcionalidad para el menú móvil
-        document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const contentSections = document.querySelectorAll('.content-section');
 
-        // Funcionalidad para el modal de registro
-        const openRegisterButton = document.getElementById('open-register-modal');
-        const openRegisterButtonMobile = document.getElementById('open-register-modal-mobile');
-        const registerModal = document.getElementById('registerModal');
-        const closeModalButton = document.getElementById('closeModal');
-        const registrationForm = document.getElementById('registrationForm');
-        const formMessage = document.getElementById('form-message');
-
-        openRegisterButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            registerModal.classList.remove('hidden');
-        });
-
-        openRegisterButtonMobile.addEventListener('click', function(e) {
-            e.preventDefault();
-            registerModal.classList.remove('hidden');
-        });
-
-        closeModalButton.addEventListener('click', function() {
-            registerModal.classList.add('hidden');
-        });
-
-        registerModal.addEventListener('click', function(e) {
-            if (e.target === registerModal) {
-                registerModal.classList.add('hidden');
-            }
-        });
-        
-        // Nueva funcionalidad para manejar el envío del formulario con fetch
-        registrationForm.addEventListener('submit', async function(e) {
-            // Prevenir el comportamiento por defecto de recargar la página
-            e.preventDefault();
-
-            // Limpiar mensajes anteriores
-            formMessage.classList.add('hidden');
-            formMessage.textContent = '';
-            formMessage.classList.remove('success-message', 'error-message');
-
-            // Recolectar datos del formulario
-            const curso = document.getElementById('curso').value;
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-
-            // Validación básica de campos
-            if (!curso || !nombre || !email) {
-                formMessage.classList.remove('hidden');
-                formMessage.classList.add('error-message');
-                formMessage.textContent = 'Por favor, completa todos los campos.';
-                return;
+            // --- Mobile Menu Logic ---
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
             }
 
-            try {
-                // Enviar los datos al servidor usando fetch
-                const response = await fetch('/registrar', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    // Convertir los datos a formato JSON
-                    body: JSON.stringify({ curso, nombre, email })
+            // --- Tab/Section Switching Logic ---
+            function showTab(tabId) {
+                // Hide all content sections and remove 'active' class from links
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                tabLinks.forEach(link => {
+                    link.classList.remove('active');
                 });
 
-                const result = await response.json();
-
-                // Mostrar mensaje de acuerdo a la respuesta del servidor
-                if (response.ok) {
-                    formMessage.classList.remove('hidden');
-                    formMessage.classList.add('success-message');
-                    formMessage.textContent = result.message;
-                    // Limpiar el formulario
-                    registrationForm.reset();
-                } else {
-                    formMessage.classList.remove('hidden');
-                    formMessage.classList.add('error-message');
-                    formMessage.textContent = result.message || 'Error en el registro. Inténtalo de nuevo.';
+                // Show the requested section and add 'active' class to the link
+                const activeSection = document.getElementById(tabId);
+                const activeLink = document.querySelector(`.tab-link[data-tab="${tabId}"]`);
+                
+                if (activeSection && activeLink) {
+                    activeSection.classList.add('active');
+                    activeLink.classList.add('active');
                 }
-
-            } catch (error) {
-                console.error('Error al enviar el formulario:', error);
-                formMessage.classList.remove('hidden');
-                formMessage.classList.add('error-message');
-                formMessage.textContent = 'Error de conexión. Por favor, intenta más tarde.';
             }
-        });
-    </script>
-</body>
-</html>
+
+            // Add event listener to all navigation links
+            tabLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    // Prevent the default anchor jump behavior
+                    event.preventDefault();
+                    // Get the ID of the tab to show from the 'data-tab' attribute
+                    const tabId = this.dataset.tab;
+                    // Call the function to switch the tab
+                    showTab(
