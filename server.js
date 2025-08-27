@@ -12,9 +12,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 const rutas = [
   { url: '/', archivo: 'index.html' },
   { url: '/cursos', archivo: 'cursos.html' },
-  { url: '/aulas_virtuales', archivo: 'aulas_virtuales.html' },
+  { url: '/aulas-virtuales', archivo: 'aulas-virtuales.html' },
   { url: '/registro', archivo: 'registro.html' },
   { url: '/contactanos', archivo: 'contactanos.html' },
+  { url: '/computacion-en-la-nube', archivo: 'computacion-en-la-nube.html' },
   { url: '/curso-especialista-recubrimientos', archivo: 'curso-especialista-recubrimientos.html' }
 ];
 
