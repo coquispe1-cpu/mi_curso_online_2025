@@ -1,97 +1,263 @@
-// main.rs
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal - Mi Curso en Linea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f8ff; /* colorFondo */
+        }
+        .primary-text {
+            color: #004aad; /* colorPrincipal */
+        }
+        .secondary-text {
+            color: #00bfff; /* colorSecundario */
+        }
+        .secondary-bg {
+            background-color: #00bfff; /* colorSecundario */
+        }
+        /* Estilos para el modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            position: relative;
+            width: 90%;
+            max-width: 420px;
+        }
+        .success-message {
+            color: #15803d; /* verde */
+            background-color: #dcfce7; /* fondo verde claro */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .error-message {
+            color: #b91c1c; /* rojo */
+            background-color: #fee2e2; /* fondo rojo claro */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="text-gray-900 bg-gray-50">
 
-// Importar los módulos necesarios de Axum, Tokio y Serde.
-// Axum es el framework web, Tokio es el runtime asíncrono,
-// Serde se usa para serializar y deserializar JSON.
-use axum::{
-    extract::{self, State},
-    routing::{get, post},
-    Json, Router,
-};
-use serde::{Deserialize, Serialize};
-use std::{net::SocketAddr, sync::Arc};
-use tokio::sync::Mutex;
+    <!-- Navbar (Barra de navegación) -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <!-- Icono de curso -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v8M12 14l9-5M12 14l-9-5M5 12h14" />
+                </svg>
+                <span class="text-2xl font-extrabold primary-text">Mi Curso en Linea</span>
+            </a>
+            <div class="hidden md:flex md:space-x-8 text-gray-700">
+                <a href="index.html" class="hover:text-gray-900 transition-colors duration-300 font-bold">Inicio</a>
+                <a href="aulas-virtuales.html" class="hover:text-gray-900 transition-colors duration-300">Cursos</a>
+                <a href="aulas-virtuales.html" class="hover:text-gray-900 transition-colors duration-300">Aulas Virtuales</a>
+                <a href="#" id="open-register-modal" class="hover:text-gray-900 transition-colors duration-300">Registro</a>
+                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Contáctanos</a>
+            </div>
+            <!-- Botón para el menú móvil -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Menú móvil (oculto por defecto) -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="flex flex-col py-4">
+                <a href="index.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300 font-bold">Inicio</a>
+                <a href="aulas-virtuales.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Cursos</a>
+                <a href="aulas-virtuales.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Aulas Virtuales</a>
+                <a href="#" id="open-register-modal-mobile" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Registro</a>
+                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Contáctanos</a>
+            </div>
+        </div>
+    </header>
 
-// Definir una estructura para el cuerpo de la solicitud de registro.
-// Los campos 'curso', 'nombre', y 'email' se deserializarán
-// automáticamente del JSON entrante.
-#[derive(Deserialize, Debug)]
-struct Registro {
-    curso: String,
-    nombre: String,
-    email: String,
-}
+    <!-- Hero Section -->
+    <section class="bg-gray-100 py-20 md:py-32 px-6 text-center">
+        <div class="container mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight primary-text mb-4">
+                Bienvenidos a Mi Curso en Linea
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-700 secondary-text mb-4">
+                Empieza tu camino de aprendizaje
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
+                Descubre cursos de alta calidad diseñados para tu éxito. Aprende a tu ritmo, en cualquier momento y lugar.
+            </p>
+        </div>
+    </section>
 
-// Definir una estructura para el estado de la aplicación.
-// En este caso, usaremos un "state" para simular una base de datos de registros.
-// Arc<Mutex<Vec<Registro>>> permite que los datos se compartan de forma segura
-// entre hilos asíncronos.
-struct AppState {
-    registros: Mutex<Vec<Registro>>,
-}
+    <!-- Features Section -->
+    <section class="py-16 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center primary-text mb-12">
+                ¿Por qué elegirnos?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex justify-center mb-4">
+                        <svg class="h-12 w-12 secondary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold primary-text mb-2">Flexibilidad Total</h3>
+                    <p class="text-gray-600">Aprende a tu propio ritmo, desde cualquier lugar y en cualquier dispositivo.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex justify-center mb-4">
+                        <svg class="h-12 w-12 secondary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944c-3.195 0-6.237 1.284-8.485 3.532-2.248 2.247-3.532 5.29-3.532 8.485s1.284 6.237 3.532 8.485c2.248 2.248 5.29 3.532 8.485 3.532 3.195 0 6.237-1.284 8.485-3.532-2.248-2.248-3.532-5.29-3.532-8.485z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold primary-text mb-2">Contenido de Calidad</h3>
+                    <p class="text-gray-600">Cursos diseñados por expertos en la industria para un aprendizaje efectivo.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex justify-center mb-4">
+                        <svg class="h-12 w-12 secondary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4.5 4.5 0 00-4.5 4.5c0 4.246 7.5 12.146 7.5 12.146s7.5-7.9 7.5-12.146a4.5 4.5 0 00-4.5-4.5zm0 0a4.5 4.5 0 00-4.5 4.5c0 4.246 7.5 12.146 7.5 12.146s7.5-7.9 7.5-12.146a4.5 4.5 0 00-4.5-4.5z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold primary-text mb-2">Comunidad de Apoyo</h3>
+                    <p class="text-gray-600">Conecta con estudiantes y mentores de todo el mundo para resolver tus dudas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-// Handler para la ruta principal GET.
-// Esta función responde con "¡Hola, mundo desde Rust!" para simular un
-// 'index.html' simple, ya que Rust no sirve archivos estáticos por defecto
-// de la misma manera que Express.js con `express.static`.
-// La forma idiomática de servir archivos estáticos en Rust es con librerías dedicadas.
-async fn root_handler() -> &'static str {
-    "¡Hola, mundo desde Rust!"
-}
+    <!-- Modal de Registro (oculto por defecto) -->
+    <div id="registerModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-300">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-2xl font-bold mb-6 text-center primary-text">Regístrate para empezar</h2>
+            
+            <!-- Contenedor para mensajes -->
+            <div id="form-message" class="mb-4 hidden"></div>
 
-// Handler para la ruta de registro POST.
-// `Json<Registro>` extrae y deserializa automáticamente el cuerpo JSON de la
-// solicitud en nuestra estructura `Registro`.
-// `State<Arc<AppState>>` nos da acceso al estado de la aplicación para
-// almacenar el nuevo registro.
-async fn registrar_handler(
-    State(app_state): State<Arc<AppState>>,
-    extract::Json(registro): extract::Json<Registro>,
-) -> String {
-    // Bloquear el Mutex para obtener acceso exclusivo a los registros.
-    let mut registros_lock = app_state.registros.lock().await;
-    // Agregar el nuevo registro al vector.
-    registros_lock.push(registro);
-    // Imprimir el nuevo registro en la consola.
-    println!(
-        "Nuevo registro: {} ({}) en el curso: {}",
-        registros_lock.last().unwrap().nombre,
-        registros_lock.last().unwrap().email,
-        registros_lock.last().unwrap().curso
-    );
-    // Devolver una respuesta exitosa.
-    String::from("¡Registro exitoso! Te contactaremos pronto.")
-}
+            <form id="registrationForm" class="space-y-6">
+                <div>
+                    <label for="curso" class="block text-sm font-medium text-gray-700">Curso</label>
+                    <select id="curso" name="curso" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" required>
+                        <option value="">Selecciona un curso</option>
+                        <option value="Desarrollo Web">Desarrollo Web</option>
+                        <option value="Ciencia de Datos">Ciencia de Datos</option>
+                        <option value="Marketing Digital">Marketing Digital</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" required>
+                </div>
+                <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white secondary-bg hover:bg-blue-600 transition-colors duration-300">
+                    Crear Cuenta
+                </button>
+            </form>
+        </div>
+    </div>
 
-// Función principal del servidor.
-// #[tokio::main] es un macro que configura el runtime asíncrono de Tokio.
-#[tokio::main]
-async fn main() {
-    // Crear una instancia del estado de la aplicación, envuelta en Arc para
-    // poder compartirla entre los handlers.
-    let app_state = Arc::new(AppState {
-        registros: Mutex::new(Vec::new()),
-    });
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Mi Curso en Linea. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-    // Definir las rutas del servidor.
-    // .route("/", get(root_handler)) mapea la ruta GET '/' a `root_handler`.
-    // .route("/registrar", post(registrar_handler)) mapea la ruta POST '/registrar' a `registrar_handler`.
-    // .with_state(app_state) inyecta el estado de la aplicación en todas las rutas.
-    let app = Router::new()
-        .route("/", get(root_handler))
-        .route("/registrar", post(registrar_handler))
-        .with_state(app_state);
+    <script>
+        // Funcionalidad para el menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
 
-    // Definir la dirección y el puerto del servidor.
-    // En Rust, la dirección y el puerto se definen explícitamente.
-    // Axum se encarga de manejar la lógica del puerto de forma similar a Express.js,
-    // pero aquí la definimos manualmente para mayor claridad.
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
-    println!("Servidor funcionando en puerto {}", addr.port());
+        // Funcionalidad para el modal de registro
+        const openRegisterButton = document.getElementById('open-register-modal');
+        const openRegisterButtonMobile = document.getElementById('open-register-modal-mobile');
+        const registerModal = document.getElementById('registerModal');
+        const closeModalButton = document.getElementById('closeModal');
+        const registrationForm = document.getElementById('registrationForm');
+        const formMessage = document.getElementById('form-message');
 
-    // Iniciar el servidor Axum.
-    axum::Server::bind(&addr)
-        .serve(app.into_make_service())
-        .await
-        .unwrap();
-}
+        openRegisterButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.classList.remove('hidden');
+        });
+
+        openRegisterButtonMobile.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.classList.remove('hidden');
+        });
+
+        closeModalButton.addEventListener('click', function() {
+            registerModal.classList.add('hidden');
+        });
+
+        registerModal.addEventListener('click', function(e) {
+            if (e.target === registerModal) {
+                registerModal.classList.add('hidden');
+            }
+        });
+
+        // Nueva funcionalidad para manejar el envío del formulario
+        registrationForm.addEventListener('submit', function(e) {
+            // Prevenir el comportamiento por defecto de recargar la página
+            e.preventDefault();
+
+            // Limpiar mensajes anteriores
+            formMessage.classList.add('hidden');
+            formMessage.textContent = '';
+            formMessage.classList.remove('success-message', 'error-message');
+
+            const curso = document.getElementById('curso').value;
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+
+            // Simple validación de campos
+            if (!curso || !nombre || !email) {
+                formMessage.classList.remove('hidden');
+                formMessage.classList.add('error-message');
+                formMessage.textContent = 'Por favor, completa todos los campos.';
+                return;
+            }
+
+            // Simular un envío exitoso
+            // En una aplicación real, aquí enviarías los datos a un servidor
+            console.log('Formulario enviado:', { curso, nombre, email });
+
+            // Mostrar mensaje de éxito
+            formMessage.classList.remove('hidden');
+            formMessage.classList.add('success-message');
+            formMessage.textContent = '¡Registro exitoso! Te contactaremos pronto.';
+
+            // Limpiar el formulario después de un envío exitoso
+            registrationForm.reset();
+        });
+        
+    </script>
+</body>
+</html>
