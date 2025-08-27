@@ -1,654 +1,597 @@
-<!DOCTYPE html>
+<!">
+               Elige tu Eslogan
+           </h1>
+           <!-- Slogan buttons -->
+           <div id="slogan-container" class="flex flex-col md:flex-row justify-center items-center gap-4 mb-12 max-w-5xl mx-auto">
+               <button type="button" class="slogan-button text-base md:text-xl font-bold px-10 py-4 flex-1">Mientras más aprendes, más creces. ¡Nunca te detengas!</button>
+               <button type="button" class="slogan-button text-base md:text-xl font-bold px-10 py-4 flex-1">El conocimiento te impulsa. Aprende, crece, y ve más allá.</button>
+               <button type="button" class="slogan-button text-base md:text-xl font-bold px-10 py-4 flex-1">Tu viaje de aprendizaje es infinito. ¡Continúa creciendo cada día!</button>
+           </div>
+          
+           <!-- User Login/Registration/Logged In Section -->
+           <div id="login-section">
+               <h2 class="text-3xl font-bold mb-6 text-gray-800">Accede a tus aulas virtuales</h2>
+               <p class="text-lg text-gray-600 mb-8">
+                   Inicia sesión o regístrate para acceder a todos los recursos de tus cursos y conectar con otros estudiantes.
+               </p>
+               <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                   <button id="open-login-modal" class="cta-button bg-blue-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-600">
+                       Iniciar Sesión
+                   </button>
+                   <button id="open-register-modal" class="cta-button bg-sky-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-sky-600">
+                       Registrarse
+                   </button>
+               </div>
+           </div>
+
+
+           <!-- Logged In Section -->
+           <div id="logged-in-section" class="hidden">
+               <div class="logged-in-container p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
+                   <h2 class="text-3xl font-bold primary-text mb-4">¡Bienvenido a tu aula virtual!</h2>
+                   <p class="text-gray-700 text-lg mb-6">
+                       ¡Hemos guardado tu eslogan! Disfruta de la experiencia de aprendizaje.
+                   </p>
+                   <div class="text-left text-gray-600 mb-8">
+                       <p class="font-semibold text-lg mb-2">Tu ID de Usuario:</p>
+                       <p id="user-id-display" class="break-all text-sm font-mono bg-gray-100 p-3 rounded-md"></p>
+                   </div>
+                   <div class="text-left text-gray-600">
+                       <p class="font-semibold text-lg mb-2">Tu Eslogan Elegido:</p>
+                       <p id="user-slogan-display" class="text-lg font-bold text-sky-600"></p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- Chat Section -->
+   <section id="chat-section" class="py-16 md:py-24 px-6 hidden">
+       <div class="container mx-auto">
+           <h2 class="text-3xl md:text-4xl font-extrabold primary-text text-center mb-8">
+               💬 Chat de Bienvenida
+           </h2>
+           <div class="chat-container">
+               <div id="chat-box" class="chat-box">
+                   <div class="message bot-message">¡Hola! ¿Qué tal tu día de aprendizaje?</div>
+               </div>
+               <form id="chat-form" class="chat-input">
+                   <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." autocomplete="off">
+                   <button type="submit">Enviar</button>
+               </form>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- Login Modal -->
+   <div id="loginModal" class="modal-overlay hidden">
+       <div class="modal-content">
+           <button id="close-login-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">&times;</button>
+           <h3 class="text-2xl font-bold text-center mb-6">Acceder</h3>
+           <form id="loginForm" class="space-y-4">
+               <input type="email" id="login-email" placeholder="Correo Electrónico" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+               <input type="password" id="login-password" placeholder="Contraseña" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+               <button type="submit" class="w-full bg-blue-500 text-white font-bold py-3 rounded-lg hover:bg-blue-600 transition-colors">Iniciar Sesión</button>
+           </form>
+       </div>
+   </div>
+
+
+   <!-- Registration Modal -->
+   <div id="registerModal" class="modal-overlay hidden">
+       <div class="modal-content">
+           <button id="close-register-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">&times;</button>
+           <h3 class="text-2xl font-bold text-center mb-6">Registro</h3>
+           <form id="registrationForm" class="space-y-4">
+               <input type="text" id="reg-username" placeholder="Nombre de Usuario" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500">
+               <input type="email" id="reg-email" placeholder="Correo Electrónico" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500">
+               <input type="password" id="reg-password" placeholder="Contraseña" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500">
+               <p class="text-sm text-center text-gray-500">
+                   Tu eslogan seleccionado se guardará con tu cuenta.
+               </p>
+               <button type="submit" class="w-full bg-sky-500 text-white font-bold py-3 rounded-lg hover:bg-sky-600 transition-colors">Crear Cuenta</button>
+           </form>
+       </div>
+   </div>
+
+
+   <script>
+       // Modal logic
+       document.getElementById('open-login-modal').addEventListener('click', () => {
+           document.getElementById('loginModal').classList.remove('hidden');
+       });
+       document.getElementById('close-login-modal').addEventListener('click', () => {
+           document.getElementById('loginModal').classList.add('hidden');
+       });
+
+
+       document.getElementById('open-register-modal').addEventListener('click', () => {
+           document.getElementById('registerModal').classList.remove('hidden');
+       });
+       document.getElementById('close-register-modal').addEventListener('click', () => {
+           document.getElementById('registerModal').classList.add('hidden');
+       });
+
+
+       // Mobile menu logic
+       const menuToggle = document.getElementById('menu-toggle');
+       const mobileMenu = document.getElementById('mobile-menu');
+       menuToggle.addEventListener('click', () => {
+           mobileMenu.classList.toggle('hidden');
+       });
+
+
+       // Mobile modal logic
+       document.getElementById('open-login-modal-mobile').addEventListener('click', (e) => {
+           e.preventDefault();
+           document.getElementById('loginModal').classList.remove('hidden');
+           mobileMenu.classList.add('hidden');
+       });
+
+
+       document.getElementById('open-register-modal-mobile').addEventListener('click', (e) => {
+           e.preventDefault();
+           document.getElementById('registerModal').classList.remove('hidden');
+           mobileMenu.classList.add('hidden');
+       });
+   </script>
+</body>
+</html>DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso al Aula Virtual - Mi Curso en Linea</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f8ff; /* colorFondo */
-        }
-        .primary-text {
-            color: #004aad; /* colorPrincipal */
-        }
-        .secondary-text {
-            color: #00bfff; /* colorSecundario */
-        }
-        /* Estilos para los modales y notificaciones */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 50;
-        }
-        .modal-content {
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            position: relative;
-            width: 90%;
-            max-width: 420px;
-        }
-        .notification-container {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 100;
-        }
-        .notification {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            margin-bottom: 0.5rem;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-        .notification.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .logged-in-container {
-            background-color: #e0f2fe;
-            border: 1px solid #90cdf4;
-        }
-        /* Estilos específicos para la nueva barra de navegación */
-        .nav-link {
-            transition: color 0.3s ease-in-out;
-        }
-        .nav-link:hover {
-            color: #d1d5db; /* Un gris más claro para el efecto hover */
-        }
-        .cta-button {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        /* Nuevos estilos para los botones de eslogan */
-        .slogan-button {
-            background-color: #ffffff;
-            color: #4b5563; /* Tailwind gray-600 */
-            padding: 1.5rem; /* Padding horizontal y vertical unificado */
-            border-radius: 1rem;
-            border: 2px solid #e5e7eb;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-        .slogan-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-        }
-        .slogan-button.selected {
-            border-color: #00bfff; /* colorSecundario */
-            background-color: #e0f2fe;
-            box-shadow: 0 0 0 3px #00bfff, 0 6px 10px rgba(0, 0, 0, 0.1);
-        }
-        /* Estilos para el chat */
-        .chat-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border-radius: 1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 500px; /* Altura fija para el chat */
-        }
-        .chat-box {
-            flex-grow: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .message {
-            max-width: 80%;
-            padding: 0.75rem 1rem;
-            border-radius: 1rem;
-        }
-        .user-message {
-            background-color: #d1e7ff; /* Un azul claro */
-            align-self: flex-end;
-            border-bottom-right-radius: 0;
-        }
-        .bot-message {
-            background-color: #f0f0f0; /* Un gris claro */
-            align-self: flex-start;
-            border-bottom-left-radius: 0;
-        }
-        .chat-input {
-            padding: 1rem;
-            border-top: 1px solid #e5e7eb;
-            display: flex;
-            gap: 0.5rem;
-        }
-        .chat-input input {
-            flex-grow: 1;
-            border: 1px solid #d1d5db;
-            padding: 0.75rem;
-            border-radius: 9999px; /* Borde redondeado completo */
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .chat-input input:focus {
-            border-color: #00bfff; /* colorSecundario */
-        }
-        .chat-input button {
-            background-color: #004aad;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px; /* Borde redondeado completo */
-            transition: background-color 0.2s;
-        }
-        .chat-input button:hover {
-            background-color: #003a80;
-        }
-    </style>
-    <!-- Firebase SDKs -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // Global variables provided by the environment
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
-        // Function to show a custom notification
-        function showNotification(message, isError = false) {
-            const container = document.getElementById('notification-container');
-            const notification = document.createElement('div');
-            notification.classList.add('notification');
-            if (isError) {
-                notification.style.backgroundColor = '#f44336';
-            }
-            notification.textContent = message;
-            container.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 10);
-
-            setTimeout(() => {
-                notification.classList.remove('show');
-                setTimeout(() => notification.remove(), 500);
-            }, 3000);
-        }
-
-        // Variable to store the selected slogan
-        let selectedSlogan = null;
-
-        // Slogan selection logic
-        const sloganContainer = document.getElementById('slogan-container');
-        if (sloganContainer) {
-            sloganContainer.addEventListener('click', (event) => {
-                const targetButton = event.target.closest('.slogan-button');
-                if (targetButton) {
-                    // Remove 'selected' class from all buttons
-                    document.querySelectorAll('.slogan-button').forEach(btn => {
-                        btn.classList.remove('selected');
-                    });
-                    // Add 'selected' class to the clicked button
-                    targetButton.classList.add('selected');
-                    // Store the text of the selected slogan
-                    selectedSlogan = targetButton.textContent.trim();
-                }
-            });
-        }
-
-        // Chat logic
-        function addMessageToChat(message, type) {
-            const chatBox = document.getElementById('chat-box');
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message');
-            if (type === 'user') {
-                messageElement.classList.add('user-message');
-            } else {
-                messageElement.classList.add('bot-message');
-            }
-            messageElement.textContent = message;
-            chatBox.appendChild(messageElement);
-            // Scroll to the last message
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        // API call to the Gemini API for chatbot responses
-        async function getBotResponse(userPrompt) {
-            const chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: userPrompt }] });
-            const payload = { contents: chatHistory };
-            const apiKey = ""
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                if (!response.ok) {
-                    throw new Error(`API call failed with status: ${response.status}`);
-                }
-                const result = await response.json();
-                const botResponse = result?.candidates?.[0]?.content?.parts?.[0]?.text;
-                if (botResponse) {
-                    addMessageToChat(botResponse, 'bot');
-                } else {
-                    addMessageToChat("Lo siento, no pude generar una respuesta. Por favor, inténtalo de nuevo.", 'bot');
-                }
-            } catch (error) {
-                console.error("Error fetching from API:", error);
-                addMessageToChat("Error al conectar con el chatbot. Por favor, revisa tu conexión.", 'bot');
-            }
-        }
-
-        document.getElementById('chat-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const input = document.getElementById('chat-input');
-            const message = input.value.trim();
-
-            if (message) {
-                addMessageToChat(message, 'user');
-                getBotResponse(message);
-                input.value = '';
-            }
-        });
-
-        // Función para mostrar la sección correcta y ocultar las demás
-        function showSection(sectionId) {
-            // Oculta todas las secciones de contenido
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.add('hidden');
-            });
-            // Muestra la sección deseada
-            document.getElementById(sectionId).classList.remove('hidden');
-        }
-
-        // Manejar la autenticación inicial y los cambios de estado
-        onAuthStateChanged(auth, async (user) => {
-            const loginSection = document.getElementById('login-section');
-            const loggedInSection = document.getElementById('logged-in-section');
-            const userIdDisplay = document.getElementById('user-id-display');
-            const userSloganDisplay = document.getElementById('user-slogan-display');
-            const loginNav = document.getElementById('login-nav-links'); // Nuevo ID para los enlaces de acceso/registro
-            const chatSection = document.getElementById('chat-section');
-
-            if (user) {
-                // El usuario ha iniciado sesión
-                loginSection.classList.add('hidden');
-                loggedInSection.classList.remove('hidden');
-                chatSection.classList.remove('hidden');
-                userIdDisplay.textContent = user.uid;
-
-                // Recuperar el eslogan del usuario de Firestore
-                try {
-                    const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/profile/info`);
-                    const docSnap = await getDoc(userDocRef);
-                    if (docSnap.exists()) {
-                        const userData = docSnap.data();
-                        userSloganDisplay.textContent = userData.slogan || 'No se ha seleccionado eslogan';
-                    } else {
-                        userSloganDisplay.textContent = 'No se ha seleccionado eslogan';
-                    }
-                } catch (error) {
-                    console.error("Error retrieving user data:", error);
-                    userSloganDisplay.textContent = 'Error al cargar eslogan.';
-                }
-                
-                loginNav.classList.add('hidden');
-                console.log("User is signed in with UID:", user.uid);
-                // Mostrar por defecto la sección de Aulas Virtuales
-                showSection('virtual-classrooms-section');
-            } else {
-                // El usuario ha cerrado sesión
-                loginSection.classList.remove('hidden');
-                loggedInSection.classList.add('hidden');
-                chatSection.classList.add('hidden');
-                loginNav.classList.remove('hidden');
-                console.log("No user is signed in.");
-                // Intentar iniciar sesión con un token personalizado si está disponible
-                if (initialAuthToken) {
-                    try {
-                        await signInWithCustomToken(auth, initialAuthToken);
-                        console.log("Signed in with custom token.");
-                    } catch (error) {
-                        console.error("Error signing in with custom token:", error);
-                        // Iniciar sesión de forma anónima si el token personalizado falla
-                        try {
-                            await signInAnonymously(auth);
-                            console.log("Signed in anonymously.");
-                        } catch (anonError) {
-                            console.error("Error signing in anonymously:", anonError);
-                        }
-                    }
-                } else {
-                    // Iniciar sesión de forma anónima si no hay un token personalizado disponible
-                    try {
-                        await signInAnonymously(auth);
-                        console.log("Signed in anonymously.");
-                    } catch (anonError) {
-                        console.error("Error signing in anonymously:", anonError);
-                    }
-                }
-                // Mostrar por defecto la sección de Aulas Virtuales (con el formulario de login)
-                showSection('virtual-classrooms-section');
-            }
-        });
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Acceso a Cursos - Mi Curso Online</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+       body {
+           font-family: 'Inter', sans-serif;
+           background-color: #f0f8ff; /* colorFondo */
+       }
+       .primary-text {
+           color: #004aad; /* colorPrincipal */
+       }
+       .secondary-text {
+           color: #00bfff; /* colorSecundario */
+       }
+       /* Estilos para los modales y notificaciones */
+       .modal-overlay {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: rgba(0, 0, 0, 0.5);
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           z-index: 50;
+       }
+       .modal-content {
+           background-color: white;
+           padding: 2.5rem;
+           border-radius: 1rem;
+           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+           position: relative;
+           width: 90%;
+           max-width: 420px;
+       }
+       .notification-container {
+           position: fixed;
+           top: 1rem;
+           right: 1rem;
+           z-index: 100;
+       }
+       .notification {
+           background-color: #4CAF50;
+           color: white;
+           padding: 1rem;
+           border-radius: 0.5rem;
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+           margin-bottom: 0.5rem;
+           opacity: 0;
+           transform: translateY(-20px);
+           transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+       }
+       .notification.show {
+           opacity: 1;
+           transform: translateY(0);
+       }
+       .logged-in-container {
+           background-color: #e0f2fe;
+           border: 1px solid #90cdf4;
+       }
+       /* Estilos específicos para la nueva barra de navegación */
+       .nav-link {
+           transition: color 0.3s ease-in-out;
+       }
+       .nav-link:hover {
+           color: #d1d5db; /* Un gris más claro para el efecto hover */
+       }
+       .cta-button {
+           transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+       }
+       .cta-button:hover {
+           transform: translateY(-2px);
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+       }
+       /* Nuevos estilos para los botones de eslogan */
+       .slogan-button {
+           background-color: #ffffff;
+           color: #4b5563; /* Tailwind gray-600 */
+           padding: 1.5rem; /* Padding horizontal y vertical unificado */
+           border-radius: 1rem;
+           border: 2px solid #e5e7eb;
+           font-weight: 500;
+           transition: all 0.3s ease;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+           text-align: center;
+       }
+       .slogan-button:hover {
+           transform: translateY(-2px);
+           box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+       }
+       .slogan-button.selected {
+           border-color: #00bfff; /* colorSecundario */
+           background-color: #e0f2fe;
+           box-shadow: 0 0 0 3px #00bfff, 0 6px 10px rgba(0, 0, 0, 0.1);
+       }
+       /* Estilos para el chat */
+       .chat-container {
+           max-width: 600px;
+           margin: 0 auto;
+           background-color: #ffffff;
+           border-radius: 1rem;
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+           overflow: hidden;
+           display: flex;
+           flex-direction: column;
+           height: 500px; /* Altura fija para el chat */
+       }
+       .chat-box {
+           flex-grow: 1;
+           padding: 1rem;
+           overflow-y: auto;
+           display: flex;
+           flex-direction: column;
+           gap: 1rem;
+       }
+       .message {
+           max-width: 80%;
+           padding: 0.75rem 1rem;
+           border-radius: 1rem;
+       }
+       .user-message {
+           background-color: #d1e7ff; /* Un azul claro */
+           align-self: flex-end;
+           border-bottom-right-radius: 0;
+       }
+       .bot-message {
+           background-color: #f0f0f0; /* Un gris claro */
+           align-self: flex-start;
+           border-bottom-left-radius: 0;
+       }
+       .chat-input {
+           padding: 1rem;
+           border-top: 1px solid #e5e7eb;
+           display: flex;
+           gap: 0.5rem;
+       }
+       .chat-input input {
+           flex-grow: 1;
+           border: 1px solid #d1d5db;
+           padding: 0.75rem;
+           border-radius: 9999px; /* Borde redondeado completo */
+           outline: none;
+           transition: border-color 0.2s;
+       }
+       .chat-input input:focus {
+           border-color: #00bfff; /* colorSecundario */
+       }
+       .chat-input button {
+           background-color: #004aad;
+           color: white;
+           padding: 0.75rem 1.5rem;
+           border-radius: 9999px; /* Borde redondeado completo */
+           transition: background-color 0.2s;
+       }
+       .chat-input button:hover {
+           background-color: #003a80;
+       }
+   </style>
+   <!-- Firebase SDKs -->
+   <script type="module">
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+       import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+       import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
 
-        // Event listener para el envío del formulario de inicio de sesión
-        document.getElementById('loginForm').addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
+       // Global variables provided by the environment
+       const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+       const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+       const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
 
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                showNotification('¡Acceso exitoso! Bienvenido de nuevo.');
-                document.getElementById('loginModal').classList.add('hidden');
-            } catch (error) {
-                console.error("Error al iniciar sesión:", error);
-                showNotification('Error al iniciar sesión. Por favor, revisa tus datos.', true);
-            }
-        });
 
-        // Event listener para el envío del formulario de registro
-        document.getElementById('registrationForm').addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const username = document.getElementById('reg-username').value;
-            const email = document.getElementById('reg-email').value;
-            const password = document.getElementById('reg-password').value;
+       // Initialize Firebase
+       const app = initializeApp(firebaseConfig);
+       const auth = getAuth(app);
+       const db = getFirestore(app);
 
-            // Verificar si se ha seleccionado un eslogan
-            if (!selectedSlogan) {
-                showNotification('Por favor, selecciona un eslogan antes de registrarte.', true);
-                return;
-            }
 
-            try {
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                const user = userCredential.user;
-                // Guardar los datos del usuario (nombre de usuario, eslogan) en Firestore
-                const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/profile/info`);
-                await setDoc(userDocRef, {
-                    username: username,
-                    email: email,
-                    slogan: selectedSlogan, // Guardar el eslogan seleccionado
-                    createdAt: new Date()
-                });
+       // Function to show a custom notification
+       function showNotification(message, isError = false) {
+           const container = document.getElementById('notification-container');
+           const notification = document.createElement('div');
+           notification.classList.add('notification');
+           if (isError) {
+               notification.style.backgroundColor = '#f44336';
+           }
+           notification.textContent = message;
+           container.appendChild(notification);
+          
+           setTimeout(() => {
+               notification.classList.add('show');
+           }, 10);
 
-                showNotification('¡Registro exitoso! Ahora puedes acceder a tus aulas virtuales.');
-                document.getElementById('registerModal').classList.add('hidden');
-            } catch (error) {
-                console.error("Error al registrar usuario:", error);
-                showNotification(`Error al registrar. ${error.message}`, true);
-            }
-        });
-    </script>
+
+           setTimeout(() => {
+               notification.classList.remove('show');
+               setTimeout(() => notification.remove(), 500);
+           }, 3000);
+       }
+
+
+       // Variable to store the selected slogan
+       let selectedSlogan = null;
+
+
+       // Slogan selection logic
+       const sloganContainer = document.getElementById('slogan-container');
+       if (sloganContainer) {
+           sloganContainer.addEventListener('click', (event) => {
+               const targetButton = event.target.closest('.slogan-button');
+               if (targetButton) {
+                   // Remove 'selected' class from all buttons
+                   document.querySelectorAll('.slogan-button').forEach(btn => {
+                       btn.classList.remove('selected');
+                   });
+                   // Add 'selected' class to the clicked button
+                   targetButton.classList.add('selected');
+                   // Store the text of the selected slogan
+                   selectedSlogan = targetButton.textContent.trim();
+               }
+           });
+       }
+
+
+       // Chat logic
+       function addMessageToChat(message, type) {
+           const chatBox = document.getElementById('chat-box');
+           const messageElement = document.createElement('div');
+           messageElement.classList.add('message');
+           if (type === 'user') {
+               messageElement.classList.add('user-message');
+           } else {
+               messageElement.classList.add('bot-message');
+           }
+           messageElement.textContent = message;
+           chatBox.appendChild(messageElement);
+           // Scroll to the last message
+           chatBox.scrollTop = chatBox.scrollHeight;
+       }
+
+
+       function handleUserMessage(userMessage) {
+           const lowerCaseMessage = userMessage.toLowerCase();
+           let botResponse = "Gracias por compartir. ¡Espero que tengas un gran día de aprendizaje!";
+
+
+           if (lowerCaseMessage.includes("bien") || lowerCaseMessage.includes("genial") || lowerCaseMessage.includes("excelente")) {
+               botResponse = "¡Me alegra mucho escuchar eso! Sigue así.";
+           } else if (lowerCaseMessage.includes("mal") || lowerCaseMessage.includes("triste") || lowerCaseMessage.includes("estresado")) {
+               botResponse = "Lamento escuchar eso. Recuerda que el aprendizaje puede ser una excelente manera de distraerse y mejorar el ánimo. ¡Ánimo!";
+           } else if (lowerCaseMessage.includes("hola") || lowerCaseMessage.includes("qué tal")) {
+               botResponse = "¡Hola! Me alegra que estés aquí. Estoy listo para ayudarte.";
+           } else if (lowerCaseMessage.includes("clase") || lowerCaseMessage.includes("curso")) {
+               botResponse = "¡Excelente! ¿Hay algún tema en particular que te interese aprender hoy?";
+           }
+
+
+           setTimeout(() => {
+               addMessageToChat(botResponse, 'bot');
+           }, 1000); // Simulate a small delay for the response
+       }
+
+
+       document.getElementById('chat-form').addEventListener('submit', function(e) {
+           e.preventDefault();
+           const input = document.getElementById('chat-input');
+           const message = input.value.trim();
+
+
+           if (message) {
+               addMessageToChat(message, 'user');
+               handleUserMessage(message);
+               input.value = '';
+           }
+       });
+
+
+       // Handle initial authentication and listen for state changes
+       onAuthStateChanged(auth, async (user) => {
+           const loginSection = document.getElementById('login-section');
+           const loggedInSection = document.getElementById('logged-in-section');
+           const userIdDisplay = document.getElementById('user-id-display');
+           const userSloganDisplay = document.getElementById('user-slogan-display');
+           const loginNav = document.getElementById('open-login-nav');
+           const loginNavMobile = document.getElementById('open-login-modal-mobile');
+           const chatSection = document.getElementById('chat-section');
+
+
+           if (user) {
+               // User is signed in
+               loginSection.classList.add('hidden');
+               loggedInSection.classList.remove('hidden');
+               chatSection.classList.remove('hidden');
+               userIdDisplay.textContent = user.uid;
+
+
+               // Retrieve user slogan from Firestore
+               try {
+                   const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/profile/info`);
+                   const docSnap = await getDoc(userDocRef);
+                   if (docSnap.exists()) {
+                       const userData = docSnap.data();
+                       userSloganDisplay.textContent = userData.slogan || 'No se ha seleccionado eslogan';
+                   } else {
+                       userSloganDisplay.textContent = 'No se ha seleccionado eslogan';
+                   }
+               } catch (error) {
+                   console.error("Error retrieving user data:", error);
+                   userSloganDisplay.textContent = 'Error al cargar eslogan.';
+               }
+
+
+               loginNav.classList.add('hidden');
+               loginNavMobile.classList.add('hidden');
+               console.log("User is signed in with UID:", user.uid);
+           } else {
+               // User is signed out
+               loginSection.classList.remove('hidden');
+               loggedInSection.classList.add('hidden');
+               chatSection.classList.add('hidden');
+               loginNav.classList.remove('hidden');
+               loginNavMobile.classList.remove('hidden');
+               console.log("No user is signed in.");
+               // Attempt to sign in with a custom token if available
+               if (initialAuthToken) {
+                   try {
+                       await signInWithCustomToken(auth, initialAuthToken);
+                       console.log("Signed in with custom token.");
+                   } catch (error) {
+                       console.error("Error signing in with custom token:", error);
+                       // Sign in anonymously if custom token fails
+                       try {
+                           await signInAnonymously(auth);
+                           console.log("Signed in anonymously.");
+                       } catch (anonError) {
+                           console.error("Error signing in anonymously:", anonError);
+                       }
+                   }
+               } else {
+                   // Sign in anonymously if no custom token is available
+                   try {
+                       await signInAnonymously(auth);
+                       console.log("Signed in anonymously.");
+                   } catch (anonError) {
+                       console.error("Error signing in anonymously:", anonError);
+                   }
+               }
+           }
+       });
+
+
+       // Event listener for login form submission
+       document.getElementById('loginForm').addEventListener('submit', async (event) => {
+           event.preventDefault();
+           const email = document.getElementById('login-email').value;
+           const password = document.getElementById('login-password').value;
+
+
+           try {
+               await signInWithEmailAndPassword(auth, email, password);
+               showNotification('¡Acceso exitoso! Bienvenido de nuevo.');
+               document.getElementById('loginModal').classList.add('hidden');
+           } catch (error) {
+               console.error("Error al iniciar sesión:", error);
+               showNotification('Error al iniciar sesión. Por favor, revisa tus datos.', true);
+           }
+       });
+
+
+       // Event listener for registration form submission
+       document.getElementById('registrationForm').addEventListener('submit', async (event) => {
+           event.preventDefault();
+           const username = document.getElementById('reg-username').value;
+           const email = document.getElementById('reg-email').value;
+           const password = document.getElementById('reg-password').value;
+
+
+           // Check if a slogan has been selected
+           if (!selectedSlogan) {
+               showNotification('Por favor, selecciona un eslogan antes de registrarte.', true);
+               return;
+           }
+
+
+           try {
+               const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+               const user = userCredential.user;
+               // Save user data (e.g., username, slogan) to Firestore
+               const userDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/profile/info`);
+               await setDoc(userDocRef, {
+                   username: username,
+                   email: email,
+                   slogan: selectedSlogan, // Save the selected slogan
+                   createdAt: new Date()
+               });
+
+
+               showNotification('¡Registro exitoso! Ahora puedes acceder a tus aulas virtuales.');
+               document.getElementById('registerModal').classList.add('hidden');
+           } catch (error) {
+               console.error("Error al registrar usuario:", error);
+               showNotification(`Error al registrar. ${error.message}`, true);
+           }
+       });
+   </script>
 </head>
 <body class="text-gray-900 bg-gray-50">
-    <div id="notification-container" class="notification-container"></div>
+   <div id="notification-container" class="notification-container"></div>
 
-    <!-- Barra de navegación (Navbar) - Diseño actualizado -->
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home-section" class="flex items-center space-x-2 text-gray-800">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v8M12 14l9-5M12 14l-9-5M5 12h14" />
-                </svg>
-                <span class="text-2xl font-extrabold primary-text">Mi Curso Online</span>
-            </a>
-            <div class="hidden md:flex md:space-x-8 text-gray-600 font-medium">
-                <!-- Enlaces de la barra de navegación que ahora apuntan a las secciones -->
-                <a href="#home-section" class="nav-link hover:text-blue-500 transition-colors duration-200">Inicio</a>
-                <a href="#courses-section" class="nav-link hover:text-blue-500 transition-colors duration-200">Cursos</a>
-                <a href="#virtual-classrooms-section" class="nav-link hover:text-blue-500 transition-colors duration-200 font-bold primary-text">Aulas Virtuales</a>
-                <a href="#" id="open-login-nav" class="nav-link hover:text-blue-500 transition-colors duration-200">Acceso</a>
-                <a href="#" id="open-register-nav" class="nav-link hover:text-blue-500 transition-colors duration-200">Registro</a>
-                <a href="#" class="nav-link hover:text-blue-500 transition-colors duration-200">Contáctanos</a>
-            </div>
-            <!-- Botón para el menú móvil -->
-            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </nav>
-        <!-- Menú móvil (oculto por defecto) -->
-        <div id="mobile-menu" class="md:hidden bg-gray-100 text-gray-800 transition-all duration-300 ease-in-out hidden absolute w-full top-full left-0 z-40 shadow-lg">
-            <div class="flex flex-col py-4 px-6 space-y-2">
-                <a href="#home-section" class="nav-link py-2 border-b border-gray-200">Inicio</a>
-                <a href="#courses-section" class="nav-link py-2 border-b border-gray-200">Cursos</a>
-                <a href="#virtual-classrooms-section" class="nav-link py-2 border-b border-gray-200 font-bold primary-text">Aulas Virtuales</a>
-                <a href="#" id="open-login-modal-mobile" class="nav-link py-2 border-b border-gray-200">Acceso</a>
-                <a href="#" id="open-register-modal-mobile" class="nav-link py-2 border-b border-gray-200">Registro</a>
-                <a href="#" class="nav-link py-2">Contáctanos</a>
-            </div>
-        </div>
-    </header>
 
-    <!-- Contenedor principal para todas las secciones -->
-    <main id="content-container">
-        <!-- Sección de Inicio (Home) -->
-        <section id="home-section" class="content-section hidden py-16 md:py-24 px-6 text-center">
-            <div class="container mx-auto">
-                <h1 class="text-4xl md:text-5xl font-extrabold primary-text mb-4">Bienvenido a Mi Curso Online</h1>
-                <p class="text-xl text-gray-600">
-                    Tu futuro comienza aquí. Explora nuestros cursos y comienza tu camino hacia el éxito.
-                </p>
-                <!-- Aquí puedes añadir más contenido de inicio -->
-            </div>
-        </section>
+   <!-- Barra de navegación (Navbar) - Diseño actualizado -->
+   <header class="bg-white shadow-md">
+       <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+           <a href="#" class="flex items-center space-x-2 text-gray-800">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v8M12 14l9-5M12 14l-9-5M5 12h14" />
+               </svg>
+               <span class="text-2xl font-extrabold primary-text">Mi Curso Online</span>
+           </a>
+           <div class="hidden md:flex md:space-x-8 text-gray-600 font-medium">
+               <a href="#" class="nav-link hover:text-blue-500 transition-colors duration-200">Inicio</a>
+               <a href="#" class="nav-link hover:text-blue-500 transition-colors duration-200">Cursos</a>
+               <a href="#" class="nav-link hover:text-blue-500 transition-colors duration-200 font-bold primary-text">Aulas Virtuales</a>
+               <a href="#" id="open-login-nav" class="nav-link hover:text-blue-500 transition-colors duration-200">Acceso</a>
+               <a href="#" id="open-register-nav" class="nav-link hover:text-blue-500 transition-colors duration-200">Registro</a>
+               <a href="#" class="nav-link hover:text-blue-500 transition-colors duration-200">Contáctanos</a>
+           </div>
+           <!-- Botón para el menú móvil -->
+           <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+               <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+           </button>
+       </nav>
+       <!-- Menú móvil (oculto por defecto) -->
+       <div id="mobile-menu" class="md:hidden bg-gray-100 text-gray-800 transition-all duration-300 ease-in-out hidden absolute w-full top-full left-0 z-40 shadow-lg">
+           <div class="flex flex-col py-4 px-6 space-y-2">
+               <a href="#" class="nav-link py-2 border-b border-gray-200">Inicio</a>
+               <a href="#" class="nav-link py-2 border-b border-gray-200">Cursos</a>
+               <a href="#" class="nav-link py-2 border-b border-gray-200 font-bold primary-text">Aulas Virtuales</a>
+               <a href="#" id="open-login-modal-mobile" class="nav-link py-2 border-b border-gray-200">Acceso</a>
+               <a href="#" id="open-register-modal-mobile" class="nav-link py-2 border-b border-gray-200">Registro</a>
+               <a href="#" class="nav-link py-2">Contáctanos</a>
+           </div>
+       </div>
+   </header>
 
-        <!-- Sección de Cursos -->
-        <section id="courses-section" class="content-section hidden py-16 md:py-24 px-6 text-center">
-            <div class="container mx-auto">
-                <h1 class="text-4xl md:text-5xl font-extrabold primary-text mb-4">Nuestros Cursos</h1>
-                <p class="text-xl text-gray-600 mb-8">
-                    Descubre una amplia variedad de cursos diseñados para tu crecimiento profesional y personal.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Tarjeta de Curso de ejemplo -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <h3 class="text-2xl font-bold secondary-text mb-2">Programación Web</h3>
-                        <p class="text-gray-600">Aprende a crear sitios web interactivos desde cero con HTML, CSS y JavaScript.</p>
-                    </div>
-                    <!-- Puedes duplicar estas tarjetas para mostrar más cursos -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <h3 class="text-2xl font-bold secondary-text mb-2">Diseño Gráfico</h3>
-                        <p class="text-gray-600">Domina las herramientas y técnicas para crear diseños visualmente impresionantes.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <h3 class="text-2xl font-bold secondary-text mb-2">Marketing Digital</h3>
-                        <p class="text-gray-600">Conoce las estrategias más efectivas para promocionar productos y servicios en línea.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Sección de Aulas Virtuales (Original) -->
-        <section id="virtual-classrooms-section" class="content-section py-16 md:py-24 px-6 flex items-center justify-center min-h-[60vh]">
-            <div class="container mx-auto text-center">
-                <!-- Title introducing slogans -->
-                <h1 class="text-4xl md:text-5xl font-extrabold primary-text mb-8">
-                    Elige tu Eslogan
-                </h1>
-                <!-- Slogan buttons -->
-                <div id="slogan-container" class="flex flex-col justify-center items-center gap-4 mb-12 max-w-5xl mx-auto">
-                    <button type="button" class="slogan-button text-base md:text-xl font-bold w-full">Mientras más aprendes, más creces. ¡Nunca te detengas!</button>
-                    <button type="button" class="slogan-button text-base md:text-xl font-bold w-full">El conocimiento te impulsa. Aprende, crece, y ve más allá.</button>
-                    <button type="button" class="slogan-button text-base md:text-xl font-bold w-full">Tu viaje de aprendizaje es infinito. ¡Continúa creciendo cada día!</button>
-                </div>
-                
-                <!-- User Login/Registration/Logged In Section -->
-                <div id="login-section">
-                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Accede a tus aulas virtuales</h2>
-                    <p class="text-lg text-gray-600 mb-8">
-                        Inicia sesión o regístrate para acceder a todos los recursos de tus cursos y conectar con otros estudiantes.
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                        <button id="open-login-modal" class="cta-button bg-blue-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-600">
-                            Iniciar Sesión
-                        </button>
-                        <button id="open-register-modal" class="cta-button bg-sky-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-sky-600">
-                            Registrarse
-                        </button>
-                    </div>
-                </div>
 
-                <!-- Logged In Section -->
-                <div id="logged-in-section" class="hidden">
-                    <div class="logged-in-container p-8 rounded-xl shadow-lg max-w-2xl mx-auto">
-                        <h2 class="text-3xl font-bold primary-text mb-4">¡Bienvenido a tu aula virtual!</h2>
-                        <p class="text-gray-700 text-lg mb-6">
-                            ¡Hemos guardado tu eslogan! Disfruta de la experiencia de aprendizaje.
-                        </p>
-                        <div class="text-left text-gray-600 mb-8">
-                            <p class="font-semibold text-lg mb-2">Tu ID de Usuario:</p>
-                            <p id="user-id-display" class="break-all text-sm font-mono bg-gray-100 p-3 rounded-md"></p>
-                        </div>
-                        <div class="text-left text-gray-600">
-                            <p class="font-semibold text-lg mb-2">Tu Eslogan Elegido:</p>
-                            <p id="user-slogan-display" class="text-lg font-bold text-sky-600"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Chat Section -->
-        <section id="chat-section" class="py-16 md:py-24 px-6 hidden">
-            <div class="container mx-auto">
-                <h2 class="text-3xl md:text-4xl font-extrabold primary-text text-center mb-8">
-                    💬 Chat de Bienvenida
-                </h2>
-                <div class="chat-container">
-                    <div id="chat-box" class="chat-box">
-                        <div class="message bot-message">¡Hola! ¡Qué gusto saber de ti! Cuéntame, ¿cómo estás hoy?</div>
-                    </div>
-                    <form id="chat-form" class="chat-input">
-                        <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." autocomplete="off">
-                        <button type="submit">Enviar</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <button id="close-login-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">&times;</button>
-            <h3 class="text-2xl font-bold text-center mb-6">Acceder</h3>
-            <form id="loginForm" class="space-y-4">
-                <input type="email" id="login-email" placeholder="Correo Electrónico" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                <input type="password" id="login-password" placeholder="Contraseña" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                <button type="submit" class="w-full bg-blue-500 text-white font-bold py-3 rounded-lg hover:bg-blue-600 transition-colors">Iniciar Sesión</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Registration Modal -->
-    <div id="registerModal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <button id="close-register-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">&times;</button>
-            <h3 class="text-2xl font-bold text-center mb-6">Registro</h3>
-            <form id="registrationForm" class="space-y-4">
-                <input type="text" id="reg-username" placeholder="Nombre de Usuario" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500">
-                <input type="email" id="reg-email" placeholder="Correo Electrónico" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500">
-                <input type="password" id="reg-password" placeholder="Contraseña" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500">
-                <p class="text-sm text-center text-gray-500">
-                    Tu eslogan seleccionado se guardará con tu cuenta.
-                </p>
-                <button type="submit" class="w-full bg-sky-500 text-white font-bold py-3 rounded-lg hover:bg-sky-600 transition-colors">Crear Cuenta</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Modal logic
-        document.getElementById('open-login-modal').addEventListener('click', () => {
-            document.getElementById('loginModal').classList.remove('hidden');
-        });
-        document.getElementById('close-login-modal').addEventListener('click', () => {
-            document.getElementById('loginModal').classList.add('hidden');
-        });
-
-        document.getElementById('open-register-modal').addEventListener('click', () => {
-            document.getElementById('registerModal').classList.remove('hidden');
-        });
-        document.getElementById('close-register-modal').addEventListener('click', () => {
-            document.getElementById('registerModal').classList.add('hidden');
-        });
-
-        // Mobile menu logic
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Mobile modal logic
-        document.getElementById('open-login-modal-mobile').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('loginModal').classList.remove('hidden');
-            mobileMenu.classList.add('hidden');
-        });
-
-        document.getElementById('open-register-modal-mobile').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('registerModal').classList.remove('hidden');
-            mobileMenu.classList.add('hidden');
-        });
-        
-        // **NUEVO CÓDIGO DE NAVEGACIÓN**
-        // Seleccionar todos los enlaces de la barra de navegación
-        const navLinks = document.querySelectorAll('header nav a');
-        
-        // Agregar un event listener a cada enlace
-        navLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                // Prevenir el comportamiento predeterminado del enlace (recarga de página)
-                event.preventDefault();
-                
-                // Obtener el ID de la sección a mostrar del atributo href
-                const sectionId = link.getAttribute('href').substring(1);
-                
-                // Llamar a la función para mostrar la sección
-                if (sectionId) {
-                    showSection(sectionId);
-                }
-                
-                // Cerrar el menú móvil si está abierto
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-    </script>
-</body>
-</html>
+   <!-- Main Content Section - Slogans and Virtual Classrooms Access -->
+   <section class="py-16 md:py-24 px-6 flex items-center justify-center min-h-[60vh]">
+       <div class="container mx-auto text-center">
+           <!-- Title introducing slogans -->
+           <h1 class="text-4xl md:text-5xl font-extrabold primary-text mb-8
