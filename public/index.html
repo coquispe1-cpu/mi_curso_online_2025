@@ -3,185 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Curso en Línea</title>
-    <!-- Tailwind CSS CDN para un estilo moderno y responsivo -->
+    <title>Página Principal - Mi Curso en Linea</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f0f8ff; /* colorFondo */
         }
-        .content-section {
-            display: none;
+        .primary-text {
+            color: #004aad; /* colorPrincipal */
         }
-        .content-section.active {
-            display: block;
+        .secondary-text {
+            color: #00bfff; /* colorSecundario */
+        }
+        .secondary-bg {
+            background-color: #00bfff; /* colorSecundario */
+        }
+        /* Estilos para el modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            position: relative;
+            width: 90%;
+            max-width: 420px;
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col items-center p-4">
+<body class="text-gray-900 bg-gray-50">
 
-    <!-- Header -->
-    <header class="w-full max-w-4xl bg-white rounded-2xl shadow-lg p-6 mb-8 flex flex-col md:flex-row justify-between items-center">
-        <h1 class="text-3xl font-bold text-blue-600 mb-4 md:mb-0">Mi Curso en Línea</h1>
-        <nav>
-            <ul class="flex flex-wrap justify-center gap-4 text-gray-700 font-medium">
-                <li><a href="#inicio" class="nav-link hover:text-blue-600 transition-colors duration-200" data-section="inicio">Inicio</a></li>
-                <li><a href="#cursos" class="nav-link hover:text-blue-600 transition-colors duration-200" data-section="cursos">Cursos</a></li>
-                <li><a href="#aulas" class="nav-link hover:text-blue-600 transition-colors duration-200" data-section="aulas">Aulas Virtuales</a></li>
-                <li><a href="#registro" class="nav-link hover:text-blue-600 transition-colors duration-200" data-section="registro">Registro</a></li>
-                <li><a href="#contactanos" class="nav-link hover:text-blue-600 transition-colors duration-200" data-section="contactanos">Contáctanos</a></li>
-            </ul>
+    <!-- Navbar (Barra de navegación) -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <!-- Icono de curso -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v8M12 14l9-5M12 14l-9-5M5 12h14" />
+                </svg>
+                <span class="text-2xl font-extrabold primary-text">Mi Curso en Linea</span>
+            </a>
+            <div class="hidden md:flex md:space-x-8 text-gray-700">
+                <a href="index.html" class="hover:text-gray-900 transition-colors duration-300 font-bold">Inicio</a>
+                <a href="aulas-virtuales.html" class="hover:text-gray-900 transition-colors duration-300">Cursos</a>
+                <a href="aulas-virtuales.html" class="hover:text-gray-900 transition-colors duration-300">Aulas Virtuales</a>
+                <a href="#" id="open-register-modal" class="hover:text-gray-900 transition-colors duration-300">Registro</a>
+                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Contáctanos</a>
+            </div>
+            <!-- Botón para el menú móvil -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
         </nav>
+        <!-- Menú móvil (oculto por defecto) -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="flex flex-col py-4">
+                <a href="index.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300 font-bold">Inicio</a>
+                <a href="aulas-virtuales.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Cursos</a>
+                <a href="aulas-virtuales.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Aulas Virtuales</a>
+                <a href="#" id="open-register-modal-mobile" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Registro</a>
+                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Contáctanos</a>
+            </div>
+        </div>
     </header>
 
-    <!-- Main Content Container -->
-    <main class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8">
+    <!-- Hero Section -->
+    <section class="bg-gray-100 py-20 md:py-32 px-6 text-center">
+        <div class="container mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight primary-text mb-4">
+                Bienvenidos a Mi Curso en Linea
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-700 secondary-text mb-4">
+                Empieza tu camino de aprendizaje
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
+                Descubre cursos de alta calidad diseñados para tu éxito. Aprende a tu ritmo, en cualquier momento y lugar.
+            </p>
+        </div>
+    </section>
 
-        <!-- Sección de Inicio -->
-        <section id="inicio" class="content-section active">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Bienvenido a Mi Curso en Línea</h2>
-            <p class="text-gray-600 text-center">Explora nuestros cursos y comienza tu camino de aprendizaje hoy mismo.</p>
-        </section>
-
-        <!-- Sección de Cursos -->
-        <section id="cursos" class="content-section hidden">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Selecciona tu curso:</h2>
-            <div class="relative inline-block w-full text-gray-700 mb-6">
-                <select id="cursoSelect" class="block w-full bg-white border border-gray-300 rounded-full py-3 px-4 pr-8 focus:outline-none focus:border-blue-500">
-                    <option value="">-- Selecciona un curso --</option>
-                    <option value="HTML y CSS">HTML y CSS</option>
-                    <option value="JavaScript">JavaScript</option>
-                    <option value="Python">Python</option>
-                </select>
+    <!-- Features Section -->
+    <section class="py-16 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center primary-text mb-12">
+                ¿Por qué elegirnos?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex justify-center mb-4">
+                        <svg class="h-12 w-12 secondary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold primary-text mb-2">Flexibilidad Total</h3>
+                    <p class="text-gray-600">Aprende a tu propio ritmo, desde cualquier lugar y en cualquier dispositivo.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex justify-center mb-4">
+                        <svg class="h-12 w-12 secondary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944c-3.195 0-6.237 1.284-8.485 3.532-2.248 2.247-3.532 5.29-3.532 8.485s1.284 6.237 3.532 8.485c2.248 2.248 5.29 3.532 8.485 3.532 3.195 0 6.237-1.284 8.485-3.532-2.248-2.248-3.532-5.29-3.532-8.485z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold primary-text mb-2">Contenido de Calidad</h3>
+                    <p class="text-gray-600">Cursos diseñados por expertos en la industria para un aprendizaje efectivo.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-300">
+                    <div class="flex justify-center mb-4">
+                        <svg class="h-12 w-12 secondary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4.5 4.5 0 00-4.5 4.5c0 4.246 7.5 12.146 7.5 12.146s7.5-7.9 7.5-12.146a4.5 4.5 0 00-4.5-4.5zm0 0a4.5 4.5 0 00-4.5 4.5c0 4.246 7.5 12.146 7.5 12.146s7.5-7.9 7.5-12.146a4.5 4.5 0 00-4.5-4.5z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold primary-text mb-2">Comunidad de Apoyo</h3>
+                    <p class="text-gray-600">Conecta con estudiantes y mentores de todo el mundo para resolver tus dudas.</p>
+                </div>
             </div>
-            <div id="formulario" class="hidden transition-all duration-300 ease-in-out">
-                <h2 class="text-2xl font-semibold text-gray-800 mt-6 mb-4">Registro</h2>
-                <form id="registroForm" class="flex flex-col gap-4">
-                    <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full p-3 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500">
-                    <input type="email" name="email" placeholder="Tu email" required class="w-full p-3 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500">
-                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300">
-                        Enviar
-                    </button>
-                </form>
-                <div id="message-box" class="mt-4 p-4 rounded-lg hidden"></div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Sección de Aulas Virtuales -->
-        <section id="aulas" class="content-section hidden">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Aulas Virtuales</h2>
-            <p class="text-gray-600 text-center">Aquí encontrarás los enlaces a tus aulas virtuales.</p>
-        </section>
-
-        <!-- Sección de Registro -->
-        <section id="registro" class="content-section hidden">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Regístrate para comenzar</h2>
-            <form id="registroForm2" class="flex flex-col gap-4">
-                <input type="text" name="nombre" placeholder="Tu nombre" required class="w-full p-3 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500">
-                <input type="email" name="email" placeholder="Tu email" required class="w-full p-3 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500">
-                <input type="text" name="curso" placeholder="Curso de interés" required class="w-full p-3 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500">
-                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300">
-                    Registrarme
+    <!-- Modal de Registro (oculto por defecto) -->
+    <div id="registerModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-300">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h2 class="text-2xl font-bold mb-6 text-center primary-text">Regístrate para empezar</h2>
+            <!-- FORMULARIO CORREGIDO -->
+            <form id="registrationForm" class="space-y-6" action="/registrar" method="POST">
+                <div>
+                    <label for="curso" class="block text-sm font-medium text-gray-700">Curso</label>
+                    <select id="curso" name="curso" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" required>
+                        <option value="">Selecciona un curso</option>
+                        <option value="Desarrollo Web">Desarrollo Web</option>
+                        <option value="Ciencia de Datos">Ciencia de Datos</option>
+                        <option value="Marketing Digital">Marketing Digital</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2" required>
+                </div>
+                <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white secondary-bg hover:bg-blue-600 transition-colors duration-300">
+                    Crear Cuenta
                 </button>
             </form>
-            <div id="message-box2" class="mt-4 p-4 rounded-lg hidden"></div>
-        </section>
-
-        <!-- Sección de Contáctanos -->
-        <section id="contactanos" class="content-section hidden">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Contáctanos</h2>
-            <p class="text-gray-600 text-center">Envíanos un mensaje con tus dudas o comentarios.</p>
-        </section>
-
-    </main>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer class="w-full max-w-4xl mt-8 text-center text-gray-500">
-        &copy; 2025 Mi Curso en Línea
+    <footer class="bg-gray-800 text-gray-300 py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Mi Curso en Linea. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script>
-        const cursoSelect = document.getElementById('cursoSelect');
-        const formulario = document.getElementById('formulario');
-        const messageBox = document.getElementById('message-box');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const contentSections = document.querySelectorAll('.content-section');
-
-        // Función para mostrar u ocultar secciones
-        function showSection(sectionId) {
-            contentSections.forEach(section => {
-                if (section.id === sectionId) {
-                    section.classList.add('active');
-                    section.classList.remove('hidden');
-                } else {
-                    section.classList.remove('active');
-                    section.classList.add('hidden');
-                }
-            });
-        }
-
-        // Manejar clics en los enlaces de navegación
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const sectionId = link.dataset.section;
-                showSection(sectionId);
-            });
+        // Funcionalidad para el menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
         });
 
-        // Mostrar la sección inicial
-        showSection('inicio');
+        // Funcionalidad para el modal de registro
+        const openRegisterButton = document.getElementById('open-register-modal');
+        const openRegisterButtonMobile = document.getElementById('open-register-modal-mobile');
+        const registerModal = document.getElementById('registerModal');
+        const closeModalButton = document.getElementById('closeModal');
+        const registrationForm = document.getElementById('registrationForm');
 
-        // Función para mostrar u ocultar el formulario de registro en la sección "Cursos"
-        cursoSelect.addEventListener('change', () => {
-            if (cursoSelect.value) {
-                formulario.classList.remove('hidden');
-                setTimeout(() => formulario.style.opacity = '1', 10);
-            } else {
-                formulario.classList.add('hidden');
-                formulario.style.opacity = '0';
-            }
-        });
-
-        // Manejar el envío del formulario de registro en la sección "Cursos"
-        registroForm.addEventListener('submit', async (e) => {
+        openRegisterButton.addEventListener('click', function(e) {
             e.preventDefault();
-            // Simulación de una llamada a la API
-            const simulatedResponse = new Response('¡Registro exitoso!', { status: 200 });
-            const resText = await simulatedResponse.text();
-
-            showMessage(resText, 'success', 'message-box');
-            registroForm.reset();
-            cursoSelect.value = '';
-            formulario.classList.add('hidden');
-            formulario.style.opacity = '0';
+            registerModal.classList.remove('hidden');
         });
 
-        // Manejar el envío del formulario de registro en la sección "Registro"
-        const registroForm2 = document.getElementById('registroForm2');
-        const messageBox2 = document.getElementById('message-box2');
-        if(registroForm2) {
-            registroForm2.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const simulatedResponse = new Response('¡Registro completo!', { status: 200 });
-                const resText = await simulatedResponse.text();
-                showMessage(resText, 'success', 'message-box2');
-                registroForm2.reset();
-            });
-        }
-        
-        // Función general para mostrar mensajes
-        function showMessage(message, type, boxId) {
-            const box = document.getElementById(boxId);
-            box.textContent = message;
-            box.classList.remove('hidden', 'bg-red-200', 'text-red-800', 'bg-green-200', 'text-green-800');
-            if (type === 'success') {
-                box.classList.add('bg-green-200', 'text-green-800');
-            } else {
-                box.classList.add('bg-red-200', 'text-red-800');
+        openRegisterButtonMobile.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerModal.classList.remove('hidden');
+        });
+
+        closeModalButton.addEventListener('click', function() {
+            registerModal.classList.add('hidden');
+        });
+
+        registerModal.addEventListener('click', function(e) {
+            if (e.target === registerModal) {
+                registerModal.classList.add('hidden');
             }
-        }
+        });
+        
+        // El envío del formulario se maneja de forma nativa por el navegador.
+        // No se necesita el eventListener para la simulación de envío.
+        // Se ha removido la lógica de console.log y alert.
+        
     </script>
 </body>
 </html>
-
