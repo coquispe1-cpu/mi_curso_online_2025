@@ -3,328 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contáctanos - Mi Curso en Linea</title>
-    <!-- Incluir Tailwind CSS para el estilo -->
+    <title>Contáctanos - Mi Curso en Línea</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Importar la fuente Inter */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
-        
-        /* Estilos generales y colores base */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f8ff; /* colorFondo */
-        }
-        .primary-text {
-            color: #004aad; /* colorPrincipal */
-        }
-        .secondary-text {
-            color: #00bfff; /* colorSecundario */
-        }
 
-        /* Estilos específicos del formulario de contacto */
+        body { font-family: 'Inter', sans-serif; background-color: #f0f8ff; }
+        .primary-text { color: #004aad; }
+        .secondary-text { color: #00bfff; }
+
         .contact-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            max-width: 800px; margin: 40px auto; padding: 20px;
+            background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center;
         }
-        .contact-container h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #004aad;
-        }
-        .contact-container p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 30px;
-        }
-        .contact-form {
-            display: grid;
-            gap: 20px;
-            text-align: left;
-        }
-        .contact-form label {
-            font-weight: bold;
-            color: #333;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
-        }
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: #004aad;
-        }
-        .contact-form button {
-            background-color: #004aad;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            justify-self: center;
-            margin-top: 10px;
-        }
-        .contact-form button:hover {
-            background-color: #003a80;
-            transform: translateY(-2px);
-        }
+        .contact-container h1 { font-size: 2.5rem; font-weight: bold; margin-bottom: 20px; color: #004aad; }
+        .contact-container p { font-size: 1.1rem; color: #555; margin-bottom: 30px; }
 
-        /* Estilos del chatbot */
-        #chatbot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
+        .contact-form { display: grid; gap: 20px; text-align: left; }
+        .contact-form label { font-weight: bold; color: #333; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;
+            transition: border-color 0.3s ease; box-sizing: border-box;
         }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #004aad; }
+        .contact-form button {
+            background-color: #004aad; color: white; padding: 15px 30px; border: none; border-radius: 8px;
+            cursor: pointer; font-size: 1.1rem; font-weight: bold; transition: background-color 0.3s, transform 0.2s;
+            justify-self: center; margin-top: 10px;
+        }
+        .contact-form button:hover { background-color: #003a80; transform: translateY(-2px); }
+
+        #chatbot-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
         #chatbot-toggle {
-            background-color: #004aad;
-            color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s ease;
+            background-color: #004aad; color: white; border-radius: 50%; width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s ease;
         }
-        #chatbot-toggle:hover {
-            transform: scale(1.1);
-        }
+        #chatbot-toggle:hover { transform: scale(1.1); }
         #chatbot-window {
-            background-color: #fff;
-            width: 350px;
-            height: 450px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transform: translateY(100px);
-            opacity: 0;
+            background-color: #fff; width: 350px; height: 450px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            display: flex; flex-direction: column; overflow: hidden; transform: translateY(100px); opacity: 0;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        #chatbot-window.open {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        #chat-header {
-            background-color: #004aad;
-            color: white;
-            padding: 15px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #chat-messages {
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-            background-color: #f0f8ff;
-        }
-        #chat-input-area {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-        }
-        #chat-input {
-            flex-grow: 1;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-        #send-btn {
-            background-color: #00bfff;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        .message-bubble {
-            padding: 10px 15px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            max-width: 80%;
-        }
-        .message-bubble.bot {
-            background-color: #e2f2ff;
-            align-self: flex-start;
-            margin-right: auto;
-            color: #333;
-        }
-        .message-bubble.user {
-            background-color: #004aad;
-            color: white;
-            align-self: flex-end;
-            margin-left: auto;
-        }
+        #chatbot-window.open { transform: translateY(0); opacity: 1; }
+        #chat-header { background-color: #004aad; color: white; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        #chat-messages { flex-grow: 1; padding: 20px; overflow-y: auto; background-color: #f0f8ff; }
+        #chat-input-area { display: flex; padding: 10px; border-top: 1px solid #ddd; }
+        #chat-input { flex-grow: 1; padding: 10px; border-radius: 8px; border: 1px solid #ddd; }
+        #send-btn { background-color: #00bfff; color: white; padding: 10px 15px; border-radius: 8px; cursor: pointer; margin-left: 10px; }
+
+        .message-bubble { padding: 10px 15px; border-radius: 12px; margin-bottom: 10px; max-width: 80%; }
+        .message-bubble.bot { background-color: #e2f2ff; align-self: flex-start; margin-right: auto; color: #333; }
+        .message-bubble.user { background-color: #004aad; color: white; align-self: flex-end; margin-left: auto; }
     </style>
 </head>
-<body class="text-gray-900 bg-gray-50">
+<body class="text-gray-900">
 
-    <!-- Navbar (Barra de navegación) -->
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v8M12 14l9-5M12 14l-9-5M5 12h14" />
-                </svg>
-                <span class="text-2xl font-extrabold primary-text">Mi Curso en Linea</span>
-            </a>
-            <div class="hidden md:flex md:space-x-8 text-gray-700">
-                <a href="index.html" class="hover:text-gray-900 transition-colors duration-300">Inicio</a>
-                <a href="cursos.html" class="hover:text-gray-900 transition-colors duration-300">Cursos</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Aulas Virtuales</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300">Registro</a>
-                <a href="#" class="hover:text-gray-900 transition-colors duration-300 font-bold primary-text">Contáctanos</a>
-            </div>
-            <!-- Botón para el menú móvil -->
-            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </nav>
-        <!-- Menú móvil (oculto por defecto) -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="flex flex-col py-4">
-                <a href="index.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Inicio</a>
-                <a href="cursos.html" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Cursos</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Aulas Virtuales</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300">Registro</a>
-                <a href="#" class="py-2 px-6 hover:bg-gray-100 transition-colors duration-300 font-bold primary-text">Contáctanos</a>
-            </div>
+<header class="bg-white shadow-md">
+    <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 primary-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v8M12 14l9-5M12 14l-9-5M5 12h14" />
+            </svg>
+            <span class="text-2xl font-extrabold primary-text">Mi Curso en Línea</span>
+        </a>
+        <div class="hidden md:flex md:space-x-8 text-gray-700">
+            <a href="index.html" class="hover:text-gray-900 transition-colors">Inicio</a>
+            <a href="cursos.html" class="hover:text-gray-900 transition-colors">Cursos</a>
+            <a href="#" class="hover:text-gray-900 transition-colors">Aulas Virtuales</a>
+            <a href="#" class="hover:text-gray-900 transition-colors">Registro</a>
+            <a href="#" class="hover:text-gray-900 font-bold primary-text transition-colors">Contáctanos</a>
         </div>
-    </header>
-
-    <!-- Contenido del formulario de contacto -->
-    <main class="container mx-auto px-4">
-        <!-- Sección de número de emergencia -->
-        <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded-xl relative mt-8" role="alert">
-            <strong class="font-bold">¡Importante!</strong>
-            <span class="block sm:inline"> Para casos de emergencia, por favor llama al número: <span class="font-bold">51 921717515</span></span>
-        </div>
-
-        <div class="contact-container">
-            <h1>Contáctanos</h1>
-            <p>¿Tienes alguna pregunta, sugerencia o necesitas ayuda? No dudes en escribirnos.</p>
-            <form class="contact-form" action="#" method="POST">
-                <div>
-                    <label for="nombre">Nombre Completo</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
-                </div>
-                <div>
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
-                </div>
-                <div>
-                    <label for="asunto">Asunto</label>
-                    <input type="text" id="asunto" name="asunto" placeholder="Escribe el asunto" required>
-                </div>
-                <div>
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" rows="6" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                </div>
-                <button type="submit">Enviar Mensaje</button>
-            </form>
-        </div>
-    </main>
-
-    <!-- Contenedor del chatbot -->
-    <div id="chatbot-container">
-        <!-- Botón para abrir/cerrar el chatbot -->
-        <button id="chatbot-toggle">
-            <i class="fa-solid fa-comments"></i>
+        <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
         </button>
-        <!-- Ventana del chatbot -->
-        <div id="chatbot-window" class="hidden">
-            <div id="chat-header">
-                Chatea aquí
-            </div>
-            <div id="chat-messages">
-                <div class="message-bubble bot">¡Hola! Soy tu asistente virtual. ¿Cómo puedo ayudarte hoy?</div>
-            </div>
-            <div id="chat-input-area">
-                <input type="text" id="chat-input" placeholder="Escribe un mensaje...">
-                <button id="send-btn">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
-            </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden">
+        <div class="flex flex-col py-4">
+            <a href="index.html" class="py-2 px-6 hover:bg-gray-100">Inicio</a>
+            <a href="cursos.html" class="py-2 px-6 hover:bg-gray-100">Cursos</a>
+            <a href="#" class="py-2 px-6 hover:bg-gray-100">Aulas Virtuales</a>
+            <a href="#" class="py-2 px-6 hover:bg-gray-100">Registro</a>
+            <a href="#" class="py-2 px-6 hover:bg-gray-100 font-bold primary-text">Contáctanos</a>
         </div>
     </div>
+</header>
 
-    <script>
-        // Funcionalidad para el menú móvil
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+<main class="container mx-auto px-4">
+    <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded-xl mt-8" role="alert">
+        <strong class="font-bold">¡Importante!</strong>
+        <span class="block sm:inline"> Para casos de emergencia, llama al: <span class="font-bold">51 921717515</span></span>
+    </div>
+
+    <div class="contact-container">
+        <h1>Contáctanos</h1>
+        <p>¿Tienes alguna pregunta, sugerencia o necesitas ayuda? Escríbenos.</p>
+        <form class="contact-form" action="#" method="POST">
+            <div>
+                <label for="nombre">Nombre Completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div>
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
+            </div>
+            <div>
+                <label for="asunto">Asunto</label>
+                <input type="text" id="asunto" name="asunto" placeholder="Escribe el asunto" required>
+            </div>
+            <div>
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="6" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            </div>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </div>
+</main>
+
+<div id="chatbot-container">
+    <button id="chatbot-toggle"><i class="fa-solid fa-comments"></i></button>
+    <div id="chatbot-window" class="hidden">
+        <div id="chat-header">Chatea aquí</div>
+        <div id="chat-messages">
+            <div class="message-bubble bot">¡Hola! Soy tu asistente virtual. ¿Cómo puedo ayudarte hoy?</div>
+        </div>
+        <div id="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Escribe un mensaje...">
+            <button id="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const chatMessages = document.getElementById('chat-messages');
+
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('hidden');
+            chatbotWindow.classList.toggle('open');
         });
 
-        // Funcionalidad para el chatbot
-        document.addEventListener('DOMContentLoaded', () => {
-            const chatbotToggle = document.getElementById('chatbot-toggle');
-            const chatbotWindow = document.getElementById('chatbot-window');
-            const chatInput = document.getElementById('chat-input');
-            const sendBtn = document.getElementById('send-btn');
-            const chatMessages = document.getElementById('chat-messages');
+        sendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
 
-            chatbotToggle.addEventListener('click', () => {
-                chatbotWindow.classList.toggle('hidden');
-                chatbotWindow.classList.toggle('open');
-            });
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
 
-            sendBtn.addEventListener('click', sendMessage);
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
+            const userMessage = document.createElement('div');
+            userMessage.classList.add('message-bubble', 'user');
+            userMessage.textContent = message;
+            chatMessages.appendChild(userMessage);
 
-            function sendMessage() {
-                const message = chatInput.value.trim();
-                if (message === '') return;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
 
-                // Añadir el mensaje del usuario
-                const userMessage = document.createElement('div');
-                userMessage.classList.add('message-bubble', 'user');
-                userMessage.textContent = message;
-                chatMessages.appendChild(userMessage);
-
-                // Hacer scroll al último mensaje
+            setTimeout(() => {
+                const botResponse = document.createElement('div');
+                botResponse.classList.add('message-bubble', 'bot');
+                botResponse.textContent = 'Gracias por contactarnos. Un agente se pondrá en contacto contigo.';
+                chatMessages.appendChild(botResponse);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
 
-                // Respuesta simple del bot
-                setTimeout(() => {
-                    const botResponse = document.createElement('div');
-                    botResponse.classList.add('message-bubble', 'bot');
-                    botResponse.textContent = 'Gracias por contactarnos. Un agente se pondrá en contacto contigo a la brevedad.';
-                    chatMessages.appendChild(botResponse);
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 1000);
-
-                chatInput.value = '';
-            }
-        });
-    </script>
+            chatInput.value = '';
+        }
+    });
+</script>
 </body>
-</h
+</html>
