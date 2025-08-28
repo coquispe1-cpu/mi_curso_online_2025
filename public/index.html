@@ -1,150 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula Virtual - JAOV Cursos</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-        header { background: #003366; color: white; padding: 20px; text-align: center; }
-        nav { background: #0055a5; padding: 10px; display: flex; justify-content: center; gap: 15px; }
-        nav a { color: white; text-decoration: none; font-weight: bold; }
-        main { padding: 20px; max-width: 1200px; margin: auto; }
-        .course-card { background: white; padding: 15px; margin: 10px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .course-card button { background: #0055a5; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
-        .course-card button:hover { background: #003366; }
-        footer { background: #003366; color: white; text-align: center; padding: 10px; margin-top: 20px; }
-        .hidden { display: none; }
-        .modal { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; }
-        .modal-content { background:white; padding:20px; border-radius:10px; max-width:500px; width:90%; }
-        .close-btn { float:right; cursor:pointer; color:red; font-weight:bold; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenidos a Mi Curso Online</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>JAOV Aula Virtual</h1>
-        <p>Aprende, practica y certifica tus habilidades</p>
-    </header>
-
+  <header>
+    <h1>🎓 Bienvenidos a <span class="logo">Mi Curso Online</span></h1>
     <nav>
-        <a href="#" onclick="showSection('courses')">Cursos</a>
-        <a href="#" onclick="showSection('login')">Acceso / Registro</a>
-        <a href="#" onclick="showSection('exams')">Exámenes</a>
+      <a href="index.html">Inicio</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
+  </header>
 
-    <main>
-        <!-- Sección de cursos -->
-        <section id="courses">
-            <h2>Cursos Disponibles</h2>
-            <div id="course-list">
-                <!-- Aquí se insertarán los cursos -->
-            </div>
-        </section>
+  <main>
+    <section class="hero">
+      <h2>Aprende a tu ritmo, desde cualquier lugar</h2>
+      <p>Elige entre más de 50 cursos disponibles y obtén tu certificado digital 📜.</p>
+      <a href="cursos.html" class="btn">Ver Cursos</a>
+    </section>
+  </main>
 
-        <!-- Sección de registro / acceso -->
-        <section id="login" class="hidden">
-            <h2>Acceso / Registro de Usuario</h2>
-            <form id="login-form">
-                <label>Nombre:</label><br>
-                <input type="text" id="username" required><br><br>
-                <label>Correo:</label><br>
-                <input type="email" id="email" required><br><br>
-                <button type="submit">Acceder / Registrar</button>
-            </form>
-            <p id="login-msg"></p>
-        </section>
-
-        <!-- Sección de exámenes -->
-        <section id="exams" class="hidden">
-            <h2>Exámenes por Curso</h2>
-            <div id="exam-list">
-                <!-- Aquí se insertarán los exámenes de cada curso -->
-            </div>
-            <button onclick="finalExam()">Examen Final</button>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 JAOV Cursos - Todos los derechos reservados</p>
-    </footer>
-
-    <!-- Modal de Certificado -->
-    <div id="certificateModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeCertificate()">&times;</span>
-            <h3>Certificado</h3>
-            <p id="certificate-text"></p>
-        </div>
-    </div>
-
-    <script>
-        // Lista de cursos
-        const courses = [
-            "Especialista en Aplicación de Recubrimientos, Industriales y Marinos",
-            "Especialista en Preparación de Superficies",
-            "Operador de Tolva para Limpieza con Chorro a Presión",
-            "Operador de Equipo Airless (Neumático, Eléctrico y Gasolinero)",
-            "Operador de Hidrolavadora de Alta Presión",
-            "Control de Calidad en Operaciones de Limpieza con Chorro Abrasivo y Aplicación de Recubrimientos",
-            "Mantenimiento de Equipos Airless y Tolvas para Limpieza con Chorro a Presión"
-        ];
-
-        const courseList = document.getElementById('course-list');
-        courses.forEach(course => {
-            const div = document.createElement('div');
-            div.className = 'course-card';
-            div.innerHTML = `<h3>${course}</h3><button onclick="enterCourse('${course}')">Ingresar al Curso</button>`;
-            courseList.appendChild(div);
-        });
-
-        function showSection(section) {
-            document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden'));
-            document.getElementById(section).classList.remove('hidden');
-        }
-
-        function enterCourse(course) {
-            alert(`Bienvenido al curso: ${course}\nAquí se integrarán herramientas y bots de profesores.`);
-        }
-
-        // Registro / Acceso
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            document.getElementById('login-msg').innerText = `¡Bienvenido ${name}! Has accedido al sistema.`;
-        });
-
-        // Exámenes
-        const examList = document.getElementById('exam-list');
-        courses.forEach(course => {
-            const btn = document.createElement('button');
-            btn.textContent = `Examen: ${course}`;
-            btn.onclick = () => takeExam(course);
-            examList.appendChild(btn);
-        });
-
-        function takeExam(course) {
-            const passed = confirm(`Simulación de examen para: ${course}\n¿Aprobaste el examen?`);
-            if (passed) showCertificate(course);
-            else alert(`Se generará diploma de asistencia para ${course}`);
-        }
-
-        function finalExam() {
-            const passed = confirm("Simulación de examen final.\n¿Aprobaste?");
-            if (passed) showCertificate("Examen Final");
-            else alert("Se generará diploma de asistencia del examen final.");
-        }
-
-        function showCertificate(course) {
-            document.getElementById('certificate-text').innerText = `¡Felicidades! Has aprobado el curso: ${course}`;
-            document.getElementById('certificateModal').classList.remove('hidden');
-        }
-
-        function closeCertificate() {
-            document.getElementById('certificateModal').classList.add('hidden');
-        }
-    </script>
+  <footer>
+    <p>&copy; 2025 Mi Curso Online | Todos los derechos reservados</p>
+  </footer>
 </body>
 </html>
