@@ -1,115 +1,45 @@
-/* General */
-* {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #f0f2f5;
-}
-
-/* Header */
 header {
-  background: linear-gradient(90deg, #4e54c8, #8f94fb);
-  padding: 15px 0;
+  background-color: #1d4ed8;
+  padding: 10px 20px;
+}
+
+header nav a {
   color: white;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-}
-
-header .container {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
+  margin: 0 10px;
+  text-decoration: none;
   font-weight: bold;
 }
 
-nav a {
-  margin: 0 12px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: color 0.3s;
+header nav a:hover {
+  color: #a5b4fc;
 }
 
-nav a:hover {
-  color: #ffeb3b;
-}
-
-/* Hero */
 .hero {
-  height: 80vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-              url('https://images.unsplash.com/photo-1584697964403-1eafde7c5c2f?auto=format&fit=crop&w=1500&q=80')
-              no-repeat center center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  color: white;
+  padding: 50px 20px;
 }
 
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+.hero h1 {
+  color: #1d4ed8;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 25px;
-  background: #ff9800;
+  background-color: #1d4ed8;
   color: white;
-  font-weight: bold;
-  border-radius: 25px;
+  padding: 10px 20px;
+  border-radius: 5px;
   text-decoration: none;
-  transition: 0.3s;
+  margin-top: 20px;
 }
 
 .btn:hover {
-  background: #e68900;
-}
-
-/* Features */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  width: 90%;
-  margin: 40px auto;
-}
-
-.feature {
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.feature:hover {
-  transform: translateY(-8px);
-}
-
-/* Footer */
-footer {
-  background: #222;
-  color: #bbb;
-  text-align: center;
-  padding: 15px;
-  margin-top: 30px;
+  background-color: #2563eb;
 }
