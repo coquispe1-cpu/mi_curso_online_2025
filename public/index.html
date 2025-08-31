@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Curso Online</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Curso en Línea</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="header">
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="registro.html">Registro</a>
-    <a href="aulas-virtuales.html">Aulas Virtuales</a>
-    <a href="contactanos.html">Contacto</a>
-  </nav>
-</header>
+  <header>
+    <h1>Mi Curso en Línea</h1>
+    <nav>
+      <a href="#" onclick="cargarPagina('inicio')">Inicio</a>
+      <a href="#" onclick="cargarPagina('cursos')">Cursos</a>
+      <a href="#" onclick="cargarPagina('certificados')">Certificados</a>
+      <a href="#" onclick="cargarPagina('contacto')">Contacto</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <h1>🎓 Bienvenidos a Mi Curso Online</h1>
-  <p>Aprende a tu ritmo 📚. Más de 50 cursos online. Certificados digitales incluidos.</p>
-  <a class="btn" href="registro.html">Ver Cursos</a>
-</section>
+  <main id="contenido">
+    <!-- Aquí se cargará el contenido dinámicamente -->
+  </main>
+
+  <footer>
+    <p>© 2025 Mi Curso en Línea - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
