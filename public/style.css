@@ -1,45 +1,94 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
+/* 🎨 Reset básico */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* 🌈 Fondo y colores generales */
+body {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* 🏠 Encabezado */
 header {
-  background-color: #1d4ed8;
-  padding: 10px 20px;
-}
-
-header nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-header nav a:hover {
-  color: #a5b4fc;
-}
-
-.hero {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
   text-align: center;
-  padding: 50px 20px;
 }
 
-.hero h1 {
-  color: #1d4ed8;
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-.btn {
-  display: inline-block;
-  background-color: #1d4ed8;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
+nav a {
+  color: #fff;
   text-decoration: none;
-  margin-top: 20px;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-.btn:hover {
-  background-color: #2563eb;
+nav a:hover {
+  color: #ffd700;
+}
+
+/* 📦 Contenedor principal */
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 🎯 Botones */
+button, .btn {
+  display: inline-block;
+  background: #ffd700;
+  color: #333;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover, .btn:hover {
+  background: #ffb700;
+  transform: scale(1.05);
+}
+
+/* 📝 Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, textarea, select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* 📌 Footer */
+footer {
+  margin-top: 30px;
+  padding: 15px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
 }
