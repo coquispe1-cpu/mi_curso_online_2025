@@ -1,94 +1,57 @@
-/* 🎨 Reset básico */
-* {
+/* General */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* 🌈 Fondo y colores generales */
-body {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: #fff;
-  line-height: 1.6;
-}
-
-/* 🏠 Encabezado */
-header {
-  background: rgba(0, 0, 0, 0.4);
-  padding: 20px;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #333;
   text-align: center;
+}
+
+/* Encabezado */
+header {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 40px 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 header h1 {
+  margin: 0;
   font-size: 2.5rem;
-  margin-bottom: 10px;
 }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-  transition: color 0.3s;
+header p {
+  margin: 10px 0 0;
+  font-size: 1.2rem;
 }
 
-nav a:hover {
-  color: #ffd700;
+/* Botones */
+.botones {
+  margin: 40px 0;
 }
 
-/* 📦 Contenedor principal */
-main {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* 🎯 Botones */
-button, .btn {
+.btn {
   display: inline-block;
-  background: #ffd700;
-  color: #333;
-  padding: 10px 20px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
+  margin: 10px;
+  padding: 12px 25px;
+  background: #ff6f61;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s ease;
+  font-size: 1.1rem;
 }
 
-button:hover, .btn:hover {
-  background: #ffb700;
+.btn:hover {
+  background: #ff3b2f;
   transform: scale(1.05);
 }
 
-/* 📝 Formularios */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input, textarea, select {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-}
-
-textarea {
-  resize: none;
-  height: 100px;
-}
-
-/* 📌 Footer */
+/* Footer */
 footer {
-  margin-top: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
   padding: 15px;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
+  margin-top: 40px;
 }
